@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 207fbdf3b8d207b42b403055760a6796
+guid: af47f6635e3efa74989ceffba6863beb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Untitled-2_0
+      name: NewEye_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 930
-        height: 819
+        width: 923
+        height: 857
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2bda10940ef296b48bbf9c4550a46f0d
-      internalID: -1854421865
+      spriteID: 7c5e53aec3dcceb46b443585d03635c9
+      internalID: -63488412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Untitled-2_1
+      name: NewEye_1
       rect:
         serializedVersion: 2
-        x: 989
+        x: 905
         y: 0
-        width: 827
-        height: 819
+        width: 945
+        height: 857
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edc14b9384b0a4b4c9b58a49cfc68256
-      internalID: -556841762
+      spriteID: 18fd478e9bae3044a9b80513cee8ebf7
+      internalID: 1721857866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Untitled-2_2
+      name: NewEye_2
       rect:
         serializedVersion: 2
-        x: 1839
+        x: 1813
         y: 0
-        width: 921
-        height: 819
+        width: 964
+        height: 857
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a821c455be62124ba891caef62be632
-      internalID: -82591771
+      spriteID: 7b3dd5dec1153514db99bea1ea784bdf
+      internalID: 766169968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Untitled-2_3
+      name: NewEye_3
       rect:
         serializedVersion: 2
-        x: 2748
-        y: 26
-        width: 898
-        height: 793
+        x: 2795
+        y: 0
+        width: 983
+        height: 857
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,8 +174,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 682b5ea018f6df94e865e3ea1e2eb8b9
-      internalID: -29964088
+      spriteID: caa5fc610e4b8c4479f2ac242419d58d
+      internalID: -263466691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewEye_4
+      rect:
+        serializedVersion: 2
+        x: 3815
+        y: 0
+        width: 908
+        height: 857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e158c94e1e4f8ce4aaab0c0d24741501
+      internalID: -1563768545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewEye_5
+      rect:
+        serializedVersion: 2
+        x: 4705
+        y: 0
+        width: 1034
+        height: 857
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c31bdd8609c0efe418a2bbd19354b5e3
+      internalID: 53120816
       vertices: []
       indices: 
       edges: []
@@ -183,7 +225,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5c831662f6e20484b9ba6d531df54911
+    spriteID: 05af85f8d84e22341be121abda89712d
     internalID: 0
     vertices: []
     indices: 
@@ -191,10 +233,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Untitled-2_0: -1854421865
-      Untitled-2_1: -556841762
-      Untitled-2_2: -82591771
-      Untitled-2_3: -29964088
+      NewEye_0: -63488412
+      NewEye_1: 1721857866
+      NewEye_2: 766169968
+      NewEye_3: -263466691
+      NewEye_4: -1563768545
+      NewEye_5: 53120816
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -565,7 +565,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1854421865, guid: 207fbdf3b8d207b42b403055760a6796, type: 3}
+  m_Sprite: {fileID: -63488412, guid: af47f6635e3efa74989ceffba6863beb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -592,7 +592,7 @@ Animation:
   m_GameObject: {fileID: 1499882165}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 4482e3034c4a45941b8df5d9e27a43b0, type: 2}
+  m_Animation: {fileID: 7400000, guid: a7fe4549f4480c047b4b9650713f1e83, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 4482e3034c4a45941b8df5d9e27a43b0, type: 2}
   m_WrapMode: 0
