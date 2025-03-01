@@ -636,6 +636,14 @@ MonoBehaviour:
   southWall: {fileID: 782962695223202380}
   eastWall: {fileID: 1582340485952019231}
   westWall: {fileID: 6237436786003124299}
+  outerNorthLeft: {fileID: 3168747139977432451}
+  outerNorthRight: {fileID: 2738751559981681234}
+  outerSouthLeft: {fileID: 6241600851540105253}
+  outerSouthRight: {fileID: 3829153773428571408}
+  outerWestLeft: {fileID: 3285254813793782044}
+  outerWestRight: {fileID: 5512865701939620713}
+  outerEastLeft: {fileID: 8112026832260632633}
+  outerEastRight: {fileID: 3488019905659237207}
 --- !u!1 &2738751559981681234
 GameObject:
   m_ObjectHideFlags: 0

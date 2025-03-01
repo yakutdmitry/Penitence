@@ -42,13 +42,10 @@ public class ProceduralMapGenerator : MonoBehaviour
             Vector2Int newPos = currentRoom.position + dir;
             if (roomMap.ContainsKey(newPos)) continue;
 
-            RoomTemplate nextTemplate = ChooseRandomRoomTemplate();
+            RoomTemplate[] matchingTemplates = GetMatchingRoomTemplates(currentRoom, dir);
+            if (matchingTemplates.Length == 0) continue; // No valid rooms for this side
 
-            // Ensure the new room matches door requirements with the current room
-            if (!CanPlaceRoom(currentRoom, nextTemplate, dir))
-            {
-                continue; // Skip this direction if the doors don't match
-            }
+            RoomTemplate nextTemplate = matchingTemplates[Random.Range(0, matchingTemplates.Length)];
 
             RoomNode newRoom = new RoomNode(newPos, nextTemplate);
 
@@ -149,4 +146,41 @@ public class ProceduralMapGenerator : MonoBehaviour
         // No neighbor — we can place any room
         return true;
     }
+
+    RoomTemplate[] GetMatchingRoomTemplates(RoomNode currentRoom, Vector2Int offset)
+    {
+        List<RoomTemplate> matchingTemplates = new List<RoomTemplate>();
+
+        foreach (var template in possibleRooms)
+        {
+            if (DoDoorsAlign(currentRoom.template, template, offset))
+            {
+                matchingTemplates.Add(template);
+            }
+        }
+
+        return matchingTemplates.ToArray();
+    }
+
+    bool DoDoorsAlign(RoomTemplate current, RoomTemplate candidate, Vector2Int offset)
+    {
+        if (offset == Vector2Int.right)
+        {
+            return current.hasEastDoor && candidate.hasWestDoor;
+        }
+        if (offset == Vector2Int.left)
+        {
+            return current.hasWestDoor && candidate.hasEastDoor;
+        }
+        if (offset == Vector2Int.up)
+        {
+            return current.hasNorthDoor && candidate.hasSouthDoor;
+        }
+        if (offset == Vector2Int.down)
+        {
+            return current.hasSouthDoor && candidate.hasNorthDoor;
+        }
+        return false;
+    }
+
 }
