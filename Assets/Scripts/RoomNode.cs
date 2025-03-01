@@ -5,11 +5,8 @@ public class RoomNode
 {
     public Vector2Int position;
     public RoomTemplate template;
-    public GameObject instance;
-
-    // Expose read-only access to neighbors
-    private Dictionary<Vector2Int, RoomNode> neighbors = new Dictionary<Vector2Int, RoomNode>();
-    public IReadOnlyDictionary<Vector2Int, RoomNode> Neighbors => neighbors;
+    public GameObject instance;  // Instantiated room prefab
+    public Dictionary<Vector2Int, RoomNode> neighbors = new();
 
     public RoomNode(Vector2Int pos, RoomTemplate template)
     {
@@ -26,37 +23,21 @@ public class RoomNode
         }
     }
 
-    public void OpenDoors()
+    public bool HasDoorInDirection(Vector2Int direction)
     {
-        foreach (var kvp in neighbors)
+        if (direction == Vector2Int.up) return template.hasNorthDoor;
+        if (direction == Vector2Int.down) return template.hasSouthDoor;
+        if (direction == Vector2Int.right) return template.hasEastDoor;
+        if (direction == Vector2Int.left) return template.hasWestDoor;
+        return false;
+    }
+
+    public void DebugNeighbors()
+    {
+        foreach (var neighbor in neighbors)
         {
-            Vector2Int direction = kvp.Key;
-            OpenDoor(direction);
+            Debug.Log($"Room at {position} has neighbor at {neighbor.Value.position} in direction {neighbor.Key}");
         }
     }
 
-    private void OpenDoor(Vector2Int direction)
-    {
-        if (instance == null) return;
-
-        RoomDoorController doorController = instance.GetComponent<RoomDoorController>();
-        if (doorController == null) return;
-
-        if (direction == Vector2Int.up)
-        {
-            doorController.OpenNorthDoor();
-        }
-        else if (direction == Vector2Int.down)
-        {
-            doorController.OpenSouthDoor();
-        }
-        else if (direction == Vector2Int.right)
-        {
-            doorController.OpenEastDoor();
-        }
-        else if (direction == Vector2Int.left)
-        {
-            doorController.OpenWestDoor();
-        }
-    }
 }

@@ -5,9 +5,13 @@ using UnityEngine;
 public class RoomTemplate : ScriptableObject
 {
     public string roomName;
-    public GameObject roomPrefab;
+    public GameObject prefab;
     public int maxConnections = 4;
     public RoomType type;
+    public bool hasNorthDoor;
+    public bool hasSouthDoor;
+    public bool hasEastDoor;
+    public bool hasWestDoor;
 }
 
 public enum RoomType

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomName: 
   roomPrefab: {fileID: 2544082612070717699, guid: 1128382dfbe641144acfc7a20a7c5b04, type: 3}
-  maxConnections: 4
+  maxConnections: 2
   type: 0

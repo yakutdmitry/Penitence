@@ -5,7 +5,6 @@ public class RoomInstance : MonoBehaviour
 {
     public RoomNode nodeData;
 
-    // Assign these in the inspector for each room prefab
     public GameObject northDoor;
     public GameObject southDoor;
     public GameObject eastDoor;
@@ -20,25 +19,34 @@ public class RoomInstance : MonoBehaviour
     {
         nodeData = node;
 
-        // Check each side for neighboring rooms and toggle doors and walls appropriately
-        ToggleDoorAndWall(Vector2Int.up, northDoor, northWall);
-        ToggleDoorAndWall(Vector2Int.down, southDoor, southWall);
-        ToggleDoorAndWall(Vector2Int.right, eastDoor, eastWall);
-        ToggleDoorAndWall(Vector2Int.left, westDoor, westWall);
+        ToggleDoorAndWall(Vector2Int.up, northDoor, northWall, Vector2Int.down);
+        ToggleDoorAndWall(Vector2Int.down, southDoor, southWall, Vector2Int.up);
+        ToggleDoorAndWall(Vector2Int.right, eastDoor, eastWall, Vector2Int.left);
+        ToggleDoorAndWall(Vector2Int.left, westDoor, westWall, Vector2Int.right);
     }
 
-    private void ToggleDoorAndWall(Vector2Int direction, GameObject door, GameObject wall)
+    private void ToggleDoorAndWall(Vector2Int direction, GameObject door, GameObject wall, Vector2Int oppositeDirection)
     {
-        if (nodeData.Neighbors.ContainsKey(direction))  // Use Neighbors instead of neighbors
+        bool hasNeighbor = nodeData.neighbors.TryGetValue(direction, out RoomNode neighbor);
+        bool roomHasDoor = nodeData.HasDoorInDirection(direction);
+
+        bool neighborHasMatchingDoor = false;
+        if (hasNeighbor && neighbor != null)
         {
+            neighborHasMatchingDoor = neighbor.HasDoorInDirection(oppositeDirection);
+        }
+
+        if (hasNeighbor && roomHasDoor && neighborHasMatchingDoor)
+        {
+            // Open door if both rooms have matching doors
             if (door != null) door.SetActive(true);
             if (wall != null) wall.SetActive(false);
         }
         else
         {
+            // No valid connection, close door
             if (door != null) door.SetActive(false);
             if (wall != null) wall.SetActive(true);
         }
     }
-
 }

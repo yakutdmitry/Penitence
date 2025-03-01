@@ -14,7 +14,7 @@ public class RoomSpawner : MonoBehaviour
             RoomNode node = kvp.Value;
 
             Vector3 worldPos = new Vector3(gridPos.x * roomSize, 0, gridPos.y * roomSize);
-            GameObject roomInstance = Instantiate(node.template.roomPrefab, worldPos, Quaternion.identity);
+            GameObject roomInstance = Instantiate(node.template.prefab, worldPos, Quaternion.identity);
 
             RoomInstance roomComponent = roomInstance.GetComponent<RoomInstance>();
             if (roomComponent != null)
