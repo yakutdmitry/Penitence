@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 735226d44a23c1843afcdc52a15e1865, type: 3}
-  m_Name: BossRoom
+  m_Name: UpgradeRoom
   m_EditorClassIdentifier: 
-  roomName: Boss Room
-  prefab: {fileID: 6960774905585582701, guid: a978f9f72e9fc1e43805a20f35b3f2b4, type: 3}
-  maxConnections: 1
-  type: 3
-  hasNorthDoor: 0
-  hasSouthDoor: 1
-  hasEastDoor: 0
+  roomName: UpgradeRoom
+  prefab: {fileID: 9086618317691770894, guid: 35fc7302f5578014dbcdb9732842bf53, type: 3}
+  maxConnections: 2
+  type: 2
+  hasNorthDoor: 1
+  hasSouthDoor: 0
+  hasEastDoor: 1
   hasWestDoor: 0
