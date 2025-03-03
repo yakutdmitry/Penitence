@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4826254333386431476
 Transform:
   m_ObjectHideFlags: 0
@@ -333,7 +333,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1113797790814383783
 Transform:
   m_ObjectHideFlags: 0
@@ -438,7 +438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2638884012781967003
 Transform:
   m_ObjectHideFlags: 0
@@ -1742,6 +1742,72 @@ Transform:
   - {fileID: 4184749305709014313}
   m_Father: {fileID: 5084391632718316966}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6868868814211465598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9059479039658773676}
+  - component: {fileID: 4584586624759025922}
+  - component: {fileID: 733060557102311284}
+  m_Layer: 0
+  m_Name: RoomTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9059479039658773676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6868868814211465598}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5084391632718316966}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4584586624759025922
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6868868814211465598}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 48.779957, y: 4.0590553, z: 47.837563}
+  m_Center: {x: 0.29878044, y: -1.5295277, z: 0.042461395}
+--- !u!114 &733060557102311284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6868868814211465598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7e7c47f9ac3c194c951bd6c80829a5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7261543241111282826
 GameObject:
   m_ObjectHideFlags: 0
@@ -1958,7 +2024,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7528706124040002790
 Transform:
   m_ObjectHideFlags: 0
@@ -2075,6 +2141,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 9059479039658773676}
   - {fileID: 2742311132820388405}
   - {fileID: 2030768546150615667}
   - {fileID: 4796330778035448952}
@@ -2093,22 +2160,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3b5f74a6aed124e9295ddb14af9d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  northDoor: {fileID: 740386779588341666}
-  southDoor: {fileID: 6104155305676016948}
-  eastDoor: {fileID: 6639617932050126089}
-  westDoor: {fileID: 2946996796171557251}
-  northWall: {fileID: 935894898210508400}
-  southWall: {fileID: 152013700883120746}
-  eastWall: {fileID: 7959026017434501433}
-  westWall: {fileID: 759836376309567358}
-  outerNorthLeft: {fileID: 530688930384757578}
-  outerNorthRight: {fileID: 5813918991763689822}
-  outerSouthLeft: {fileID: 3943985370005424580}
-  outerSouthRight: {fileID: 3547415511662464992}
-  outerWestLeft: {fileID: 2692055813305481168}
-  outerWestRight: {fileID: 3934335336401818460}
-  outerEastLeft: {fileID: 7261543241111282826}
-  outerEastRight: {fileID: 2261091363928798305}
 --- !u!1 &9174055941533697182
 GameObject:
   m_ObjectHideFlags: 0

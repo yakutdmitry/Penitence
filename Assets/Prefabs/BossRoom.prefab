@@ -105,6 +105,72 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1864055761709589660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3751664044323653090}
+  - component: {fileID: 6671800412267834538}
+  - component: {fileID: 7031179011777373835}
+  m_Layer: 0
+  m_Name: RoomTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3751664044323653090
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864055761709589660}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8654302441129719928}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6671800412267834538
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864055761709589660}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 48.779957, y: 4.0590553, z: 47.837563}
+  m_Center: {x: 0.29878044, y: -1.5295277, z: 0.042461395}
+--- !u!114 &7031179011777373835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864055761709589660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7e7c47f9ac3c194c951bd6c80829a5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1893664746362803521
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,7 +399,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &204044586314044637
 Transform:
   m_ObjectHideFlags: 0
@@ -1383,6 +1449,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3751664044323653090}
   - {fileID: 6534968750985135374}
   - {fileID: 6557247214818751902}
   - {fileID: 3235133981197816800}
@@ -1401,22 +1468,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3b5f74a6aed124e9295ddb14af9d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  northDoor: {fileID: 4341907063939948882}
-  southDoor: {fileID: 1677900459447349317}
-  eastDoor: {fileID: 7037154868936944434}
-  westDoor: {fileID: 1893664746362803521}
-  northWall: {fileID: 8421960467332917785}
-  southWall: {fileID: 8046783323243363333}
-  eastWall: {fileID: 2384642545879713619}
-  westWall: {fileID: 7562894211965875442}
-  outerNorthLeft: {fileID: 7931220530996050486}
-  outerNorthRight: {fileID: 5378104349702843137}
-  outerSouthLeft: {fileID: 5305766768968387359}
-  outerSouthRight: {fileID: 5805114533786034739}
-  outerWestLeft: {fileID: 7891507024365273876}
-  outerWestRight: {fileID: 2122270596096608517}
-  outerEastLeft: {fileID: 2708858975344323485}
-  outerEastRight: {fileID: 6346885527120225535}
 --- !u!1 &7037154868936944434
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,7 +1591,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8731799334466033381
 Transform:
   m_ObjectHideFlags: 0
@@ -1890,7 +1941,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7737344886721687105
 Transform:
   m_ObjectHideFlags: 0
@@ -1995,7 +2046,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5930513118878370099
 Transform:
   m_ObjectHideFlags: 0

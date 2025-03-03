@@ -221,103 +221,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1206556389}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &909724356
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 909724358}
-  - component: {fileID: 909724357}
-  m_Layer: 0
-  m_Name: ProceduralMapGenerator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &909724357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909724356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad615323044087246bb8ba2e2e9926cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startRoom: {fileID: 11400000, guid: 41415734fb68233418240e137ae26347, type: 2}
-  possibleRooms:
-  - {fileID: 11400000, guid: 41415734fb68233418240e137ae26347, type: 2}
-  - {fileID: 11400000, guid: 41415734fb68233418240e137ae26347, type: 2}
-  bossRoom: {fileID: 11400000, guid: 41415734fb68233418240e137ae26347, type: 2}
-  maxRooms: 9
-  roomSize: 50
---- !u!4 &909724358
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 909724356}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.874233, y: -17.271814, z: 0.2652359}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1003256330
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1003256332}
-  - component: {fileID: 1003256331}
-  m_Layer: 0
-  m_Name: ProceduralLevelManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1003256331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003256330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 467ed6ef39cdcff42b62b0c0b75acb0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mapGenerator: {fileID: 909724357}
-  roomSpawner: {fileID: 1855657505}
---- !u!4 &1003256332
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1003256330}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.874233, y: -17.271814, z: 0.2652359}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1015884665
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,10 +625,9 @@ MonoBehaviour:
   possibleRooms:
   - {fileID: 11400000, guid: 2de06be71dc93984d93d9db78e33c2b3, type: 2}
   - {fileID: 11400000, guid: f812cefe8e934104caf02555226bd917, type: 2}
-  - {fileID: 11400000, guid: 646654d5295a688429af2e0c197e98a1, type: 2}
-  - {fileID: 11400000, guid: f8bbd196bf229824dbc151a7685d285e, type: 2}
-  upgradeRoomTemplate: {fileID: 11400000, guid: 7f884acbd55fd834db2c5a538219db0b, type: 2}
+  upgradeRoomTemplate: {fileID: 11400000, guid: e7be379bf37a684429d32390e72fe9ce, type: 2}
   bossRoomTemplate: {fileID: 11400000, guid: efd54a5e4b67e49468643a25beff6806, type: 2}
+  doorPrefab: {fileID: 922653223332474828, guid: 3ed9f8965e3f0c64b966937775909883, type: 3}
   roomSize: 50
 --- !u!4 &1641815768
 Transform:
@@ -894,51 +796,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1855657504
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1855657506}
-  - component: {fileID: 1855657505}
-  m_Layer: 0
-  m_Name: RoomSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1855657505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1855657504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84fbb5ca37a433d4486d23d0fbc075fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roomSize: 50
---- !u!4 &1855657506
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1855657504}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.874233, y: -17.271814, z: 0.2652359}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2036715946
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,9 +833,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1704238128}
   - {fileID: 1119702622}
-  - {fileID: 909724358}
-  - {fileID: 1855657506}
-  - {fileID: 1003256332}
   - {fileID: 1206556389}
   - {fileID: 1015884669}
   - {fileID: 365696834}

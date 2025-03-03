@@ -681,7 +681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3325768040652956101
 Transform:
   m_ObjectHideFlags: 0
@@ -996,7 +996,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6182216672906083939
 Transform:
   m_ObjectHideFlags: 0
@@ -1167,22 +1167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3b5f74a6aed124e9295ddb14af9d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  northDoor: {fileID: 8275611072845780622}
-  southDoor: {fileID: 8949507220136167213}
-  eastDoor: {fileID: 4230200057458343116}
-  westDoor: {fileID: 3416821792531323929}
-  northWall: {fileID: 6199687201140430013}
-  southWall: {fileID: 4864279117240209146}
-  eastWall: {fileID: 4406605154735871531}
-  westWall: {fileID: 5628045975076412624}
-  outerNorthLeft: {fileID: 694314649509467956}
-  outerNorthRight: {fileID: 7834136922803285559}
-  outerSouthLeft: {fileID: 4553597515919157285}
-  outerSouthRight: {fileID: 8685936200852304009}
-  outerWestLeft: {fileID: 750871615904738871}
-  outerWestRight: {fileID: 52069526697204539}
-  outerEastLeft: {fileID: 914213362929548448}
-  outerEastRight: {fileID: 4500742428832956677}
 --- !u!1 &5628045975076412624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,7 +1185,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4990897055226518188
 Transform:
   m_ObjectHideFlags: 0
@@ -1306,7 +1290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4976387600710670413
 Transform:
   m_ObjectHideFlags: 0
@@ -2098,8 +2082,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 48.779957, y: 4.0590553, z: 47.837563}
-  m_Center: {x: 0.29878044, y: -1.5295277, z: 0.042461395}
+  m_Size: {x: 18.647121, y: 4.0590553, z: 47.837563}
+  m_Center: {x: -15.728323, y: -1.5295277, z: 0.042461395}
 --- !u!114 &4338273289360807776
 MonoBehaviour:
   m_ObjectHideFlags: 0
