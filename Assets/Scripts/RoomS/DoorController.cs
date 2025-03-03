@@ -2,26 +2,36 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    private bool isLocked;
+    private Animator animator;
+    private bool isLocked = true;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        ForceClose();  // Start doors closed unless overridden.
+    }
 
     public void SetLocked(bool locked)
     {
         isLocked = locked;
-        UpdateVisuals();
     }
 
-    private void UpdateVisuals()
+    public void OnPlayerApproach()
     {
-        Renderer renderer = GetComponent<Renderer>();
-        if (renderer != null)
+        if (!isLocked)
         {
-            renderer.material.color = isLocked ? Color.red : Color.green;
+            ToggleDoor();
         }
+    }
 
-        Collider col = GetComponent<Collider>();
-        if (col != null)
-        {
-            col.enabled = !isLocked;
-        }
+    public void ToggleDoor()
+    {
+        bool isOpen = animator.GetBool("isOpen");
+        animator.SetBool("isOpen", !isOpen);
+    }
+
+    public void ForceClose()
+    {
+        animator.SetBool("isOpen", false);
     }
 }

@@ -10,6 +10,7 @@ public class IncrementalGenerationManager : MonoBehaviour
     public GameObject doorPrefab;
 
     public float roomSize = 50f;
+    public float doorOffset = 5f;
 
     private Dictionary<Vector2Int, RoomNode> roomMap = new();
     private int totalRoomsSpawned = 0;
@@ -147,24 +148,49 @@ public class IncrementalGenerationManager : MonoBehaviour
                 Debug.Log($"Room already exists at {newRoomPosition}, skipping.");
             }
         }
+
+        room.PlayerEnteredRoom();  // This triggers closing doors and starting the objective check.
+
+        Debug.Log("OnPlayerEnterRoom processing complete");
     }
 
     private void CreateDoorBetween(RoomInstance roomA, RoomNode roomBNode, Vector2Int direction)
     {
         Debug.Log($"Spawning door between {roomA.nodeData.position} and {roomBNode.position}");
 
-        Vector3 doorPosition = (roomA.transform.position + GridToWorldPosition(roomBNode.position)) / 2;
-        GameObject doorInstance = Instantiate(doorPrefab, doorPosition, Quaternion.identity);
+        Vector3 roomAPosition = roomA.transform.position;
+        Vector3 roomBPosition = GridToWorldPosition(roomBNode.position);
+
+        Vector3 doorPosition = (roomAPosition + roomBPosition) / 2f;
+
+        // Adjust height if necessary — your room height might need tweaking
+        doorPosition.y = doorOffset;  // Adjust if doors are above or below the floor
+
+        Quaternion doorRotation = Quaternion.identity;
+
+        if (direction == Vector2Int.up)        // North
+            doorRotation = Quaternion.Euler(0, 0, 0);
+        else if (direction == Vector2Int.down) // South
+            doorRotation = Quaternion.Euler(0, 180, 0);
+        else if (direction == Vector2Int.right) // East
+            doorRotation = Quaternion.Euler(0, 90, 0);
+        else if (direction == Vector2Int.left)  // West
+            doorRotation = Quaternion.Euler(0, -90, 0);
+
+        GameObject doorInstance = Instantiate(doorPrefab, doorPosition, doorRotation);
 
         DoorController door = doorInstance.GetComponent<DoorController>();
+
+        // Register the door with both rooms
         roomA.RegisterDoor(direction, door);
 
         Vector2Int oppositeDirection = -direction;
         RoomInstance roomB = roomBNode.instance.GetComponent<RoomInstance>();
         roomB.RegisterDoor(oppositeDirection, door);
 
-        Debug.Log($"Door successfully placed between {roomA.nodeData.position} and {roomBNode.position}");
+        Debug.Log($"Door successfully placed between {roomA.nodeData.position} and {roomBNode.position} with rotation {doorRotation.eulerAngles}");
     }
+
 
     private bool ShouldSpawnUpgradeRoom()
     {
