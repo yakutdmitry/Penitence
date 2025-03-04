@@ -4,19 +4,13 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             PlayerTakeDmg(20);
-            //Debug.Log(GameManager.gameManager.playerHealth.Health);
+            Debug.Log(GameManager.gameManager.playerHealth.Health);
         }
 
         if (Input.GetKeyDown(KeyCode.V))
@@ -26,10 +20,10 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-    private void PlayerTakeDmg(int dmgAmount)
+    private void PlayerTakeDmg(int dmg)
     {
-        GameManager.gameManager.playerHealth.DmgUnit(dmgAmount);
-        Debug.Log(GameManager.gameManager.playerHealth.Health);
+        GameManager.gameManager.playerHealth.DmgUnit(dmg);
+        Debug.Log("Player took " + dmg + " damage");
     }
 
     private void PlayerHeal(int healing)

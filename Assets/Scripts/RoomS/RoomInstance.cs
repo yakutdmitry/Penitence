@@ -5,90 +5,105 @@ public class RoomInstance : MonoBehaviour
 {
     public RoomNode nodeData;
 
-    // Doors (visual + trigger parts)
-    public GameObject northDoor;
-    public GameObject southDoor;
-    public GameObject eastDoor;
-    public GameObject westDoor;
+    private Dictionary<Vector2Int, DoorController> doors = new();
+    private RoomObjectiveController objectiveController;
+    private bool objectiveCompleted = false;
 
-    // Central "cut-out-able" wall sections (where doors would appear)
-    public GameObject northWall;
-    public GameObject southWall;
-    public GameObject eastWall;
-    public GameObject westWall;
+    public bool isStartRoom { get; private set; } = false;  // Add this property
 
-    // Outer static walls - these always exist
-    public GameObject outerNorthLeft;
-    public GameObject outerNorthRight;
-    public GameObject outerSouthLeft;
-    public GameObject outerSouthRight;
-    public GameObject outerWestLeft;
-    public GameObject outerWestRight;
-    public GameObject outerEastLeft;
-    public GameObject outerEastRight;
-
-    public void Initialize(RoomNode node)
+    public void Initialize(RoomNode node, bool isStart = false)
     {
         nodeData = node;
+        isStartRoom = isStart;
 
-        // Check each side and dynamically toggle doors and central wall sections.
-        ToggleDoorAndWall(Vector2Int.up, northDoor, northWall, Vector2Int.down);
-        ToggleDoorAndWall(Vector2Int.down, southDoor, southWall, Vector2Int.up);
-        ToggleDoorAndWall(Vector2Int.right, eastDoor, eastWall, Vector2Int.left);
-        ToggleDoorAndWall(Vector2Int.left, westDoor, westWall, Vector2Int.right);
-    }
+        Debug.Log($"RoomInstance initialized for room at {node.position}, Is Start Room: {isStartRoom}");
 
-    private void ToggleDoorAndWall(Vector2Int direction, GameObject door, GameObject wallSection, Vector2Int oppositeDirection)
-    {
-        bool hasNeighbor = nodeData.neighbors.TryGetValue(direction, out RoomNode neighbor);
-        bool roomHasDoor = nodeData.HasDoorInDirection(direction);
-
-        bool neighborHasMatchingDoor = false;
-        if (hasNeighbor && neighbor != null)
+        if (isStartRoom)
         {
-            neighborHasMatchingDoor = neighbor.HasDoorInDirection(oppositeDirection);
-        }
-
-        if (hasNeighbor && roomHasDoor && neighborHasMatchingDoor)
-        {
-            // Open door if both rooms have matching doors
-            if (door != null) door.SetActive(true);
-            if (wallSection != null) wallSection.SetActive(false); // Hide central wall where door appears
-        }
-        else
-        {
-            // No valid connection, close door and restore the wall section
-            if (door != null) door.SetActive(false);
-            if (wallSection != null) wallSection.SetActive(true);  // Show central wall if no door
+            UnlockAllDoors();  // Start room doors should be open
+            OpenAllDoors();    // Optional — auto-slide doors open
         }
     }
 
-    // New methods to lock/unlock all doors
-    public void LockAllDoors()
+
+
+    public void OpenAllDoors()
     {
-        SetDoorLocked(northDoor, true);
-        SetDoorLocked(southDoor, true);
-        SetDoorLocked(eastDoor, true);
-        SetDoorLocked(westDoor, true);
+        foreach (var door in doors.Values)
+        {
+            door.SetLocked(false);
+            door.ToggleDoor();  // Directly opens them
+        }
+    }
+
+
+    private void Start()
+    {
+        objectiveController = GetComponent<RoomObjectiveController>();
+        if (objectiveController != null)
+        {
+            objectiveController.OnObjectiveCompleted += UnlockAllDoors;
+        }
+
+        if (isStartRoom)
+        {
+            UnlockAllDoors();  // Start room doors are unlocked right away.
+        }
+    }
+
+    public void RegisterDoor(Vector2Int direction, DoorController door)
+    {
+        if (!doors.ContainsKey(direction))
+        {
+            doors[direction] = door;
+            door.SetLocked(!isStartRoom); // Start room doors are unlocked immediately.
+        }
+    }
+
+    public void CloseAllDoors()
+    {
+        foreach (var door in doors.Values)
+        {
+            door.SetLocked(true);
+            door.ForceClose();  // Direct close on player entry.
+        }
     }
 
     public void UnlockAllDoors()
     {
-        SetDoorLocked(northDoor, false);
-        SetDoorLocked(southDoor, false);
-        SetDoorLocked(eastDoor, false);
-        SetDoorLocked(westDoor, false);
+        objectiveCompleted = true;
+        foreach (var door in doors.Values)
+        {
+            door.SetLocked(false);
+        }
     }
 
-    private void SetDoorLocked(GameObject door, bool locked)
+    public void PlayerEnteredRoom()
     {
-        if (door != null && door.activeSelf)  // Only lock/unlock visible doors
+        CloseAllDoors();
+
+        if (objectiveController != null && !objectiveCompleted)
         {
-            RoomDoorController doorController = door.GetComponent<RoomDoorController>();
-            if (doorController != null)
+            InvokeRepeating(nameof(CheckObjective), 1f, 1f);
+        }
+    }
+
+
+    private void CheckObjective()
+    {
+        if (objectiveController != null)
+        {
+            objectiveController.CheckObjective();
+
+            if (objectiveControllerHasCompleted())
             {
-                doorController.SetLocked(locked);
+                CancelInvoke(nameof(CheckObjective));
             }
         }
+    }
+
+    private bool objectiveControllerHasCompleted()
+    {
+        return objectiveCompleted;  // Now tracks directly here.
     }
 }

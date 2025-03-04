@@ -1,34 +1,47 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RoomEntranceTrigger : MonoBehaviour
 {
     private IncrementalGenerationManager generationManager;
 
-    public void SetGenerationManager(IncrementalGenerationManager manager)
+    private void Start()
     {
-        generationManager = manager;
+        generationManager = FindObjectOfType<IncrementalGenerationManager>();
+        if (generationManager == null)
+        {
+            Debug.LogError($" IncrementalGenerationManager could not be found!");
+        }
+        else
+        {
+            Debug.Log($" IncrementalGenerationManager successfully found by RoomEntranceTrigger");
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log($"Trigger entered by: {other.name}");
+
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player triggered room entrance!");
+            RoomInstance room = GetComponentInParent<RoomInstance>();
+            if (room == null)
+            {
+                Debug.LogError($"RoomEntranceTrigger could not find RoomInstance in parent!");
+                return;
+            }
 
-            RoomInstance roomInstance = GetComponentInParent<RoomInstance>();
-            if (roomInstance != null)
-            {
-                generationManager?.OnPlayerEnterRoom(roomInstance);
-            }
-            else
-            {
-                Debug.LogError("RoomInstance not found on parent!");
-            }
+            Debug.Log($" Player entered room at {room.nodeData?.position ?? new Vector2Int(-999, -999)}");
+            generationManager?.OnPlayerEnterRoom(room);
         }
     }
+
+    public void ForceTriggerEntry()
+    {
+        RoomInstance room = GetComponentInParent<RoomInstance>();
+        if (generationManager != null)
+        {
+            generationManager.OnPlayerEnterRoom(room);
+        }
+    }
+
 }
-
-
-
