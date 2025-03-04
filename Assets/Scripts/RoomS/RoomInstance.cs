@@ -9,13 +9,33 @@ public class RoomInstance : MonoBehaviour
     private RoomObjectiveController objectiveController;
     private bool objectiveCompleted = false;
 
-    public bool isStartRoom = false;  // Add a flag for the start room.
+    public bool isStartRoom { get; private set; } = false;  // Add this property
 
-    public void Initialize(RoomNode node)
+    public void Initialize(RoomNode node, bool isStart = false)
     {
         nodeData = node;
-        Debug.Log($"RoomInstance initialized for room at {node.position}");
+        isStartRoom = isStart;
+
+        Debug.Log($"RoomInstance initialized for room at {node.position}, Is Start Room: {isStartRoom}");
+
+        if (isStartRoom)
+        {
+            UnlockAllDoors();  // Start room doors should be open
+            OpenAllDoors();    // Optional — auto-slide doors open
+        }
     }
+
+
+
+    public void OpenAllDoors()
+    {
+        foreach (var door in doors.Values)
+        {
+            door.SetLocked(false);
+            door.ToggleDoor();  // Directly opens them
+        }
+    }
+
 
     private void Start()
     {
@@ -64,9 +84,10 @@ public class RoomInstance : MonoBehaviour
 
         if (objectiveController != null && !objectiveCompleted)
         {
-            InvokeRepeating(nameof(CheckObjective), 1f, 1f); // Check objective every second
+            InvokeRepeating(nameof(CheckObjective), 1f, 1f);
         }
     }
+
 
     private void CheckObjective()
     {

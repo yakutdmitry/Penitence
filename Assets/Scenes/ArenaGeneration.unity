@@ -427,7 +427,7 @@ MonoBehaviour:
   bossRoomTemplate: {fileID: 11400000, guid: efd54a5e4b67e49468643a25beff6806, type: 2}
   doorPrefab: {fileID: 922653223332474828, guid: 3ed9f8965e3f0c64b966937775909883, type: 3}
   roomSize: 50
-  doorOffset: 2.5
+  doorOffset: 0
 --- !u!4 &1641815768
 Transform:
   m_ObjectHideFlags: 0

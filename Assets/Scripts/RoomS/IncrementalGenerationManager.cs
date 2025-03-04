@@ -37,7 +37,7 @@ public class IncrementalGenerationManager : MonoBehaviour
         RoomNode startNode = new RoomNode(startPos, startRoomTemplate);
         roomMap[startPos] = startNode;
 
-        startRoomInstance = SpawnRoom(startNode);  // Capture reference to the start room
+        startRoomInstance = SpawnRoom(startNode, true);  // mark it as the start room
         totalRoomsSpawned = 1;
 
         Debug.Log($"Start room spawned at {startPos}");
@@ -51,6 +51,7 @@ public class IncrementalGenerationManager : MonoBehaviour
             startTrigger.ForceTriggerEntry();
         }
     }
+
 
     private void SpawnGuaranteedRooms(RoomNode startNode)
     {
@@ -72,12 +73,13 @@ public class IncrementalGenerationManager : MonoBehaviour
             newNode.AddNeighbor(startNode);
 
             RoomInstance newRoomInstance = SpawnRoom(newNode);
-            CreateDoorBetween(startRoomInstance, newNode, direction);
+            CreateDoorBetween(startRoomInstance, newRoomInstance, direction);  // FIXED HERE
 
             totalRoomsSpawned++;
             Debug.Log($"Guaranteed room spawned at {newRoomPosition} facing {direction}");
         }
     }
+
 
     public void OnPlayerEnterRoom(RoomInstance room)
     {
@@ -137,8 +139,8 @@ public class IncrementalGenerationManager : MonoBehaviour
                 room.nodeData.AddNeighbor(newNode);
                 newNode.AddNeighbor(room.nodeData);
 
-                SpawnRoom(newNode);
-                CreateDoorBetween(room, newNode, direction);
+                RoomInstance newRoomInstance = SpawnRoom(newNode);  // This ensures newNode.instance is populated
+                CreateDoorBetween(room, newRoomInstance, direction);  // Use the actual RoomInstance, not the node
 
                 totalRoomsSpawned++;
                 Debug.Log($"Total rooms spawned so far: {totalRoomsSpawned}");
@@ -154,42 +156,33 @@ public class IncrementalGenerationManager : MonoBehaviour
         Debug.Log("OnPlayerEnterRoom processing complete");
     }
 
-    private void CreateDoorBetween(RoomInstance roomA, RoomNode roomBNode, Vector2Int direction)
+    private void CreateDoorBetween(RoomInstance roomA, RoomInstance roomB, Vector2Int direction)
     {
-        Debug.Log($"Spawning door between {roomA.nodeData.position} and {roomBNode.position}");
-
-        Vector3 roomAPosition = roomA.transform.position;
-        Vector3 roomBPosition = GridToWorldPosition(roomBNode.position);
-
-        Vector3 doorPosition = (roomAPosition + roomBPosition) / 2f;
-
-        // Adjust height if necessary — your room height might need tweaking
-        doorPosition.y = doorOffset;  // Adjust if doors are above or below the floor
+        Vector3 doorPosition = (roomA.transform.position + roomB.transform.position) / 2f;
+        doorPosition.y = doorOffset;
 
         Quaternion doorRotation = Quaternion.identity;
-
-        if (direction == Vector2Int.up)        // North
+        if (direction == Vector2Int.up)
             doorRotation = Quaternion.Euler(0, 0, 0);
-        else if (direction == Vector2Int.down) // South
+        else if (direction == Vector2Int.down)
             doorRotation = Quaternion.Euler(0, 180, 0);
-        else if (direction == Vector2Int.right) // East
+        else if (direction == Vector2Int.right)
             doorRotation = Quaternion.Euler(0, 90, 0);
-        else if (direction == Vector2Int.left)  // West
+        else if (direction == Vector2Int.left)
             doorRotation = Quaternion.Euler(0, -90, 0);
 
         GameObject doorInstance = Instantiate(doorPrefab, doorPosition, doorRotation);
 
         DoorController door = doorInstance.GetComponent<DoorController>();
-
-        // Register the door with both rooms
         roomA.RegisterDoor(direction, door);
+        roomB.RegisterDoor(-direction, door);
 
-        Vector2Int oppositeDirection = -direction;
-        RoomInstance roomB = roomBNode.instance.GetComponent<RoomInstance>();
-        roomB.RegisterDoor(oppositeDirection, door);
-
-        Debug.Log($"Door successfully placed between {roomA.nodeData.position} and {roomBNode.position} with rotation {doorRotation.eulerAngles}");
+        bool isStartRoom = roomA.isStartRoom || roomB.isStartRoom;
+        door.SetLocked(!isStartRoom);
     }
+
+
+
 
 
     private bool ShouldSpawnUpgradeRoom()
@@ -224,20 +217,23 @@ public class IncrementalGenerationManager : MonoBehaviour
         return directions;
     }
 
-    private RoomInstance SpawnRoom(RoomNode node)
+    private RoomInstance SpawnRoom(RoomNode node, bool isStartRoom = false)
     {
         Debug.Log($"Spawning room at grid position {node.position}");
 
         Vector3 position = GridToWorldPosition(node.position);
         GameObject roomInstanceObj = Instantiate(node.template.prefab, position, Quaternion.identity);
         RoomInstance instance = roomInstanceObj.GetComponent<RoomInstance>();
-        instance.Initialize(node);
+
+        instance.Initialize(node, isStartRoom);  // Pass if it's the start room
+
         node.instance = roomInstanceObj;
 
-        Debug.Log($"Room successfully spawned at {node.position}");
+        Debug.Log($"Room successfully spawned at {node.position} (Is Start Room: {isStartRoom})");
 
         return instance;
     }
+
 
     private Vector3 GridToWorldPosition(Vector2Int gridPos)
     {
