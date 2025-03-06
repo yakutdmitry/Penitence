@@ -11,6 +11,37 @@ public class RoomInstance : MonoBehaviour
 
     public bool isStartRoom { get; private set; } = false;  // Add this property
 
+
+    public Transform northDoorAnchor;
+    public Transform southDoorAnchor;
+    public Transform eastDoorAnchor;
+    public Transform westDoorAnchor;
+
+    public Transform GetDoorAnchor(Vector2Int direction)
+    {
+        if (direction == Vector2Int.up) return northDoorAnchor;
+        if (direction == Vector2Int.down) return southDoorAnchor;
+        if (direction == Vector2Int.right) return eastDoorAnchor;
+        if (direction == Vector2Int.left) return westDoorAnchor;
+        return null;
+    }
+
+    private void ValidateAnchors()
+    {
+        if (northDoorAnchor == null && nodeData.template.hasNorthDoor)
+            Debug.LogWarning($"Room at {nodeData.position} is missing north door anchor!");
+
+        if (southDoorAnchor == null && nodeData.template.hasSouthDoor)
+            Debug.LogWarning($"Room at {nodeData.position} is missing south door anchor!");
+
+        if (eastDoorAnchor == null && nodeData.template.hasEastDoor)
+            Debug.LogWarning($"Room at {nodeData.position} is missing east door anchor!");
+
+        if (westDoorAnchor == null && nodeData.template.hasWestDoor)
+            Debug.LogWarning($"Room at {nodeData.position} is missing west door anchor!");
+    }
+
+
     public void Initialize(RoomNode node, bool isStart = false)
     {
         nodeData = node;
@@ -106,4 +137,14 @@ public class RoomInstance : MonoBehaviour
     {
         return objectiveCompleted;  // Now tracks directly here.
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        if (northDoorAnchor != null) Gizmos.DrawSphere(northDoorAnchor.position, 0.5f);
+        if (southDoorAnchor != null) Gizmos.DrawSphere(southDoorAnchor.position, 0.5f);
+        if (eastDoorAnchor != null) Gizmos.DrawSphere(eastDoorAnchor.position, 0.5f);
+        if (westDoorAnchor != null) Gizmos.DrawSphere(westDoorAnchor.position, 0.5f);
+    }
+
 }

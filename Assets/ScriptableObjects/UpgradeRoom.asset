@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomName: UpgradeRoom
   prefab: {fileID: 9086618317691770894, guid: 35fc7302f5578014dbcdb9732842bf53, type: 3}
-  maxConnections: 2
   type: 2
   hasNorthDoor: 1
-  hasSouthDoor: 0
+  hasSouthDoor: 1
   hasEastDoor: 1
-  hasWestDoor: 0
+  hasWestDoor: 1

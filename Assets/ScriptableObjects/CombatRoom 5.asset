@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 735226d44a23c1843afcdc52a15e1865, type: 3}
-  m_Name: CombatRoom 1
+  m_Name: CombatRoom 5
   m_EditorClassIdentifier: 
-  roomName: Combat1NorthDoor
-  prefab: {fileID: 7347628454498296226, guid: dab29ede9e5a6524094efb9e332cb523, type: 3}
+  roomName: Combat1EastDoor
+  prefab: {fileID: 4890050338520132122, guid: be12c088849851349a83a5835a4309bf, type: 3}
   type: 1
-  hasNorthDoor: 1
+  hasNorthDoor: 0
   hasSouthDoor: 0
-  hasEastDoor: 0
+  hasEastDoor: 1
   hasWestDoor: 0

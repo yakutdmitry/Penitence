@@ -423,11 +423,22 @@ MonoBehaviour:
   possibleRooms:
   - {fileID: 11400000, guid: 2de06be71dc93984d93d9db78e33c2b3, type: 2}
   - {fileID: 11400000, guid: f812cefe8e934104caf02555226bd917, type: 2}
+  - {fileID: 11400000, guid: 646654d5295a688429af2e0c197e98a1, type: 2}
+  - {fileID: 11400000, guid: f8bbd196bf229824dbc151a7685d285e, type: 2}
+  - {fileID: 11400000, guid: 8ebe9cb02db73294f8b9b06466abed01, type: 2}
+  - {fileID: 11400000, guid: 8e4bc7f9e3257f244b627e2c4d84f443, type: 2}
+  - {fileID: 11400000, guid: 53f281231e49abe49b294114cf015163, type: 2}
+  - {fileID: 11400000, guid: a6cade3546765ef40aadd6ae012f8795, type: 2}
+  - {fileID: 11400000, guid: e41035dc993687849a1a786b98ddee1a, type: 2}
+  - {fileID: 11400000, guid: b780dc1eca0fa0f46a836fba2af79c03, type: 2}
+  - {fileID: 11400000, guid: b0ff57a6ce63fc745b87826566ccc2be, type: 2}
   upgradeRoomTemplate: {fileID: 11400000, guid: e7be379bf37a684429d32390e72fe9ce, type: 2}
   bossRoomTemplate: {fileID: 11400000, guid: efd54a5e4b67e49468643a25beff6806, type: 2}
   doorPrefab: {fileID: 9176584648435759433, guid: 3ed9f8965e3f0c64b966937775909883, type: 3}
   roomSize: 50
-  doorOffset: 2.75
+  showDebugGizmos: 1
+  debugLabelOffsetY: 3
+  doorYOffset: 2.7
 --- !u!4 &1641815768
 Transform:
   m_ObjectHideFlags: 0

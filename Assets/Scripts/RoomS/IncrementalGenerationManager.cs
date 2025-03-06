@@ -10,7 +10,6 @@ public class IncrementalGenerationManager : MonoBehaviour
     public GameObject doorPrefab;
 
     public float roomSize = 50f;
-    public float doorOffset = 5f;
 
     private Dictionary<Vector2Int, RoomNode> roomMap = new();
     private int totalRoomsSpawned = 0;
@@ -21,189 +20,134 @@ public class IncrementalGenerationManager : MonoBehaviour
     private RoomInstance currentRoomInstance;
     private RoomInstance startRoomInstance;
 
-    // Configurable guaranteed rooms (you can easily modify this to change the guaranteed number and directions)
-    private List<Vector2Int> guaranteedRooms = new List<Vector2Int>
-    {
-        Vector2Int.up,    // North
-        Vector2Int.right, // East
-        Vector2Int.left   // West
-    };
+    public bool showDebugGizmos = true;  // Toggle in Inspector
+    public float debugLabelOffsetY = 3f;  // Controls label height above room center
+
+    public float doorYOffset = 0f;  // Inspector tweak for height adjustment
+
+    private List<Vector2Int> guaranteedRooms = new() { Vector2Int.up, Vector2Int.right, Vector2Int.left };
 
     private void Start()
     {
-        Debug.Log("Incremental Generation Manager started");
-
         Vector2Int startPos = Vector2Int.zero;
         RoomNode startNode = new RoomNode(startPos, startRoomTemplate);
         roomMap[startPos] = startNode;
 
-        startRoomInstance = SpawnRoom(startNode, true);  // mark it as the start room
-        totalRoomsSpawned = 1;
-
-        Debug.Log($"Start room spawned at {startPos}");
-
-        // Automatically spawn guaranteed adjacent rooms
+        startRoomInstance = SpawnRoom(startNode, true);
         SpawnGuaranteedRooms(startNode);
 
-        RoomEntranceTrigger startTrigger = startRoomInstance.GetComponentInChildren<RoomEntranceTrigger>();
-        if (startTrigger != null)
-        {
-            startTrigger.ForceTriggerEntry();
-        }
+        RoomEntranceTrigger trigger = startRoomInstance.GetComponentInChildren<RoomEntranceTrigger>();
+        trigger?.ForceTriggerEntry();
     }
-
 
     private void SpawnGuaranteedRooms(RoomNode startNode)
     {
-        foreach (Vector2Int direction in guaranteedRooms)
+        foreach (var direction in guaranteedRooms)
         {
-            Vector2Int newRoomPosition = startNode.position + direction;
+            Vector2Int newPos = startNode.position + direction;
+            if (roomMap.ContainsKey(newPos)) continue;
 
-            if (roomMap.ContainsKey(newRoomPosition))
-            {
-                Debug.Log($"Skipping guaranteed room at {newRoomPosition}, already occupied.");
-                continue;
-            }
+            RoomTemplate nextRoomTemplate = PickNextRoomTemplateWithDoorFacing(direction);
+            RoomNode newNode = new RoomNode(newPos, nextRoomTemplate);
+            roomMap[newPos] = newNode;
 
-            RoomTemplate nextRoomTemplate = PickNextRoomTemplate();
-            RoomNode newNode = new RoomNode(newRoomPosition, nextRoomTemplate);
-
-            roomMap[newRoomPosition] = newNode;
             startNode.AddNeighbor(newNode);
             newNode.AddNeighbor(startNode);
 
-            RoomInstance newRoomInstance = SpawnRoom(newNode);
-            CreateDoorBetween(startRoomInstance, newRoomInstance, direction);  // FIXED HERE
+            RoomInstance newRoom = SpawnRoom(newNode);
+            CreateDoorBetween(startRoomInstance, newRoom, direction);
 
-            totalRoomsSpawned++;
-            Debug.Log($"Guaranteed room spawned at {newRoomPosition} facing {direction}");
+            TrackRoomSpawn();  // Track guaranteed rooms too
         }
     }
 
-
     public void OnPlayerEnterRoom(RoomInstance room)
     {
-        Debug.Log("OnPlayerEnterRoom has been called");
-
-        if (room == null)
-        {
-            Debug.LogError("OnPlayerEnterRoom received a null room reference!");
-            return;
-        }
-
-        if (room.nodeData == null)
-        {
-            Debug.LogError("OnPlayerEnterRoom received a RoomInstance with null nodeData!");
-            return;
-        }
-
-        Debug.Log($"OnPlayerEnterRoom processing room at {room.nodeData.position}");
-
         currentRoomInstance = room;
 
-        var directions = GetRoomDirections(room.nodeData.template);
-        Debug.Log($"Room at {room.nodeData.position} has {directions.Count} possible directions");
-
-        foreach (var direction in directions)
+        foreach (var direction in GetRoomDirections(room.nodeData.template))
         {
-            Vector2Int newRoomPosition = room.nodeData.position + direction;
-            Debug.Log($"Checking position {newRoomPosition} for new room");
+            Vector2Int newPos = room.nodeData.position + direction;
 
-            if (!roomMap.ContainsKey(newRoomPosition))
+            if (!roomMap.ContainsKey(newPos))
             {
-                RoomTemplate nextRoomTemplate = PickNextRoomTemplate();
-                Debug.Log($"Base room template selected for {newRoomPosition}");
-
-                if (ShouldSpawnUpgradeRoom())
-                {
-                    nextRoomTemplate = upgradeRoomTemplate;
-                    upgradeRoomsSpawned++;
-                    combatRoomsSinceLastUpgrade = 0;
-                    Debug.Log($"Spawning upgrade room at {newRoomPosition}");
-                }
-                else if (ShouldSpawnBossRoom())
-                {
-                    nextRoomTemplate = bossRoomTemplate;
-                    bossRoomSpawned = true;
-                    Debug.Log($"Spawning boss room at {newRoomPosition}");
-                }
-                else
-                {
-                    combatRoomsSinceLastUpgrade++;
-                    Debug.Log($"Spawning normal room at {newRoomPosition}");
-                }
-
-                RoomNode newNode = new RoomNode(newRoomPosition, nextRoomTemplate);
-                roomMap[newRoomPosition] = newNode;
+                RoomTemplate nextRoomTemplate = PickNextRoomTemplateWithDoorFacing(direction);
+                RoomNode newNode = new RoomNode(newPos, nextRoomTemplate);
+                roomMap[newPos] = newNode;
 
                 room.nodeData.AddNeighbor(newNode);
                 newNode.AddNeighbor(room.nodeData);
 
-                RoomInstance newRoomInstance = SpawnRoom(newNode);  // This ensures newNode.instance is populated
-                CreateDoorBetween(room, newRoomInstance, direction);  // Use the actual RoomInstance, not the node
+                RoomInstance newRoom = SpawnRoom(newNode);
+                CreateDoorBetween(room, newRoom, direction);
 
-                totalRoomsSpawned++;
-                Debug.Log($"Total rooms spawned so far: {totalRoomsSpawned}");
-            }
-            else
-            {
-                Debug.Log($"Room already exists at {newRoomPosition}, skipping.");
+                TrackRoomSpawn();
             }
         }
 
-        room.PlayerEnteredRoom();  // This triggers closing doors and starting the objective check.
-
-        Debug.Log("OnPlayerEnterRoom processing complete");
+        room.PlayerEnteredRoom();
     }
 
     private void CreateDoorBetween(RoomInstance roomA, RoomInstance roomB, Vector2Int direction)
     {
-        Vector3 doorPosition = (roomA.transform.position + roomB.transform.position) / 2f;
-        doorPosition.y = doorOffset;
+        Transform anchorA = roomA.GetDoorAnchor(direction);
+        Transform anchorB = roomB.GetDoorAnchor(-direction);
 
-        Quaternion doorRotation = Quaternion.identity;
-        if (direction == Vector2Int.up)
-            doorRotation = Quaternion.Euler(0, 0, 0);
-        else if (direction == Vector2Int.down)
-            doorRotation = Quaternion.Euler(0, 180, 0);
-        else if (direction == Vector2Int.right)
-            doorRotation = Quaternion.Euler(0, 90, 0);
-        else if (direction == Vector2Int.left)
-            doorRotation = Quaternion.Euler(0, -90, 0);
+        if (anchorA == null || anchorB == null)
+        {
+            Debug.LogError($"Missing door anchors between rooms at {roomA.nodeData.position} and {roomB.nodeData.position}");
+            return;
+        }
 
-        GameObject doorInstance = Instantiate(doorPrefab, doorPosition, doorRotation);
+        Vector3 doorPosition = (anchorA.position + anchorB.position) / 2;
+        doorPosition.y += doorYOffset;  // Fine-tuning height placement from Inspector
 
-        DoorController door = doorInstance.GetComponent<DoorController>();
+        Quaternion doorRotation = GetDoorRotation(direction);
+
+        GameObject doorObj = Instantiate(doorPrefab, doorPosition, doorRotation);
+        DoorController door = doorObj.GetComponent<DoorController>();
+
         roomA.RegisterDoor(direction, door);
         roomB.RegisterDoor(-direction, door);
 
-        bool isStartRoom = roomA.isStartRoom || roomB.isStartRoom;
-        door.SetLocked(!isStartRoom);
+        door.SetLocked(!roomA.isStartRoom && !roomB.isStartRoom);
     }
 
-
-
-
-
-    private bool ShouldSpawnUpgradeRoom()
+    private RoomInstance SpawnRoom(RoomNode node, bool isStartRoom = false)
     {
-        bool result = combatRoomsSinceLastUpgrade >= 3 && upgradeRoomsSpawned < 3;
-        Debug.Log($"ShouldSpawnUpgradeRoom: {result}");
-        return result;
+        Vector3 pos = GridToWorldPosition(node.position);
+        RoomInstance instance = Instantiate(node.template.prefab, pos, Quaternion.identity).GetComponent<RoomInstance>();
+        instance.Initialize(node, isStartRoom);
+        node.instance = instance.gameObject;
+        return instance;
     }
 
-    private bool ShouldSpawnBossRoom()
+    private RoomTemplate PickNextRoomTemplateWithDoorFacing(Vector2Int direction)
     {
-        bool result = upgradeRoomsSpawned >= 3 && !bossRoomSpawned;
-        Debug.Log($"ShouldSpawnBossRoom: {result}");
-        return result;
+        List<RoomTemplate> validTemplates = new();
+
+        foreach (RoomTemplate template in possibleRooms)
+        {
+            if (DoesRoomHaveDoorFacing(template, direction))
+                validTemplates.Add(template);
+        }
+
+        if (validTemplates.Count == 0)
+        {
+            Debug.LogError($"No valid room template found with a door facing {direction}");
+            return possibleRooms[Random.Range(0, possibleRooms.Length)];
+        }
+
+        return validTemplates[Random.Range(0, validTemplates.Count)];
     }
 
-    private RoomTemplate PickNextRoomTemplate()
+    private bool DoesRoomHaveDoorFacing(RoomTemplate template, Vector2Int direction)
     {
-        RoomTemplate picked = possibleRooms[Random.Range(0, possibleRooms.Length)];
-        Debug.Log($"Randomly picked room template: {picked.name}");
-        return picked;
+        if (direction == Vector2Int.up) return template.hasSouthDoor;
+        if (direction == Vector2Int.down) return template.hasNorthDoor;
+        if (direction == Vector2Int.right) return template.hasWestDoor;
+        if (direction == Vector2Int.left) return template.hasEastDoor;
+        return false;
     }
 
     private List<Vector2Int> GetRoomDirections(RoomTemplate template)
@@ -213,30 +157,90 @@ public class IncrementalGenerationManager : MonoBehaviour
         if (template.hasSouthDoor) directions.Add(Vector2Int.down);
         if (template.hasEastDoor) directions.Add(Vector2Int.right);
         if (template.hasWestDoor) directions.Add(Vector2Int.left);
-        Debug.Log($"Template {template.name} has {directions.Count} doors");
         return directions;
     }
 
-    private RoomInstance SpawnRoom(RoomNode node, bool isStartRoom = false)
+    private Quaternion GetDoorRotation(Vector2Int direction)
     {
-        Debug.Log($"Spawning room at grid position {node.position}");
-
-        Vector3 position = GridToWorldPosition(node.position);
-        GameObject roomInstanceObj = Instantiate(node.template.prefab, position, Quaternion.identity);
-        RoomInstance instance = roomInstanceObj.GetComponent<RoomInstance>();
-
-        instance.Initialize(node, isStartRoom);  // Pass if it's the start room
-
-        node.instance = roomInstanceObj;
-
-        Debug.Log($"Room successfully spawned at {node.position} (Is Start Room: {isStartRoom})");
-
-        return instance;
+        if (direction == Vector2Int.up) return Quaternion.Euler(0, 0, 0);        // North
+        if (direction == Vector2Int.down) return Quaternion.Euler(0, 180, 0);     // South
+        if (direction == Vector2Int.right) return Quaternion.Euler(0, 90, 0);     // East
+        if (direction == Vector2Int.left) return Quaternion.Euler(0, -90, 0);     // West
+        return Quaternion.identity;
     }
-
 
     private Vector3 GridToWorldPosition(Vector2Int gridPos)
     {
         return new Vector3(gridPos.x * roomSize, 0, gridPos.y * roomSize);
+    }
+
+    //  New Tracking + Upgrade/Boss Logic
+
+    private void TrackRoomSpawn()
+    {
+        totalRoomsSpawned++;
+        combatRoomsSinceLastUpgrade++;
+
+        CheckUpgradeRoomConditions();
+    }
+
+    private void CheckUpgradeRoomConditions()
+    {
+        if (combatRoomsSinceLastUpgrade >= 3 && upgradeRoomsSpawned < 3)
+        {
+            upgradeRoomsSpawned++;
+            combatRoomsSinceLastUpgrade = 0;
+            Debug.Log(" Upgrade room logic would trigger here!");
+        }
+        else if (upgradeRoomsSpawned >= 3 && !bossRoomSpawned)
+        {
+            bossRoomSpawned = true;
+            Debug.Log(" Boss room logic would trigger here!");
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!showDebugGizmos) return;
+
+        foreach (var roomEntry in roomMap)
+        {
+            Vector2Int gridPos = roomEntry.Key;
+            RoomNode node = roomEntry.Value;
+            RoomTemplate template = node.template;
+
+            Color color = Color.blue;  // Default to combat room
+
+            if (template == startRoomTemplate)
+            {
+                color = Color.green;  // Start room
+            }
+            else if (template == upgradeRoomTemplate)
+            {
+                color = Color.yellow;  // Upgrade room
+            }
+            else if (template == bossRoomTemplate)
+            {
+                color = Color.red;  // Boss room
+            }
+
+            DrawRoomGizmo(gridPos, color, template.roomName);
+        }
+    }
+
+    private void DrawRoomGizmo(Vector2Int gridPos, Color color, string roomName)
+    {
+        Vector3 worldPos = GridToWorldPosition(gridPos) + Vector3.up * 0.5f;
+        Vector3 size = new Vector3(roomSize, 1, roomSize);
+
+        Gizmos.color = color;
+        Gizmos.DrawWireCube(worldPos, size);
+
+        // Draw Label
+        if (showDebugGizmos)
+        {
+            UnityEditor.Handles.color = color;
+            UnityEditor.Handles.Label(worldPos + Vector3.up * debugLabelOffsetY, $"{roomName}\n({gridPos.x}, {gridPos.y})");
+        }
     }
 }

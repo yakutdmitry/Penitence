@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735226d44a23c1843afcdc52a15e1865, type: 3}
   m_Name: CombatRoom 2
   m_EditorClassIdentifier: 
-  roomName: Combat2Doors
-  prefab: {fileID: 2544082612070717699, guid: 1128382dfbe641144acfc7a20a7c5b04, type: 3}
-  maxConnections: 2
+  roomName: Combat2EastWestDoors
+  prefab: {fileID: 7393155370665261924, guid: fd98a057b595d7b489982ec4a2466fac, type: 3}
   type: 1
   hasNorthDoor: 0
   hasSouthDoor: 0
