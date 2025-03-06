@@ -425,9 +425,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f812cefe8e934104caf02555226bd917, type: 2}
   upgradeRoomTemplate: {fileID: 11400000, guid: e7be379bf37a684429d32390e72fe9ce, type: 2}
   bossRoomTemplate: {fileID: 11400000, guid: efd54a5e4b67e49468643a25beff6806, type: 2}
-  doorPrefab: {fileID: 922653223332474828, guid: 3ed9f8965e3f0c64b966937775909883, type: 3}
+  doorPrefab: {fileID: 9176584648435759433, guid: 3ed9f8965e3f0c64b966937775909883, type: 3}
   roomSize: 50
-  doorOffset: 0
+  doorOffset: 2.75
 --- !u!4 &1641815768
 Transform:
   m_ObjectHideFlags: 0

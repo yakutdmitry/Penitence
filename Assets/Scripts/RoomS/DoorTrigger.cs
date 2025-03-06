@@ -2,18 +2,22 @@ using UnityEngine;
 
 public class DoorTrigger : MonoBehaviour
 {
-    private DoorController door;
+    private DoorController doorController;
 
     private void Start()
     {
-        door = GetComponentInParent<DoorController>();
+        doorController = GetComponentInParent<DoorController>();
+        if (doorController == null)
+        {
+            Debug.LogError("DoorTrigger could not find parent DoorController!");
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            door.OnPlayerApproach();
+            doorController?.TryOpen();
         }
     }
 }

@@ -2,69 +2,73 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    private bool isOpen = false;
+    [SerializeField] private Transform visualDoorMesh;  // Reference to the moving mesh (child)
+    [SerializeField] private Animator animator;         // Animator on the visual mesh
 
-    private Animator animator;
-    private bool isLocked = true;
+    private bool isLocked = false;
+    private bool isOpen = false;
 
     private void Start()
     {
-        animator = GetComponentInChildren<Animator>();
-
-        if (animator == null)
+        // In case animator is not set, auto find it (but better to link it directly in prefab)
+        if (animator == null && visualDoorMesh != null)
         {
-            Debug.LogError("No Animator found on door or its children!");
-            return;
+            animator = visualDoorMesh.GetComponent<Animator>();
         }
 
-        ForceClose();  // Start with door closed
-    }
-
-    public void OnPlayerApproach()
-    {
-        if (!isLocked)
-        {
-            ToggleDoor();
-        }
+        ForceClose(); // Start closed
     }
 
     public void SetLocked(bool locked)
     {
         isLocked = locked;
-        UpdateVisuals();
+        if (isLocked)
+        {
+            ForceClose();
+        }
     }
 
-    public void ToggleDoor()
+    public void TryOpen()
     {
-        if (isLocked) return;
-
-        isOpen = !isOpen;
-        UpdateVisuals();
+        if (!isLocked && !isOpen)
+        {
+            Open();
+        }
     }
 
     public void ForceClose()
     {
         isOpen = false;
-        UpdateVisuals();
+        UpdateDoorAnimation();
     }
 
-    private void UpdateVisuals()
+    private void Open()
+    {
+        isOpen = true;
+        UpdateDoorAnimation();
+    }
+
+    private void UpdateDoorAnimation()
     {
         if (animator != null)
         {
             animator.SetBool("IsOpen", isOpen);
         }
-
-        Renderer renderer = GetComponent<Renderer>();
-        if (renderer != null)
+        else
         {
-            renderer.material.color = isLocked ? Color.red : (isOpen ? Color.green : Color.white);
+            Debug.LogWarning($"{name} - Missing Animator on visual mesh!");
         }
+    }
 
-        Collider col = GetComponent<Collider>();
-        if (col != null)
+    public void ToggleDoor()
+    {
+        if (isOpen)
         {
-            col.enabled = !isLocked;
+            ForceClose();
+        }
+        else
+        {
+            TryOpen();
         }
     }
 }
