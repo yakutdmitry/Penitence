@@ -48,7 +48,7 @@ public abstract class BaseWeapon : MonoBehaviour
     }
 
     // Debugging method to display firing status
-    protected void DebugFire(bool canFire)
+    public void DebugFire(bool canFire)
     {
         if (canFire)
         {
@@ -68,6 +68,8 @@ public abstract class BaseWeapon : MonoBehaviour
             {
                 Debug.Log($"{gameObject.name} failed to fire for an unknown reason.");
             }
-        }
+        
     }
+
+}
 }
