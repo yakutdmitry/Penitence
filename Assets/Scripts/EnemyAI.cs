@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour
 
     private NavMeshAgent agent; // Navigation agent for movement
     private Transform player; // Reference to the player
-    private bool isChasing = false;
+    //private bool isChasing = false;
     private PlayerMovement playerMovement; // Reference to player's movement script
 
     // Start is called before the first frame update

@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class RoomInstance : MonoBehaviour
 {
     public RoomNode nodeData;
+    public float roomSize = 50f; // Add this line to define room size
 
     private Dictionary<Vector2Int, DoorController> doors = new();
     private RoomObjectiveController objectiveController;
@@ -16,6 +18,9 @@ public class RoomInstance : MonoBehaviour
     public Transform southDoorAnchor;
     public Transform eastDoorAnchor;
     public Transform westDoorAnchor;
+
+    private NavMeshSurface navMeshSurface;
+    private RoomEnemySpawner enemySpawner;
 
     public Transform GetDoorAnchor(Vector2Int direction)
     {
@@ -70,6 +75,15 @@ public class RoomInstance : MonoBehaviour
 
     private void Start()
     {
+        navMeshSurface = GetComponentInChildren<NavMeshSurface>();
+        enemySpawner = GetComponent<RoomEnemySpawner>();
+
+        if (navMeshSurface != null)
+        {
+            navMeshSurface.BuildNavMesh();  // Builds nav mesh after room is created
+        }
+
+        enemySpawner?.SpawnEnemies(this);  // Spawns enemies in the room
         objectiveController = GetComponent<RoomObjectiveController>();
         if (objectiveController != null)
         {
@@ -136,6 +150,11 @@ public class RoomInstance : MonoBehaviour
     private bool objectiveControllerHasCompleted()
     {
         return objectiveCompleted;  // Now tracks directly here.
+    }
+
+    public void ClearRoom()
+    {
+        enemySpawner?.ClearEnemies();
     }
 
     private void OnDrawGizmos()
