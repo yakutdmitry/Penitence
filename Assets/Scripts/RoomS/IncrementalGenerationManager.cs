@@ -117,10 +117,14 @@ public class IncrementalGenerationManager : MonoBehaviour
     {
         Vector3 pos = GridToWorldPosition(node.position);
         RoomInstance instance = Instantiate(node.template.prefab, pos, Quaternion.identity).GetComponent<RoomInstance>();
+
         instance.Initialize(node, isStartRoom);
+        instance.roomSize = roomSize; // Pass the roomSize from IncrementalGenerationManager
+
         node.instance = instance.gameObject;
         return instance;
     }
+
 
     private RoomTemplate PickNextRoomTemplateWithDoorFacing(Vector2Int direction)
     {

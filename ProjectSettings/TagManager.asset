@@ -13,9 +13,9 @@ TagManager:
   - IsGround
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Walls
+  - Obstacles
+  - Collectables
   - 
   - 
   - 
