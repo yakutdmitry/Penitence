@@ -11,6 +11,8 @@ public class RoomInstance : MonoBehaviour
     private RoomObjectiveController objectiveController;
     private bool objectiveCompleted = false;
 
+    public int enemyCount = 0; // Visible in the editor for debugging
+
     public bool isStartRoom { get; private set; } = false;  // Add this property
 
 
@@ -72,7 +74,6 @@ public class RoomInstance : MonoBehaviour
         }
     }
 
-
     private void Start()
     {
         navMeshSurface = GetComponentInChildren<NavMeshSurface>();
@@ -80,11 +81,12 @@ public class RoomInstance : MonoBehaviour
 
         if (navMeshSurface != null)
         {
-            navMeshSurface.BuildNavMesh();  // Builds nav mesh after room is created
+            Invoke(nameof(BuildNavMeshDelayed), 0.2f); // Delay NavMesh build slightly
         }
 
-        enemySpawner?.SpawnEnemies(this);  // Spawns enemies in the room
+        enemySpawner?.SpawnEnemies(this);
         objectiveController = GetComponent<RoomObjectiveController>();
+
         if (objectiveController != null)
         {
             objectiveController.OnObjectiveCompleted += UnlockAllDoors;
@@ -92,8 +94,13 @@ public class RoomInstance : MonoBehaviour
 
         if (isStartRoom)
         {
-            UnlockAllDoors();  // Start room doors are unlocked right away.
+            UnlockAllDoors();
         }
+    }
+
+    private void BuildNavMeshDelayed()
+    {
+        navMeshSurface.BuildNavMesh();
     }
 
     public void RegisterDoor(Vector2Int direction, DoorController door)
@@ -101,9 +108,15 @@ public class RoomInstance : MonoBehaviour
         if (!doors.ContainsKey(direction))
         {
             doors[direction] = door;
-            door.SetLocked(!isStartRoom); // Start room doors are unlocked immediately.
+            door.SetLocked(!isStartRoom);
+            Debug.Log($"Registered door at {nodeData.position} facing {direction}. Locked: {!isStartRoom}");
+        }
+        else
+        {
+            Debug.LogWarning($"Door at {nodeData.position} in direction {direction} already exists!");
         }
     }
+
 
     public void CloseAllDoors()
     {
@@ -113,13 +126,32 @@ public class RoomInstance : MonoBehaviour
             door.ForceClose();  // Direct close on player entry.
         }
     }
-
     public void UnlockAllDoors()
     {
+        Debug.Log("All doors unlocked!");
         objectiveCompleted = true;
         foreach (var door in doors.Values)
         {
             door.SetLocked(false);
+            door.ToggleDoor(); // Ensures doors visually open
+        }
+    }
+
+    public void RegisterEnemy()
+    {
+        enemyCount++;
+        Debug.Log($"Enemy Registered in {gameObject.name}, Total Enemies: {enemyCount}");
+    }
+
+    public void EnemyDefeated()
+    {
+        enemyCount--;
+        Debug.Log($"Enemy Defeated in {gameObject.name}, Remaining: {enemyCount}");
+
+        if (enemyCount <= 0)
+        {
+            Debug.Log("Room Cleared! Checking objectives...");
+            objectiveController?.CheckObjective();
         }
     }
 
@@ -133,19 +165,19 @@ public class RoomInstance : MonoBehaviour
         }
     }
 
-
     private void CheckObjective()
     {
         if (objectiveController != null)
         {
             objectiveController.CheckObjective();
 
-            if (objectiveControllerHasCompleted())
+            if (objectiveCompleted) // No need for separate method
             {
                 CancelInvoke(nameof(CheckObjective));
             }
         }
     }
+
 
     private bool objectiveControllerHasCompleted()
     {

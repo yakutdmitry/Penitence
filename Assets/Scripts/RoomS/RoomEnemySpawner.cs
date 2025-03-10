@@ -13,6 +13,7 @@ public class RoomEnemySpawner : MonoBehaviour
     public void SpawnEnemies(RoomInstance room)
     {
         int enemyCount = Random.Range(minEnemiesPerRoom, maxEnemiesPerRoom + 1);
+        Debug.Log($"Spawning {enemyCount} enemies in {room.gameObject.name}");
 
         for (int i = 0; i < enemyCount; i++)
         {
@@ -21,6 +22,13 @@ public class RoomEnemySpawner : MonoBehaviour
 
             GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
             spawnedEnemies.Add(enemy);
+
+            Enemy enemyScript = enemy.GetComponent<Enemy>();
+            if (enemyScript != null)
+            {
+                enemyScript.AssignRoom(room);
+                room.RegisterEnemy(); // Track enemy count in the room
+            }
         }
     }
 

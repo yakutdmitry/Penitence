@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1289313675437542303}
   - component: {fileID: 6375705909515164258}
+  - component: {fileID: 3828939091378630461}
   m_Layer: 0
   m_Name: UpgradeRoom 1
   m_TagString: Untagged
@@ -52,10 +53,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3b5f74a6aed124e9295ddb14af9d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomSize: 50
+  enemyCount: 0
   northDoorAnchor: {fileID: 1007025156593758161}
   southDoorAnchor: {fileID: 3355725684110755102}
   eastDoorAnchor: {fileID: 0}
   westDoorAnchor: {fileID: 0}
+--- !u!114 &3828939091378630461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245153043345188692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4ea5c5b053d1645ba25499a7e8d830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveType: 0
 --- !u!1 &1495697343319636082
 GameObject:
   m_ObjectHideFlags: 0

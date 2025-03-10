@@ -5,35 +5,37 @@ public class Enemy : MonoBehaviour, iDamageable, iEnemyMoveable, iTriggerCheckab
 {
     [field: SerializeField] public float MaxHealth { get; set; } = 100f;
     public float CurrentHealth { get; set; }
-    public NavMeshAgent agent { get; set; }  // Replace Rigidbody with NavMeshAgent
+    public NavMeshAgent agent { get; set; }
+
     public bool isFacingRight { get; set; } = true;
 
-    public bool IsAggroed { get; set; }
-    public bool IsWithinStrikingDistance { get; set; }
+    public bool IsAggroed { get; private set; }
+    public bool IsWithinStrikingDistance { get; private set; }
 
-    public float attackDamage = 10f;
+    public float detectionRange = 10f;
     public float attackRange = 2f;
+    public float hearingRange = 15f;
+    public float fieldOfView = 60f;
+    public float attackDamage = 10f;
+    public float attackCooldown = 2f;
 
-    private PlayerMovement playerMovement;
-
-    private HealthManager playerHealth;
+    private Vector3 lastKnownPosition;
+    private bool playerInSight;
+    private bool playerHeard;
 
     private GameObject player;
-
-
-
+    private HealthManager playerHealth;
+    private RoomObjectiveController roomObjective;
+    private RoomInstance roomInstance;
 
     #region State Machine Variables
-
     public EnemyStateMachine StateMachine { get; set; }
     public EnemyIdleState IdleState { get; set; }
     public EnemyChaseState ChaseState { get; set; }
     public EnemyAttackState AttackState { get; set; }
-
     #endregion
 
     #region ScriptableObject Variables
-
     [SerializeField] private EnemyIdleSOBase EnemyIdleBase;
     [SerializeField] private EnemyChaseSOBase EnemyChaseBase;
     [SerializeField] private EnemyAttackSOBase EnemyAttackBase;
@@ -41,14 +43,12 @@ public class Enemy : MonoBehaviour, iDamageable, iEnemyMoveable, iTriggerCheckab
     public EnemyIdleSOBase EnemyIdleBaseInstance { get; set; }
     public EnemyChaseSOBase EnemyChaseBaseInstance { get; set; }
     public EnemyAttackSOBase EnemyAttackBaseInstance { get; set; }
-
-
+    bool iTriggerCheckable.IsAggroed { get; set; }
+    bool iTriggerCheckable.IsWithinStrikingDistance { get; set; }
     #endregion
-
 
     #region Attack State Variables
     public Transform projectileSpawnPoint;
-
     #endregion
 
     private void Awake()
@@ -58,7 +58,6 @@ public class Enemy : MonoBehaviour, iDamageable, iEnemyMoveable, iTriggerCheckab
         EnemyAttackBaseInstance = Instantiate(EnemyAttackBase);
 
         StateMachine = new EnemyStateMachine();
-        
         IdleState = new EnemyIdleState(this, StateMachine);
         ChaseState = new EnemyChaseState(this, StateMachine);
         AttackState = new EnemyAttackState(this, StateMachine);
@@ -67,8 +66,7 @@ public class Enemy : MonoBehaviour, iDamageable, iEnemyMoveable, iTriggerCheckab
     public void Start()
     {
         CurrentHealth = MaxHealth;
-
-        agent = GetComponent<NavMeshAgent>();  // Initialize NavMeshAgent
+        agent = GetComponent<NavMeshAgent>();
 
         EnemyAttackBaseInstance.Initialize(gameObject, this);
         EnemyChaseBaseInstance.Initialize(gameObject, this);
@@ -80,49 +78,132 @@ public class Enemy : MonoBehaviour, iDamageable, iEnemyMoveable, iTriggerCheckab
         if (player != null)
         {
             playerHealth = player.GetComponent<HealthManager>();
-            playerMovement = player.GetComponent<PlayerMovement>();
         }
+
+        // Find RoomObjectiveController in the parent (assuming enemy is a child of the room)
+        roomObjective = GetComponentInParent<RoomObjectiveController>();
+    }
+
+    public void AssignRoom(RoomInstance room)
+    {
+        roomInstance = room;
     }
 
     public void Update()
     {
-        StateMachine.CurrentEnemyState.FrameUpdate();
+        SensePlayer();
+        HandleStates();
+    }
 
-        if (player != null)
+    #region Player Detection System
+
+    private void SensePlayer()
+    {
+        if (player == null) return;
+
+        Vector3 directionToPlayer = player.transform.position - transform.position;
+        float distanceToPlayer = directionToPlayer.magnitude;
+        float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer);
+
+        bool canSeePlayer = false;
+        bool canHearPlayer = distanceToPlayer <= hearingRange;
+
+        // **VISION DETECTION**
+        if (distanceToPlayer <= detectionRange && angleToPlayer <= fieldOfView / 2)
         {
-            agent.SetDestination(player.transform.position);
-            if (Vector3.Distance(transform.position, player.transform.position) < agent.stoppingDistance)
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position + Vector3.up, directionToPlayer.normalized, out hit, detectionRange))
             {
-                AttackPlayer();
+                if (hit.transform.CompareTag("Player"))
+                {
+                    canSeePlayer = true;
+                }
             }
         }
-    }
 
-    public void FixedUpdate()
-    {
-        StateMachine.CurrentEnemyState.PhysicsUpdate();
-    }
+        playerInSight = canSeePlayer;
+        playerHeard = canHearPlayer;
 
-    #region Movement Functions
-    public void MoveEnemy(Vector3 destination)
-    {
-        agent.SetDestination(destination);
-        CheckForLeftOrRightFacing(destination - transform.position);
-    }
-
-    public void CheckForLeftOrRightFacing(Vector3 direction)
-    {
-        if (direction.sqrMagnitude > 0.01f) // Prevents jittering
+        // **AGGRO HANDLING**
+        if (playerInSight || playerHeard)
         {
-            Vector3 lookPosition = transform.position + direction;
-            lookPosition.y = transform.position.y; // Keep enemy upright
-            transform.LookAt(lookPosition);
+            lastKnownPosition = player.transform.position;
+            SetAggroStatus(true);
+        }
+        else
+        {
+            SetAggroStatus(false);
+        }
+
+        // **STRIKING DISTANCE HANDLING**
+        SetStrikingDistanceBool(distanceToPlayer <= attackRange);
+    }
+
+    private void HandleStates()
+    {
+        if (IsAggroed)
+        {
+            if (IsWithinStrikingDistance)
+            {
+                StateMachine.ChangeState(AttackState);
+                AttackPlayer();
+            }
+            else
+            {
+                StateMachine.ChangeState(ChaseState);
+                agent.SetDestination(lastKnownPosition);
+            }
+        }
+        else
+        {
+            StateMachine.ChangeState(IdleState);
         }
     }
 
     #endregion
 
-    #region Distance Check
+    #region Combat System
+
+    public void TakeDamage(float damageAmount)
+    {
+        Debug.Log($"{gameObject.name} took {damageAmount} damage! Current health: {CurrentHealth - damageAmount}");
+
+        CurrentHealth -= damageAmount;
+
+        if (CurrentHealth <= 0)
+        {
+            Debug.Log($"{gameObject.name} died!");
+            Die();
+        }
+    }
+
+    public void AttackPlayer()
+    {
+        if (Time.time >= attackCooldown)
+        {
+            playerHealth.TakeDamage(attackDamage);
+            attackCooldown = Time.time + attackCooldown;
+        }
+
+
+    }
+
+    public void Die()
+    {
+        Debug.Log($"{gameObject.name} is being destroyed!");
+
+        // Notify the room that an enemy has been defeated
+        if (roomInstance != null)
+        {
+            roomInstance.EnemyDefeated();
+        }
+
+        Destroy(gameObject);
+    }
+
+    #endregion
+
+    #region Interface Methods
 
     public void SetAggroStatus(bool isAggroed)
     {
@@ -134,7 +215,24 @@ public class Enemy : MonoBehaviour, iDamageable, iEnemyMoveable, iTriggerCheckab
         IsWithinStrikingDistance = isWithinStrikingDistance;
     }
 
+    public void MoveEnemy(Vector3 destination)
+    {
+        agent.SetDestination(destination);
+        CheckForLeftOrRightFacing(destination - transform.position);
+    }
+
+    public void CheckForLeftOrRightFacing(Vector3 direction)
+    {
+        if (direction.sqrMagnitude > 0.01f)
+        {
+            Vector3 lookPosition = transform.position + direction;
+            lookPosition.y = transform.position.y;
+            transform.LookAt(lookPosition);
+        }
+    }
+
     #endregion
+
 
     #region Animation Triggers
 
@@ -151,56 +249,41 @@ public class Enemy : MonoBehaviour, iDamageable, iEnemyMoveable, iTriggerCheckab
         PlayFootstepSound,
     }
 
-
-
-
-    #endregion
-
-
-    #region Damage System
-    public bool IsAlive()
+    private void UpdateAnimations()
     {
-        return CurrentHealth > 0;
-    }
-    public void TakeDamage(float damageAmount)
-    {
-        Debug.Log($"{gameObject.name} took {damageAmount} damage! Current health: {CurrentHealth - damageAmount}");
-
-        CurrentHealth -= damageAmount;
-
-        if (CurrentHealth <= 0)
-        {
-            Debug.Log($"{gameObject.name} died! Calling Die().");
-            Die();  // This should remove the enemy
-        }
+        // TO DO
+        // This is where we will update the animations
     }
 
+    #endregion 
 
 
-    void AttackPlayer()
+
+    #region Debug Gizmos
+
+    private void OnDrawGizmos()
     {
-        Debug.Log("Attacking Player!");
-        if (playerHealth != null)
-        {
-            playerHealth.TakeDamage(attackDamage);
-        }
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, hearingRange);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+
+        // Vision Cone
+        Gizmos.color = Color.green;
+        Vector3 fovLine1 = Quaternion.Euler(0, fieldOfView / 2, 0) * transform.forward * detectionRange;
+        Vector3 fovLine2 = Quaternion.Euler(0, -fieldOfView / 2, 0) * transform.forward * detectionRange;
+        Gizmos.DrawLine(transform.position, transform.position + fovLine1);
+        Gizmos.DrawLine(transform.position, transform.position + fovLine2);
     }
-    public void Die()
+
+    public void SetAggroedBool(bool value)
     {
-        Debug.Log($"{gameObject.name} is being destroyed!");
-
-        if (this == null)
-        {
-            Debug.Log("Enemy is NULL after Destroy()!");
-        }
-        else
-        {
-            Debug.LogError("Enemy still exists after calling Destroy()!");
-        }
-
-        Destroy(gameObject);
+        throw new System.NotImplementedException();
     }
-
 
     #endregion
 }

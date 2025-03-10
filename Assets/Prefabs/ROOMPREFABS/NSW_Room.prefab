@@ -1014,6 +1014,7 @@ GameObject:
   - component: {fileID: 8846173065933599676}
   - component: {fileID: 5492500751268124104}
   - component: {fileID: 2637299048594050037}
+  - component: {fileID: 2173112726663485277}
   m_Layer: 0
   m_Name: NSW_Room
   m_TagString: Untagged
@@ -1057,6 +1058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomSize: 50
+  enemyCount: 0
   northDoorAnchor: {fileID: 2215381446266035910}
   southDoorAnchor: {fileID: 9100960059414343765}
   eastDoorAnchor: {fileID: 0}
@@ -1109,6 +1111,19 @@ MonoBehaviour:
   - {fileID: 777352674847440256, guid: 8028504e2f60385488b6217bece6161c, type: 3}
   minEnemiesPerRoom: 3
   maxEnemiesPerRoom: 5
+--- !u!114 &2173112726663485277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4254985546323652443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4ea5c5b053d1645ba25499a7e8d830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveType: 0
 --- !u!1 &4410023328418681494
 GameObject:
   m_ObjectHideFlags: 0

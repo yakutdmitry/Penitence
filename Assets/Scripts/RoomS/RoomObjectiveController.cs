@@ -1,6 +1,5 @@
 using UnityEngine;
 using System;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class RoomObjectiveController : MonoBehaviour
 {
@@ -11,8 +10,17 @@ public class RoomObjectiveController : MonoBehaviour
 
     public event Action OnObjectiveCompleted;
 
+    private RoomInstance roomInstance;
+
+    private void Start()
+    {
+        roomInstance = GetComponent<RoomInstance>();
+    }
+
     public void CheckObjective()
     {
+        if (objectiveCompleted) return; // Prevents multiple triggers
+
         switch (objectiveType)
         {
             case ObjectiveType.KillAllEnemies:
@@ -33,19 +41,19 @@ public class RoomObjectiveController : MonoBehaviour
 
     private void CompleteObjective()
     {
-        if (objectiveCompleted) return;
         objectiveCompleted = true;
         OnObjectiveCompleted?.Invoke();
+
+        // Unlock doors when objective is completed
+        if (roomInstance != null)
+        {
+            roomInstance.UnlockAllDoors();
+        }
     }
 
     private bool AllEnemiesDefeated()
     {
-        Enemy[] enemies = GetComponentsInChildren<Enemy>(); // Example - assumes enemies are children of room
-        foreach (var enemy in enemies)
-        {
-            if (enemy.IsAlive()) return false;
-        }
-        return true;
+        return roomInstance != null && roomInstance.enemyCount <= 0;
     }
 
     private bool PlayerHasKey()

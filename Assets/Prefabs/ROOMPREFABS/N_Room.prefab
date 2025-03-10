@@ -1218,6 +1218,7 @@ GameObject:
   - component: {fileID: 6285913857279760237}
   - component: {fileID: 6045752729373315763}
   - component: {fileID: 6764425705384058249}
+  - component: {fileID: 5113421393630943735}
   m_Layer: 0
   m_Name: N_Room
   m_TagString: Untagged
@@ -1261,6 +1262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomSize: 50
+  enemyCount: 0
   northDoorAnchor: {fileID: 8114497122493228018}
   southDoorAnchor: {fileID: 0}
   eastDoorAnchor: {fileID: 0}
@@ -1313,6 +1315,19 @@ MonoBehaviour:
   - {fileID: 777352674847440256, guid: 8028504e2f60385488b6217bece6161c, type: 3}
   minEnemiesPerRoom: 3
   maxEnemiesPerRoom: 5
+--- !u!114 &5113421393630943735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7347628454498296226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e4ea5c5b053d1645ba25499a7e8d830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveType: 0
 --- !u!1 &7808269044327409832
 GameObject:
   m_ObjectHideFlags: 0
