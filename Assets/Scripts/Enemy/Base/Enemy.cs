@@ -11,6 +11,17 @@ public class Enemy : MonoBehaviour, iDamageable, iEnemyMoveable, iTriggerCheckab
     public bool IsAggroed { get; set; }
     public bool IsWithinStrikingDistance { get; set; }
 
+    public float attackDamage = 10f;
+    public float attackRange = 2f;
+
+    private PlayerMovement playerMovement;
+
+    private HealthManager playerHealth;
+
+    private GameObject player;
+
+
+
 
     #region State Machine Variables
 
@@ -64,11 +75,27 @@ public class Enemy : MonoBehaviour, iDamageable, iEnemyMoveable, iTriggerCheckab
         EnemyIdleBaseInstance.Initialize(gameObject, this);
 
         StateMachine.Initialize(IdleState);
+
+        player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+            playerHealth = player.GetComponent<HealthManager>();
+            playerMovement = player.GetComponent<PlayerMovement>();
+        }
     }
 
     public void Update()
     {
         StateMachine.CurrentEnemyState.FrameUpdate();
+
+        if (player != null)
+        {
+            agent.SetDestination(player.transform.position);
+            if (Vector3.Distance(transform.position, player.transform.position) < agent.stoppingDistance)
+            {
+                AttackPlayer();
+            }
+        }
     }
 
     public void FixedUpdate()
@@ -135,19 +162,45 @@ public class Enemy : MonoBehaviour, iDamageable, iEnemyMoveable, iTriggerCheckab
     {
         return CurrentHealth > 0;
     }
-    public void Damage(float damageAmount)
+    public void TakeDamage(float damageAmount)
     {
+        Debug.Log($"{gameObject.name} took {damageAmount} damage! Current health: {CurrentHealth - damageAmount}");
+
         CurrentHealth -= damageAmount;
+
         if (CurrentHealth <= 0)
         {
-            Die();
+            Debug.Log($"{gameObject.name} died! Calling Die().");
+            Die();  // This should remove the enemy
+        }
+    }
 
+
+
+    void AttackPlayer()
+    {
+        Debug.Log("Attacking Player!");
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(attackDamage);
         }
     }
     public void Die()
     {
+        Debug.Log($"{gameObject.name} is being destroyed!");
+
+        if (this == null)
+        {
+            Debug.Log("Enemy is NULL after Destroy()!");
+        }
+        else
+        {
+            Debug.LogError("Enemy still exists after calling Destroy()!");
+        }
+
         Destroy(gameObject);
     }
+
 
     #endregion
 }

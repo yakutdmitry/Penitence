@@ -5,13 +5,15 @@ public class EnemyAI : MonoBehaviour
 {
     public float chaseRange = 15f; // Range to start chasing the player
     public float attackRange = 2f; // Range to start attacking
-    public float health = 100f; // Enemy health
+    [field: SerializeField] public float MaxHealth { get; set; } = 100f; // Enemy health
     public float attackDamage = 10f; // Damage dealt when attacking
 
     private NavMeshAgent agent; // Navigation agent for movement
     private Transform player; // Reference to the player
     //private bool isChasing = false;
     private PlayerMovement playerMovement; // Reference to player's movement script
+    private HealthManager playerHealth;
+    public float CurrentHealth { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -57,13 +59,16 @@ public class EnemyAI : MonoBehaviour
     }
 
     // Function to handle taking damage
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damageAmount)
     {
-        health -= damage;
+        Debug.Log($"{gameObject.name} took {damageAmount} damage! Current health: {CurrentHealth - damageAmount}");
 
-        if (health <= 0)
+        CurrentHealth -= damageAmount;
+
+        if (CurrentHealth <= 0)
         {
-            Die();
+            Debug.Log($"{gameObject.name} died! Calling Die().");
+            Die();  // This should remove the enemy
         }
     }
 

@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
     // Reference to HealthManager (UI)
     public TMPro.TextMeshProUGUI healthText;  // Reference to the TextMeshPro component for UI
 
+    private SceneManager sceneManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -140,7 +142,12 @@ public class PlayerMovement : MonoBehaviour
     {
         // Handle death (e.g., show game over screen, respawn, etc.)
         Debug.Log("Player died!");
-        // You can restart the scene or trigger game over logic here
+        // Reload the scene
+        sceneManager = FindObjectOfType<SceneManager>();
+        sceneManager.LoadPreviousScene();
+
+
+
     }
 
     // Method to update health UI

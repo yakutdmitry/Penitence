@@ -59,7 +59,7 @@ public class Enemybehaviour : MonoBehaviour
 
             Debug.Log("Player Detected!");
 
-            SceneManager.LoadScene("AI test"); // change scene *************
+            //SceneManager.LoadScene("AI test"); // change scene *************
         }
     }
 

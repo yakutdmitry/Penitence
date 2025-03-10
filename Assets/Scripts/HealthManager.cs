@@ -1,47 +1,49 @@
 using UnityEngine;
-using TMPro;  // Include TextMeshPro namespace
+using TMPro;
 
-public class HealthManager : MonoBehaviour
+public class HealthManager : MonoBehaviour, iDamageable
 {
-    public float maxHealth = 100f;
-    private float currentHealth;
+    public float MaxHealth { get; set; } = 100f;
+    public float CurrentHealth { get; set; }
+    public TextMeshProUGUI healthText;
 
-    public TextMeshProUGUI healthText;  // Reference to the TextMeshPro UI element
-
-    void Start()
+    private void Start()
     {
-        // Initialize health at the start of the game
-        currentHealth = maxHealth;
-
-        // Optionally, update the health display immediately
+        CurrentHealth = MaxHealth;
         UpdateHealthUI();
     }
 
-    // This function updates the health display text
-    void UpdateHealthUI()
+    private void Update()
     {
-        healthText.text = "Health: " + currentHealth.ToString("F0");  // "F0" makes it an integer
-    }
-
-    // Function to decrease health (you can call this from your player or enemy script)
-    public void TakeDamage(float damage)
-    {
-        currentHealth -= damage;
-        if (currentHealth < 0)
-            currentHealth = 0;
-
-        // Update the health UI after taking damage
         UpdateHealthUI();
     }
 
-    // Optional: Function to heal the player
-    public void Heal(float healAmount)
+    private void UpdateHealthUI()
     {
-        currentHealth += healAmount;
-        if (currentHealth > maxHealth)
-            currentHealth = maxHealth;
-
-        // Update the health UI after healing
-        UpdateHealthUI();
+        if (healthText != null)
+        {
+            healthText.text = "Health: " + CurrentHealth.ToString("F0");
+        }
     }
+
+    public void TakeDamage(float damageAmount)
+    {
+        Debug.Log($"{gameObject.name} took {damageAmount} damage! Current health: {CurrentHealth - damageAmount}");
+
+        CurrentHealth -= damageAmount;
+
+        if (CurrentHealth <= 0)
+        {
+            Debug.Log($"{gameObject.name} died! Calling Die().");
+            Die();  // This should remove the enemy
+        }
+    }
+
+    public void Die()
+    {
+        Debug.Log($"{gameObject.name} is being destroyed!");
+
+        Destroy(gameObject);
+    }
+
 }
