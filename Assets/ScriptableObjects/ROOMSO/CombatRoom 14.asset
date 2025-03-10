@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 735226d44a23c1843afcdc52a15e1865, type: 3}
+  m_Name: CombatRoom 14
+  m_EditorClassIdentifier: 
+  roomName: Combat2SouthWestDoors
+  prefab: {fileID: 4645959603201791478, guid: 020e8909da7ec754e8734906119d094c, type: 3}
+  type: 1
+  hasNorthDoor: 0
+  hasSouthDoor: 1
+  hasEastDoor: 0
+  hasWestDoor: 1
