@@ -789,10 +789,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e41035dc993687849a1a786b98ddee1a, type: 2}
   - {fileID: 11400000, guid: b780dc1eca0fa0f46a836fba2af79c03, type: 2}
   - {fileID: 11400000, guid: b0ff57a6ce63fc745b87826566ccc2be, type: 2}
+  - {fileID: 11400000, guid: c218266176ef2eb4281d1142ec5945d9, type: 2}
+  - {fileID: 11400000, guid: 2795466005aaa964b9321b18b7797573, type: 2}
+  - {fileID: 11400000, guid: 0199281a526c54043b51ee6565218fc7, type: 2}
+  - {fileID: 11400000, guid: 98417be5afd0c5c49a8b9d40e2bcbe58, type: 2}
   upgradeRoomTemplate: {fileID: 11400000, guid: e7be379bf37a684429d32390e72fe9ce, type: 2}
   bossRoomTemplate: {fileID: 11400000, guid: efd54a5e4b67e49468643a25beff6806, type: 2}
   doorPrefab: {fileID: 9176584648435759433, guid: 3ed9f8965e3f0c64b966937775909883, type: 3}
-  roomSize: 50
+  roomSize: 75
   showDebugGizmos: 1
   debugLabelOffsetY: 3
   doorYOffset: 2.7
@@ -818,7 +822,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1641815766}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e4ea5c5b053d1645ba25499a7e8d830, type: 3}
   m_Name: 
