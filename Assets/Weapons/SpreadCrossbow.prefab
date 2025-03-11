@@ -52,9 +52,10 @@ MonoBehaviour:
   fireRate: 1.2
   bolts: 5
   shotRange: 25
+  shotDamage: 10
   impactEffect: {fileID: 0}
   lineRendererPrefab: {fileID: -9020643131668142818}
-  spreadMultiplier: 0.5
+  spreadMultiplier: 0.05
 --- !u!82 &5587594693353534738
 AudioSource:
   m_ObjectHideFlags: 0
