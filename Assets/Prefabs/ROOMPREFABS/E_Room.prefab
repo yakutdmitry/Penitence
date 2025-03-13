@@ -646,11 +646,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 777352674847440256, guid: 8028504e2f60385488b6217bece6161c, type: 3}
-  - {fileID: 777352674847440256, guid: 8028504e2f60385488b6217bece6161c, type: 3}
-  - {fileID: 777352674847440256, guid: 8028504e2f60385488b6217bece6161c, type: 3}
-  - {fileID: 777352674847440256, guid: 8028504e2f60385488b6217bece6161c, type: 3}
-  minEnemiesPerRoom: 1
-  maxEnemiesPerRoom: 1
+  - {fileID: 6883279937468892414, guid: 1cf99074718bf4242831b646e449fe01, type: 3}
+  minEnemiesPerRoom: 2
+  maxEnemiesPerRoom: 4
 --- !u!114 &6117804461637259077
 MonoBehaviour:
   m_ObjectHideFlags: 0
