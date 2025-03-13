@@ -134,6 +134,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 4655778125988185871, guid: 624d489989a67e648b177fa9f7e9ae83, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655778125988185871, guid: 624d489989a67e648b177fa9f7e9ae83, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7527561108397904530, guid: 624d489989a67e648b177fa9f7e9ae83, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -756,7 +764,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1641815768}
   - component: {fileID: 1641815767}
-  - component: {fileID: 1641815769}
   m_Layer: 0
   m_Name: IncrementalGenerationManager
   m_TagString: Untagged
@@ -815,19 +822,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1641815769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1641815766}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e4ea5c5b053d1645ba25499a7e8d830, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectiveType: 0
 --- !u!1 &1784474676 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7512692298558772304, guid: 9fd3d70cc450ac0448e66478c59635c1, type: 3}
