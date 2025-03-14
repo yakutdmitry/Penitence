@@ -51,8 +51,8 @@ MonoBehaviour:
   maxAmmo: 60
   fireRate: 0.8
   shotRange: 100
-  impactEffect: {fileID: 0}
-  animator: {fileID: 0}
+  shotDamage: 10
+  impactEffect: {fileID: 6148258828161963199}
   lineRenderer: {fileID: 8477706216609572198}
 --- !u!82 &-5210160022169659743
 AudioSource:
@@ -66,7 +66,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.239
   m_Pitch: 1
   Loop: 0
   Mute: 0

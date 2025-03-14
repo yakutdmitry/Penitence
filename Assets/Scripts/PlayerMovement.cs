@@ -144,7 +144,14 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("Player died!");
         // Reload the scene
         sceneManager = FindObjectOfType<SceneManager>();
-        sceneManager.LoadPreviousScene();
+        if (sceneManager != null)
+        {
+            sceneManager.ReloadLevel();
+        }
+        else
+        {
+            Debug.LogError("SceneManager is missing!");
+        }
 
 
 
