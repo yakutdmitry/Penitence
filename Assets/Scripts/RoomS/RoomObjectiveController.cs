@@ -44,12 +44,19 @@ public class RoomObjectiveController : MonoBehaviour
         objectiveCompleted = true;
         OnObjectiveCompleted?.Invoke();
 
-        // Unlock doors when objective is completed
         if (roomInstance != null)
         {
             roomInstance.UnlockAllDoors();
         }
+
+        // Check if this is a Boss Room and transition to the next level
+        if (roomInstance.nodeData.template.type == RoomType.Boss)
+        {
+            Debug.Log("Boss defeated! Loading next scene...");
+            FindObjectOfType<SceneManager>()?.LoadNextScene();
+        }
     }
+
 
     private bool AllEnemiesDefeated()
     {
