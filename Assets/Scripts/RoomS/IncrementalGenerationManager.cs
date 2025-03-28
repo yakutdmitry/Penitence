@@ -241,10 +241,10 @@ public class IncrementalGenerationManager : MonoBehaviour
         Gizmos.DrawWireCube(worldPos, size);
 
         // Draw Label
-        if (showDebugGizmos)
-        {
-            UnityEditor.Handles.color = color;
-            UnityEditor.Handles.Label(worldPos + Vector3.up * debugLabelOffsetY, $"{roomName}\n({gridPos.x}, {gridPos.y})");
-        }
+        //if (showDebugGizmos)
+        //{
+        //    UnityEditor.Handles.color = color;
+        //    UnityEditor.Handles.Label(worldPos + Vector3.up * debugLabelOffsetY, $"{roomName}\n({gridPos.x}, {gridPos.y})");
+        //}
     }
 }

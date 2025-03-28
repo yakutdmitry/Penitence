@@ -398,7 +398,7 @@ Terrain:
   m_StaticShadowCaster: 0
   m_IgnoreQualitySettings: 0
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_MaterialTemplate: {fileID: 2100000, guid: cafb34c564f9a0d4f972acd0fe3ab910, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -910,6 +910,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3368835242517439994}
     m_Modifications:
+    - target: {fileID: 4807707342770733931, guid: ebe86bd7b8d83d24da6b44bf47f490be, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09798ac17bbc6f34ba566b6639a663a0, type: 2}
     - target: {fileID: 5977196480048199684, guid: ebe86bd7b8d83d24da6b44bf47f490be, type: 3}
       propertyPath: m_LocalScale.y
       value: 166.66998
@@ -1032,6 +1036,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MedievalHouse (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3760124835797875857, guid: 6ec03f466950f9c4c9d35ba880e359bf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09798ac17bbc6f34ba566b6639a663a0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1050,6 +1058,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3368835242517439994}
     m_Modifications:
+    - target: {fileID: 1780675933251607275, guid: 044e40a1f83b2764eb05cec07b31194c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 39fbf991017f37945a350e9568a492b2, type: 2}
     - target: {fileID: 4208360516039470538, guid: 044e40a1f83b2764eb05cec07b31194c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1094,6 +1106,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EastDooredWall
       objectReference: {fileID: 0}
+    - target: {fileID: 8608873525521916407, guid: 044e40a1f83b2764eb05cec07b31194c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 39fbf991017f37945a350e9568a492b2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1164,6 +1180,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MedievalHouse (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3760124835797875857, guid: 6ec03f466950f9c4c9d35ba880e359bf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09798ac17bbc6f34ba566b6639a663a0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1234,6 +1254,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MedievalHouse
       objectReference: {fileID: 0}
+    - target: {fileID: 3760124835797875857, guid: 6ec03f466950f9c4c9d35ba880e359bf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09798ac17bbc6f34ba566b6639a663a0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1252,6 +1276,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3368835242517439994}
     m_Modifications:
+    - target: {fileID: 238676755840612536, guid: 639280622eb06f44c8bc822583b41375, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09798ac17bbc6f34ba566b6639a663a0, type: 2}
     - target: {fileID: 1370466348854559703, guid: 639280622eb06f44c8bc822583b41375, type: 3}
       propertyPath: m_LocalPosition.x
       value: 28.076801
@@ -1314,6 +1342,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3368835242517439994}
     m_Modifications:
+    - target: {fileID: 3202588756721340572, guid: 92aae832986d56c41a35f2aac2050805, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 39fbf991017f37945a350e9568a492b2, type: 2}
     - target: {fileID: 5830670493769763690, guid: 92aae832986d56c41a35f2aac2050805, type: 3}
       propertyPath: m_Name
       value: SolidSouthWall
@@ -1428,6 +1460,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MedievalHouse (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3760124835797875857, guid: 6ec03f466950f9c4c9d35ba880e359bf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09798ac17bbc6f34ba566b6639a663a0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1446,6 +1482,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3368835242517439994}
     m_Modifications:
+    - target: {fileID: 158995400095644756, guid: d1bdda83507e4254a805f6bc2f2b7a58, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 39fbf991017f37945a350e9568a492b2, type: 2}
     - target: {fileID: 4810545839776341955, guid: d1bdda83507e4254a805f6bc2f2b7a58, type: 3}
       propertyPath: m_LocalPosition.x
       value: -37.5
@@ -1508,6 +1548,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3368835242517439994}
     m_Modifications:
+    - target: {fileID: 3469849585024575306, guid: 65eaef1c093f1f747984b15d9ac15bf5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 39fbf991017f37945a350e9568a492b2, type: 2}
     - target: {fileID: 6136619299159986074, guid: 65eaef1c093f1f747984b15d9ac15bf5, type: 3}
       propertyPath: m_Name
       value: NorthDooredWall
@@ -1552,6 +1596,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9068211851664090852, guid: 65eaef1c093f1f747984b15d9ac15bf5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 39fbf991017f37945a350e9568a492b2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

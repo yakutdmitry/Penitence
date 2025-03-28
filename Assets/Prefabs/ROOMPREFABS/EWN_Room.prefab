@@ -97,7 +97,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 9007a2741e4956e478e1de8137b17206, type: 2}
   m_BuildHeightMesh: 0
 --- !u!114 &4241650386067143404
 MonoBehaviour:
@@ -832,7 +832,7 @@ Terrain:
   m_StaticShadowCaster: 0
   m_IgnoreQualitySettings: 0
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_MaterialTemplate: {fileID: 2100000, guid: cafb34c564f9a0d4f972acd0fe3ab910, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -908,6 +908,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1174164711238650818}
     m_Modifications:
+    - target: {fileID: 1069569727046518799, guid: cab873bab71f7f546a2c0a213e251a3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 39fbf991017f37945a350e9568a492b2, type: 2}
     - target: {fileID: 4488463283949121315, guid: cab873bab71f7f546a2c0a213e251a3b, type: 3}
       propertyPath: m_Name
       value: WestDooredWall
@@ -952,6 +956,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6996685550898754323, guid: cab873bab71f7f546a2c0a213e251a3b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 39fbf991017f37945a350e9568a492b2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1022,6 +1030,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MedievalHouse
       objectReference: {fileID: 0}
+    - target: {fileID: 3760124835797875857, guid: 6ec03f466950f9c4c9d35ba880e359bf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09798ac17bbc6f34ba566b6639a663a0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1040,6 +1052,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1174164711238650818}
     m_Modifications:
+    - target: {fileID: 238676755840612536, guid: 639280622eb06f44c8bc822583b41375, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09798ac17bbc6f34ba566b6639a663a0, type: 2}
     - target: {fileID: 1370466348854559703, guid: 639280622eb06f44c8bc822583b41375, type: 3}
       propertyPath: m_LocalPosition.x
       value: 25.804731
@@ -1102,6 +1118,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1174164711238650818}
     m_Modifications:
+    - target: {fileID: 1780675933251607275, guid: 044e40a1f83b2764eb05cec07b31194c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 39fbf991017f37945a350e9568a492b2, type: 2}
     - target: {fileID: 4208360516039470538, guid: 044e40a1f83b2764eb05cec07b31194c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1146,6 +1166,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EastDooredWall
       objectReference: {fileID: 0}
+    - target: {fileID: 8608873525521916407, guid: 044e40a1f83b2764eb05cec07b31194c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 39fbf991017f37945a350e9568a492b2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1216,6 +1240,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MedievalHouse (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3760124835797875857, guid: 6ec03f466950f9c4c9d35ba880e359bf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09798ac17bbc6f34ba566b6639a663a0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1234,10 +1262,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1174164711238650818}
     m_Modifications:
+    - target: {fileID: 2504378859979254923, guid: 4defade8f468a8e40b8f4ad05ce80448, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09798ac17bbc6f34ba566b6639a663a0, type: 2}
+    - target: {fileID: 4033135934013297184, guid: 4defade8f468a8e40b8f4ad05ce80448, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09798ac17bbc6f34ba566b6639a663a0, type: 2}
+    - target: {fileID: 5525691682045822872, guid: 4defade8f468a8e40b8f4ad05ce80448, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09798ac17bbc6f34ba566b6639a663a0, type: 2}
     - target: {fileID: 5732479969264993634, guid: 4defade8f468a8e40b8f4ad05ce80448, type: 3}
       propertyPath: m_Name
       value: Building2
       objectReference: {fileID: 0}
+    - target: {fileID: 6540870683036365537, guid: 4defade8f468a8e40b8f4ad05ce80448, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 09798ac17bbc6f34ba566b6639a663a0, type: 2}
     - target: {fileID: 6652437830805104652, guid: 4defade8f468a8e40b8f4ad05ce80448, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.8326857
@@ -1296,6 +1340,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1174164711238650818}
     m_Modifications:
+    - target: {fileID: 3469849585024575306, guid: 65eaef1c093f1f747984b15d9ac15bf5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 39fbf991017f37945a350e9568a492b2, type: 2}
     - target: {fileID: 6136619299159986074, guid: 65eaef1c093f1f747984b15d9ac15bf5, type: 3}
       propertyPath: m_Name
       value: NorthDooredWall
@@ -1340,6 +1388,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9068211851664090852, guid: 65eaef1c093f1f747984b15d9ac15bf5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 39fbf991017f37945a350e9568a492b2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1358,6 +1410,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1174164711238650818}
     m_Modifications:
+    - target: {fileID: 3202588756721340572, guid: 92aae832986d56c41a35f2aac2050805, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 39fbf991017f37945a350e9568a492b2, type: 2}
     - target: {fileID: 5830670493769763690, guid: 92aae832986d56c41a35f2aac2050805, type: 3}
       propertyPath: m_Name
       value: SolidSouthWall

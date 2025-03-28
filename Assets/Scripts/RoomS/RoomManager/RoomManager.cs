@@ -59,7 +59,7 @@ public class RoomManager : MonoBehaviour
         }
     }
 
-    private void StartRoomGenerationFromRoom(Vector2Int roomIndex) 
+    public void StartRoomGenerationFromRoom(Vector2Int roomIndex) 
     {
         roomQueue.Enqueue(roomIndex);
         int x = roomIndex.x;

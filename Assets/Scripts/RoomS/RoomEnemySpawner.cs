@@ -6,7 +6,7 @@ public class RoomEnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private int minEnemiesPerRoom = 1;
-    [SerializeField] private int maxEnemiesPerRoom = 3;
+    [SerializeField] private int maxEnemiesPerRoom = 5;
 
     private List<GameObject> spawnedEnemies = new List<GameObject>();
 
