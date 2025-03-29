@@ -53,7 +53,7 @@ public class RoomObjectiveController : MonoBehaviour
         if (roomInstance.nodeData.template.type == RoomType.Boss)
         {
             Debug.Log("Boss defeated! Loading next scene...");
-            FindObjectOfType<SceneManager>()?.LoadNextScene();
+            FindObjectOfType<SceneManagerCustom>()?.LoadNextScene();
         }
     }
 
