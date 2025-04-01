@@ -241,6 +241,7 @@ MonoBehaviour:
   weaponPrefabs:
   - {fileID: 6148258828161963199, guid: 0859d4fba21670b4e9509c1019b50faa, type: 3}
   - {fileID: 1895093826060906310, guid: 889c5260cb046d04092fcd2a9868f47e, type: 3}
+  - {fileID: 935513096085895598, guid: 1066e7a7ce5a8b84b8a21b39ce24d777, type: 3}
   playerCamera: {fileID: 1804147901}
 --- !u!114 &231708087
 MonoBehaviour:
@@ -718,9 +719,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 150808747031587687, guid: d35a5796f7d75244a8432f50c6702437, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3641218754460909766, guid: d35a5796f7d75244a8432f50c6702437, type: 3}
       propertyPath: m_Name
       value: MeleeEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4845416889695711326, guid: d35a5796f7d75244a8432f50c6702437, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7961717483381472782, guid: d35a5796f7d75244a8432f50c6702437, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8957159819215609681, guid: d35a5796f7d75244a8432f50c6702437, type: 3}
       propertyPath: m_LocalPosition.x

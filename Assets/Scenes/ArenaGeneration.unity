@@ -890,7 +890,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d731e5e5488fba141a4e08c10cab34c9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.619
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1090,6 +1090,7 @@ MonoBehaviour:
   weaponPrefabs:
   - {fileID: 6148258828161963199, guid: 0859d4fba21670b4e9509c1019b50faa, type: 3}
   - {fileID: 1895093826060906310, guid: 889c5260cb046d04092fcd2a9868f47e, type: 3}
+  - {fileID: 935513096085895598, guid: 1066e7a7ce5a8b84b8a21b39ce24d777, type: 3}
   playerCamera: {fileID: 1089397294}
 --- !u!1001 &2033803158
 PrefabInstance:
