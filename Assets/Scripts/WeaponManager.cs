@@ -1,32 +1,46 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
-    public GameObject[] weaponPrefabs; // Array of weapon prefabs
-    private BaseWeapon currentWeapon; // Currently equipped weapon
-    public Camera playerCamera; // The player’s camera
+    public GameObject[] weaponPrefabs; // weapon array
+    private BaseWeapon currentWeapon; // 
+    public Camera playerCamera;
+    public GameObject crossbowUI;
+    public GameObject pistolUI;
 
     void Start()
     {
-        EquipWeapon(0); // Equip the first weapon (pistol) by default
+        EquipWeapon(0); 
     }
 
     void Update()
     {
-        // Switch weapons with number keys (e.g., 1 for Pistol, 2 for Shotgun)
+ 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            EquipWeapon(0); // Equip Pistol (index 0)
+            EquipWeapon(0); // pistol, its on 1
+            pistolUI.SetActive(true);
+            crossbowUI.SetActive(false);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            EquipWeapon(1); // Equip Shotgun (index 1)
+            EquipWeapon(1); // crossbow, on 2
+            pistolUI.SetActive(false);
+            crossbowUI.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            EquipWeapon(2); //Syringer on 3
+            //syringerUI.SetActive(true);
+            //pistolUI.SetActive(false);
+            //crossbowUI.SetActive(false);
         }
 
-        // Fire the current weapon
+
         if (Input.GetButton("Fire1") && currentWeapon != null)
         {
-            currentWeapon.Fire(); // Call the Fire method for the current weapon
+            currentWeapon.Fire(); 
         }
     }
 
@@ -34,22 +48,20 @@ public class WeaponManager : MonoBehaviour
     {
         if (index >= 0 && index < weaponPrefabs.Length)
         {
-            // Destroy the current weapon if it exists
+     
             if (currentWeapon != null)
             {
                 Destroy(currentWeapon.gameObject);
             }
 
-            // Instantiate the new weapon prefab at the player's position
             GameObject weaponInstance = Instantiate(weaponPrefabs[index], transform.position, transform.rotation);
 
-            // Get the BaseWeapon component from the instantiated prefab
+
             currentWeapon = weaponInstance.GetComponent<BaseWeapon>();
 
-            // Assign the camera to the new weapon
             if (currentWeapon != null)
             {
-                currentWeapon.playerCamera = playerCamera; // Ensure the camera reference is set
+                currentWeapon.playerCamera = playerCamera; 
                 currentWeapon.gameObject.SetActive(true);
             }
         }

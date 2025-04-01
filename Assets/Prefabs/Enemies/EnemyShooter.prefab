@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c774a8db36b07ff4e88424e791fe053a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 50
+  <MaxHealth>k__BackingField: 200
   detectionRange: 100
   attackRange: 2
   hearingRange: 150.2

@@ -387,13 +387,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3641218754460909766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eba84b4ef72b34349bfeb39c256ecfc4, type: 3}
+  m_Script: {fileID: 11500000, guid: a60f15c17301b0341a09d99cd4a4fe23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseRange: 100
+  chaseRange: 15
   attackRange: 2
-  <MaxHealth>k__BackingField: 30
-  attackDamage: 20
+  <MaxHealth>k__BackingField: 100
+  attackDamage: 10
+  MonsterDie: {fileID: 0}
+  MonsterAudioSource: {fileID: 5576721569295993832}
 --- !u!114 &1492704767247631766
 MonoBehaviour:
   m_ObjectHideFlags: 0
