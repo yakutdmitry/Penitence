@@ -18,7 +18,7 @@ public abstract class BaseWeapon : MonoBehaviour
             playerCamera = Camera.main; 
             if (playerCamera == null)
             {
-                Debug.LogError("No camera found. Please assign a camera to the playerCamera field.");
+                Debug.LogError("Camera isnt assigned probably dummy");
             }
         }
 
@@ -47,7 +47,7 @@ public abstract class BaseWeapon : MonoBehaviour
         return currentAmmo > 0;
     }
 
-    // Debugging method to display firing status
+
     public void DebugFire(bool canFire)
     {
         if (canFire)
