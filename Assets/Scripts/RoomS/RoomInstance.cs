@@ -84,7 +84,7 @@ public class RoomInstance : MonoBehaviour
             Invoke(nameof(BuildNavMeshDelayed), 0.2f); // Delay NavMesh build slightly
         }
 
-        enemySpawner?.SpawnEnemies(this);
+        //enemySpawner?.SpawnEnemies(this); // UnComment here if you want the enemies to spawn when the room spawns
         objectiveController = GetComponent<RoomObjectiveController>();
 
         if (objectiveController != null)
@@ -158,6 +158,11 @@ public class RoomInstance : MonoBehaviour
     public void PlayerEnteredRoom()
     {
         CloseAllDoors();
+
+        if (enemySpawner != null)
+        {
+            enemySpawner.SpawnEnemies(this);
+        }
 
         if (objectiveController != null && !objectiveCompleted)
         {
