@@ -184,8 +184,6 @@ public class Enemy : MonoBehaviour, iDamageable, iEnemyMoveable, iTriggerCheckab
             playerHealth.TakeDamage(attackDamage);
             attackCooldown = Time.time + attackCooldown;
         }
-
-
     }
 
     public void Die()
@@ -255,8 +253,7 @@ public class Enemy : MonoBehaviour, iDamageable, iEnemyMoveable, iTriggerCheckab
         // This is where we will update the animations
     }
 
-    #endregion 
-
+    #endregion
 
 
     #region Debug Gizmos

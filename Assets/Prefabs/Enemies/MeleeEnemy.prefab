@@ -392,7 +392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseRange: 100
   attackRange: 2
-  <MaxHealth>k__BackingField: 30
+  <MaxHealth>k__BackingField: 100
   attackDamage: 20
 --- !u!114 &1492704767247631766
 MonoBehaviour:
