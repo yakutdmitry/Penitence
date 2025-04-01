@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
@@ -5,6 +6,8 @@ public class WeaponManager : MonoBehaviour
     public GameObject[] weaponPrefabs; // weapon array
     private BaseWeapon currentWeapon; // 
     public Camera playerCamera;
+    public GameObject crossbowUI;
+    public GameObject pistolUI;
 
     void Start()
     {
@@ -17,14 +20,21 @@ public class WeaponManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             EquipWeapon(0); // pistol, its on 1
+            pistolUI.SetActive(true);
+            crossbowUI.SetActive(false);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             EquipWeapon(1); // crossbow, on 2
+            pistolUI.SetActive(false);
+            crossbowUI.SetActive(true);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             EquipWeapon(2); //Syringer on 3
+            //syringerUI.SetActive(true);
+            //pistolUI.SetActive(false);
+            //crossbowUI.SetActive(false);
         }
 
 

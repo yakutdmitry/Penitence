@@ -5,8 +5,8 @@ public class GatlingSyringer : BaseWeapon
     public float syringeRange = 50f;
     public float syringeDamage = 10f;
     public GameObject impactEffect;
-    public float tickEffect = 3f; // Duration of the status effect (e.g., 3 seconds)
-    public float slowPercentage = 0.5f; // Slow percentage (50% speed reduction)
+    public float tickEffect = 3f; 
+    public float sloweffectPercentage = 0.5f; 
     public LineRenderer lineRenderer;
 
     private bool isCooldownActive = false;
@@ -50,8 +50,6 @@ public class GatlingSyringer : BaseWeapon
                     
                 }
             }
-
-            // Instantiate impact effect if available
             if (impactEffect != null)
             {
                 Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
