@@ -67,7 +67,7 @@ public class FlintlockPistol : BaseWeapon
             }
             else
             {
-                Debug.LogWarning("Hit object does not implement iDamageable.");
+                //Debug.LogWarning("Hit object does not implement iDamageable.");
             }
 
             if (impactEffect != null)

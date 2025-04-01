@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class DoorController : MonoBehaviour
 {
@@ -10,7 +11,12 @@ public class DoorController : MonoBehaviour
 
     private void Start()
     {
-        // In case animator is not set, auto find it (but better to link it directly in prefab)
+        Collider col = GetComponent<Collider>();
+        if (col != null)
+        {
+            col.isTrigger = true; // Ensure trigger is active
+        }
+
         if (animator == null && visualDoorMesh != null)
         {
             animator = visualDoorMesh.GetComponent<Animator>();
@@ -48,6 +54,36 @@ public class DoorController : MonoBehaviour
         UpdateDoorAnimation();
     }
 
+    private Vector2Int GetDoorDirection()
+    {
+        Vector3 direction = transform.forward; // Assumes doors face outward
+
+        if (Vector3.Dot(direction, Vector3.forward) > 0.9f) return Vector2Int.up;
+        if (Vector3.Dot(direction, Vector3.back) > 0.9f) return Vector2Int.down;
+        if (Vector3.Dot(direction, Vector3.right) > 0.9f) return Vector2Int.right;
+        if (Vector3.Dot(direction, Vector3.left) > 0.9f) return Vector2Int.left;
+
+        return Vector2Int.zero; // Default case
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //Debug.Log($"{name} - Player entered door trigger!"); // Confirm if this runs
+        if (other.CompareTag("Player"))
+        {
+            TryOpen();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        //Debug.Log($"{name} - Player exited door trigger!"); // Confirm if this runs
+        if (other.CompareTag("Player"))
+        {
+            StartCoroutine(CloseDoorWithDelay(2f)); // Close door after 2 seconds
+        }
+    }
+
     private void UpdateDoorAnimation()
     {
         if (animator != null)
@@ -70,5 +106,11 @@ public class DoorController : MonoBehaviour
         {
             TryOpen();
         }
+    }
+
+    private IEnumerator CloseDoorWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        ForceClose();
     }
 }
