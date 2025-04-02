@@ -6,15 +6,12 @@ public class RoomEntranceTrigger : MonoBehaviour
 
     private void Start()
     {
-        generationManager = FindObjectOfType<IncrementalGenerationManager>();
-        if (generationManager == null)
+        RoomGenerationManager manager = FindObjectOfType<RoomGenerationManager>();
+        if (manager == null)
         {
-            Debug.LogError($" IncrementalGenerationManager could not be found!");
+            Debug.LogError("RoomGenerationManager could not be found!"); // Update the error message
         }
-        else
-        {
-            Debug.Log($" IncrementalGenerationManager successfully found by RoomEntranceTrigger");
-        }
+
     }
 
     private void OnTriggerEnter(Collider other)

@@ -35,7 +35,9 @@ public class FlintlockPistol : BaseWeapon
         }
         else if (!isCooldownActive)
         {
-            isCooldownActive = true; 
+            // Only log this once per cooldown
+            Debug.Log("Can't fire yet. Cooldown in progress.");
+            isCooldownActive = true; // Mark the cooldown as active
         }
     }
 
@@ -51,15 +53,22 @@ public class FlintlockPistol : BaseWeapon
         if (Physics.Raycast(rayStart, rayDirection, out RaycastHit hit, shotRange))
         {
             lineRenderer.SetPosition(1, hit.point);
+
+            Debug.Log($"Shot hit {hit.collider.gameObject.name} at {hit.point}");
+
+            // Try to get an iDamageable component on the hit object
             iDamageable damageable = hit.collider.GetComponentInParent<iDamageable>();
 
 
             if (damageable != null)
             {
-
-                damageable.TakeDamage(shotDamage); 
+                Debug.Log("Enemy detected! Applying damage...");
+                damageable.TakeDamage(shotDamage); // Apply damage
             }
-
+            else
+            {
+                //Debug.LogWarning("Hit object does not implement iDamageable.");
+            }
 
             if (impactEffect != null)
             {
@@ -69,6 +78,7 @@ public class FlintlockPistol : BaseWeapon
         else
         {
             lineRenderer.SetPosition(1, rayStart + rayDirection * shotRange);
+            Debug.Log("Shot missed.");
         }
 
         DecreaseAmmo();
@@ -79,12 +89,12 @@ public class FlintlockPistol : BaseWeapon
 
     private System.Collections.IEnumerator DisableLineRenderer()
     {
-
+        // Wait for 0.2 seconds (increase the time for better visibility)
         yield return new WaitForSeconds(2f);
         lineRenderer.enabled = false;
     }
 
-
+    // Call this method to reset the cooldown logging flag
     private void Update()
     {
         // resets cooldown

@@ -1,38 +1,43 @@
-using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class RoomSpawner : MonoBehaviour
 {
-    public float roomSize = 10f;
+    private RoomNode roomNode;
 
-    // Track already-spawned rooms to avoid double spawning
-    private HashSet<Vector2Int> spawnedPositions = new HashSet<Vector2Int>();
-
-    public void SpawnRooms(Dictionary<Vector2Int, RoomNode> layout)
+    public void Initialize(RoomNode node)
     {
-        foreach (var kvp in layout)
+        roomNode = node;
+        StartCoroutine(SpawnNeighbors());
+    }
+
+    private IEnumerator SpawnNeighbors()
+    {
+        yield return new WaitForSeconds(0.1f); // Prevents overlap
+
+        foreach (Vector2Int direction in roomNode.template.openDoors) // Use the fixed definition
         {
-            Vector2Int gridPos = kvp.Key;
-            RoomNode node = kvp.Value;
+            Vector2Int neighborPos = roomNode.position + direction;
 
-            // Skip if we've already spawned a room at this position
-            if (spawnedPositions.Contains(gridPos))
+            if (RoomManager.Instance.HasRoomAt(neighborPos))
             {
-                Debug.LogWarning($"Skipping duplicate spawn at {gridPos}");
-                continue;
+                RoomNode neighbor = RoomManager.Instance.GetRoomAt(neighborPos);
+                roomNode.AddNeighbor(neighbor);
+                neighbor.AddNeighbor(roomNode);
             }
-
-            Vector3 worldPos = new Vector3(gridPos.x * roomSize, 0, gridPos.y * roomSize);
-            GameObject roomInstance = Instantiate(node.template.prefab, worldPos, Quaternion.identity);
-
-            RoomInstance roomComponent = roomInstance.GetComponent<RoomInstance>();
-            if (roomComponent != null)
+            else if (RoomManager.Instance.roomNodes.Count < RoomManager.Instance.maxRooms)
             {
-                roomComponent.Initialize(node);
-            }
+                RoomTemplate newTemplate = RoomManager.Instance.roomPool.GetRandomRoom();
+                RoomNode newNode = new RoomNode(neighborPos, newTemplate);
 
-            // Mark position as occupied
-            spawnedPositions.Add(gridPos);
+                RoomManager.Instance.RegisterRoom(neighborPos, newNode);
+                RoomManager.Instance.SpawnRoom(newNode);
+
+                roomNode.AddNeighbor(newNode);
+                newNode.AddNeighbor(roomNode);
+            }
         }
     }
+
 }

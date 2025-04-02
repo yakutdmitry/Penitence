@@ -4,16 +4,18 @@ using System.Collections.Generic;
 
 public class RoomEnemySpawner : MonoBehaviour
 {
+
     [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private int minEnemiesPerRoom = 1;
     [SerializeField] private int maxEnemiesPerRoom = 5;
 
     private List<GameObject> spawnedEnemies = new List<GameObject>();
 
+
     public void SpawnEnemies(RoomInstance room)
     {
         int enemyCount = Random.Range(minEnemiesPerRoom, maxEnemiesPerRoom + 1);
-        Debug.Log($"Spawning {enemyCount} enemies in {room.gameObject.name}");
+        //Debug.Log($"Spawning {enemyCount} enemies in {room.gameObject.name}");
 
         for (int i = 0; i < enemyCount; i++)
         {

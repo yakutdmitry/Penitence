@@ -47,15 +47,31 @@ public class RoomObjectiveController : MonoBehaviour
         if (roomInstance != null)
         {
             roomInstance.UnlockAllDoors();
+
+            // Enable triggers in all adjacent rooms
+            roomInstance.SetRoomTriggersActive(true); // Enable this room's triggers
+            EnableAdjacentRoomTriggers(); // Also enable adjacent rooms
+
         }
 
-        // Check if this is a Boss Room and transition to the next level
         if (roomInstance.nodeData.template.type == RoomType.Boss)
         {
             Debug.Log("Boss defeated! Loading next scene...");
             FindObjectOfType<SceneManagerCustom>()?.LoadNextScene();
         }
     }
+
+    private void EnableAdjacentRoomTriggers()
+    {
+        foreach (RoomInstance adjacentRoom in roomInstance.GetAdjacentRooms())
+        {
+            if (adjacentRoom != null)
+            {
+                adjacentRoom.SetRoomTriggersActive(true);
+            }
+        }
+    }
+
 
 
     private bool AllEnemiesDefeated()

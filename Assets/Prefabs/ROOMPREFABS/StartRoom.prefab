@@ -304,6 +304,7 @@ GameObject:
   - component: {fileID: 2622597156381406522}
   - component: {fileID: 6490389437836145735}
   - component: {fileID: 6827887675728178563}
+  - component: {fileID: 2110790115722124937}
   m_Layer: 0
   m_Name: StartRoom
   m_TagString: Untagged
@@ -336,6 +337,7 @@ Transform:
   - {fileID: 8800830389501215030}
   - {fileID: 8034982393318051579}
   - {fileID: 5536303150411565470}
+  - {fileID: 5600865643596525006}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6490389437836145735
@@ -351,11 +353,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomSize: 75
-  enemyCount: 0
+  position: {x: 0, y: 0}
   northDoorAnchor: {fileID: 4722260212314688979}
   southDoorAnchor: {fileID: 0}
   eastDoorAnchor: {fileID: 7099943865671137340}
   westDoorAnchor: {fileID: 572046277354214036}
+  doorPrefab: {fileID: 9176584648435759433, guid: 3ed9f8965e3f0c64b966937775909883, type: 3}
+  enemyCount: 0
 --- !u!114 &6827887675728178563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,6 +391,21 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: b9756fac4b7740345806a568c3158d16, type: 2}
   m_BuildHeightMesh: 0
+--- !u!114 &2110790115722124937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5619395486316731033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 899f0e56ea2f245409f353418e388b9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabs: []
+  minEnemiesPerRoom: 0
+  maxEnemiesPerRoom: 0
 --- !u!1 &7534397664535017857
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +600,92 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8528640142467340333, guid: 92aae832986d56c41a35f2aac2050805, type: 3}
   m_PrefabInstance: {fileID: 3110507418833515776}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3228598115510921871
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2622597156381406522}
+    m_Modifications:
+    - target: {fileID: 477651449785802665, guid: 547da53535faeb5498495d70885a4ecf, type: 3}
+      propertyPath: m_TagString
+      value: DoorTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050515268494656536, guid: 547da53535faeb5498495d70885a4ecf, type: 3}
+      propertyPath: m_Name
+      value: RoomTriggers
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050515268494656536, guid: 547da53535faeb5498495d70885a4ecf, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886469405537229490, guid: 547da53535faeb5498495d70885a4ecf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886469405537229490, guid: 547da53535faeb5498495d70885a4ecf, type: 3}
+      propertyPath: m_TagString
+      value: DoorTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022252294028953409, guid: 547da53535faeb5498495d70885a4ecf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022252294028953409, guid: 547da53535faeb5498495d70885a4ecf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022252294028953409, guid: 547da53535faeb5498495d70885a4ecf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022252294028953409, guid: 547da53535faeb5498495d70885a4ecf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022252294028953409, guid: 547da53535faeb5498495d70885a4ecf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022252294028953409, guid: 547da53535faeb5498495d70885a4ecf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022252294028953409, guid: 547da53535faeb5498495d70885a4ecf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022252294028953409, guid: 547da53535faeb5498495d70885a4ecf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022252294028953409, guid: 547da53535faeb5498495d70885a4ecf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7022252294028953409, guid: 547da53535faeb5498495d70885a4ecf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629972938443246228, guid: 547da53535faeb5498495d70885a4ecf, type: 3}
+      propertyPath: m_TagString
+      value: DoorTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 8816216919490305681, guid: 547da53535faeb5498495d70885a4ecf, type: 3}
+      propertyPath: m_TagString
+      value: DoorTrigger
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 547da53535faeb5498495d70885a4ecf, type: 3}
+--- !u!4 &5600865643596525006 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7022252294028953409, guid: 547da53535faeb5498495d70885a4ecf, type: 3}
+  m_PrefabInstance: {fileID: 3228598115510921871}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4119394397830747313
 PrefabInstance:
