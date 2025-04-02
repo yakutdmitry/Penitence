@@ -144,6 +144,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 1839099235661134840, guid: 5c028f0d6519476489e5873b3fa19441, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 7353411955522373787, guid: 5c028f0d6519476489e5873b3fa19441, type: 3}
       propertyPath: CameraPosition
       value: 
@@ -328,6 +332,10 @@ PrefabInstance:
     - target: {fileID: 4450485986160333516, guid: 4e87596a733022a42875474ac25d156e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5518008549023740838, guid: 4e87596a733022a42875474ac25d156e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5518008549023740838, guid: 4e87596a733022a42875474ac25d156e, type: 3}
       propertyPath: healthText
