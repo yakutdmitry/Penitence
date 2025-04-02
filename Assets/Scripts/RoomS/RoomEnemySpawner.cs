@@ -11,25 +11,33 @@ public class RoomEnemySpawner : MonoBehaviour
 
     private List<GameObject> spawnedEnemies = new List<GameObject>();
 
-
     public void SpawnEnemies(RoomInstance room)
     {
         int enemyCount = Random.Range(minEnemiesPerRoom, maxEnemiesPerRoom + 1);
-        //Debug.Log($"Spawning {enemyCount} enemies in {room.gameObject.name}");
+        Debug.Log($"Spawning {enemyCount} enemies in {room.gameObject.name}");
 
         for (int i = 0; i < enemyCount; i++)
         {
             GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
             Vector3 spawnPosition = GetRandomSpawnPoint(room);
 
-            GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-            spawnedEnemies.Add(enemy);
-
-            Enemy enemyScript = enemy.GetComponent<Enemy>();
-            if (enemyScript != null)
+            // Check if the spawn position is on the NavMesh
+            if (NavMesh.SamplePosition(spawnPosition, out NavMeshHit hit, 1.0f, NavMesh.AllAreas))
             {
-                enemyScript.AssignRoom(room);
-                room.RegisterEnemy(); // Track enemy count in the room
+                spawnPosition = hit.position;
+                GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+                spawnedEnemies.Add(enemy);
+
+                Enemy enemyScript = enemy.GetComponent<Enemy>();
+                if (enemyScript != null)
+                {
+                    enemyScript.AssignRoom(room);
+                    room.RegisterEnemy(); // Track enemy count in the room
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Failed to spawn enemy at position: " + spawnPosition + " - Not on NavMesh");
             }
         }
     }
@@ -44,6 +52,7 @@ public class RoomEnemySpawner : MonoBehaviour
 
         return room.transform.position + randomOffset;
     }
+
 
     public void ClearEnemies()
     {

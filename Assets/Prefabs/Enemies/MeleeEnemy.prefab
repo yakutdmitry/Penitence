@@ -183,9 +183,9 @@ GameObject:
   - component: {fileID: 5576721569295993832}
   - component: {fileID: 1328516940223899186}
   - component: {fileID: 5397550170916559563}
-  - component: {fileID: 2229111016537690801}
   - component: {fileID: 1492704767247631766}
   - component: {fileID: 150808747031587687}
+  - component: {fileID: 2043025384244548836}
   m_Layer: 0
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -378,24 +378,6 @@ NavMeshAgent:
   m_BaseOffset: 0.96
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2229111016537690801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3641218754460909766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a60f15c17301b0341a09d99cd4a4fe23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chaseRange: 15
-  attackRange: 2
-  <MaxHealth>k__BackingField: 100
-  attackDamage: 10
-  MonsterDie: {fileID: 0}
-  MonsterAudioSource: {fileID: 5576721569295993832}
 --- !u!114 &1492704767247631766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -461,6 +443,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2043025384244548836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3641218754460909766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e15e6d0043b73b4286ee0fb5665f49b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3685519895434470095
 GameObject:
   m_ObjectHideFlags: 0

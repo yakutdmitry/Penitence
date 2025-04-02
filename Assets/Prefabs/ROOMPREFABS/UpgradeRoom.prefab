@@ -1042,6 +1042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomSize: 75
   position: {x: 0, y: 0}
+  enemySpawner: {fileID: 0}
   northDoorAnchor: {fileID: 6436495318896430445}
   southDoorAnchor: {fileID: 7776793264538886768}
   eastDoorAnchor: {fileID: 3692837667472720510}

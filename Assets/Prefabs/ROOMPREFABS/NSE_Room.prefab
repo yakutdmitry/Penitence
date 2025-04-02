@@ -473,6 +473,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomSize: 75
   position: {x: 0, y: 0}
+  enemySpawner: {fileID: 0}
   northDoorAnchor: {fileID: 3281430490592437588}
   southDoorAnchor: {fileID: 4095553513538242867}
   eastDoorAnchor: {fileID: 5570371797599380072}
@@ -497,7 +498,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0

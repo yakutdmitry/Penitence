@@ -1,16 +1,16 @@
 using UnityEngine;
-using UnityEngine.AI; 
+using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    public float chaseRange = 15f; 
-    public float attackRange = 2f; 
-    [field: SerializeField] public float MaxHealth { get; set; } = 100f; 
-    public float attackDamage = 10f; 
+    public float chaseRange = 15f;
+    public float attackRange = 2f;
+    [field: SerializeField] public float MaxHealth { get; set; } = 100f;
+    public float attackDamage = 10f;
 
-    private NavMeshAgent agent; 
+    private NavMeshAgent agent;
     private Transform player;
-    private PlayerMovement playerMovement; 
+    private PlayerMovement playerMovement;
     private HealthManager playerHealth;
     public float CurrentHealth { get; set; }
     public AudioClip MonsterDie;
@@ -21,7 +21,7 @@ public class EnemyAI : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        playerMovement = player.GetComponent<PlayerMovement>(); 
+        playerMovement = player.GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -57,7 +57,7 @@ public class EnemyAI : MonoBehaviour
 
         if (CurrentHealth <= 0)
         {
-            Die();  
+            Die();
         }
     }
 
