@@ -14,11 +14,11 @@ public class WeaponUISelector : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) ChangeWeapon(0);
-        if (Input.GetKeyDown(KeyCode.Alpha2)) ChangeWeapon(1);
-        if (Input.GetKeyDown(KeyCode.Alpha3)) ChangeWeapon(2);
-        if (Input.GetKeyDown(KeyCode.Alpha4)) ChangeWeapon(3);
-        if (Input.GetKeyDown(KeyCode.Alpha5)) ChangeWeapon(4);
+        if (Input.GetKeyDown(KeyCode.Q)) ChangeWeapon(0);
+        if (Input.GetKeyDown(KeyCode.E)) ChangeWeapon(1);
+        if (Input.GetKeyDown(KeyCode.R)) ChangeWeapon(2);
+        if (Input.GetKeyDown(KeyCode.F)) ChangeWeapon(3);
+        if (Input.GetKeyDown(KeyCode.T)) ChangeWeapon(4);
     }
 
     void ChangeWeapon(int newIndex)
