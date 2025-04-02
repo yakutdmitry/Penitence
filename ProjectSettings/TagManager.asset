@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Waypoint
   - DoorTrigger
+  - Grappleable
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - Walls
   - Obstacles
   - Collectables
-  - 
-  - 
+  - Grappleable
+  - Player
   - 
   - 
   - 
@@ -43,4 +44,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: New Layer 1
+    uniqueID: 3802341437
     locked: 0

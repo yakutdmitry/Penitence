@@ -28,20 +28,20 @@ public class HealthManager : MonoBehaviour, iDamageable
 
     public void TakeDamage(float damageAmount)
     {
-        Debug.Log($"{gameObject.name} took {damageAmount} damage! Current health: {CurrentHealth - damageAmount}");
+        //Debug.Log($"{gameObject.name} took {damageAmount} damage! Current health: {CurrentHealth - damageAmount}");
 
         CurrentHealth -= damageAmount;
 
         if (CurrentHealth <= 0)
         {
-            Debug.Log($"{gameObject.name} died! Calling Die().");
+         //   Debug.Log($"{gameObject.name} died! Calling Die().");
             Die();  // This should remove the enemy
         }
     }
 
     public void Die()
     {
-        Debug.Log($"{gameObject.name} is being destroyed!");
+       // Debug.Log($"{gameObject.name} is being destroyed!");
 
         Destroy(gameObject);
     }

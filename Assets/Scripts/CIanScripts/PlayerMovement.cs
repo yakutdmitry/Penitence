@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        // Movement direction calculation
+
         Movedirection = orientation.forward * VerticalInput + orientation.right * HorizontalInput;
         if (grounded)
             rb.AddForce(Movedirection.normalized * MovementSpeed * 10f, ForceMode.Force);
@@ -112,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
         {
             health -= damage;
             health = Mathf.Clamp(health, 0f, maxHealth);  // Ensure health doesn't go negative
-            Debug.Log("Player took damage: " + damage + ". Health remaining: " + health);
+           // Debug.Log("Player took damage: " + damage + ". Health remaining: " + health);
 
             // Update health UI
             UpdateHealthUI();
