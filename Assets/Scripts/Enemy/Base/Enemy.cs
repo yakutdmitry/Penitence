@@ -166,13 +166,13 @@ public class Enemy : MonoBehaviour, iDamageable, iEnemyMoveable, iTriggerCheckab
 
     public void TakeDamage(float damageAmount)
     {
-        Debug.Log($"{gameObject.name} took {damageAmount} damage! Current health: {CurrentHealth - damageAmount}");
+       // Debug.Log($"{gameObject.name} took {damageAmount} damage! Current health: {CurrentHealth - damageAmount}");
 
         CurrentHealth -= damageAmount;
 
         if (CurrentHealth <= 0)
         {
-            Debug.Log($"{gameObject.name} died!");
+            //Debug.Log($"{gameObject.name} died!");
             Die();
         }
     }
@@ -188,7 +188,7 @@ public class Enemy : MonoBehaviour, iDamageable, iEnemyMoveable, iTriggerCheckab
 
     public void Die()
     {
-        Debug.Log($"{gameObject.name} is being destroyed!");
+        //Debug.Log($"{gameObject.name} is being destroyed!");
 
         // Notify the room that an enemy has been defeated
         if (roomInstance != null)
