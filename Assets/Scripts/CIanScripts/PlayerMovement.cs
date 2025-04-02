@@ -35,11 +35,17 @@ public class PlayerMovement : MonoBehaviour
 
     private SceneManagerCustom sceneManager;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+        // Assign the SceneManagerCustom instance
+        sceneManager = FindObjectOfType<SceneManagerCustom>();
+        if (sceneManager == null)
+        {
+            Debug.LogError("SceneManagerCustom instance is missing!");
+        }
     }
 
     private void Update()
@@ -137,7 +143,6 @@ public class PlayerMovement : MonoBehaviour
         isInvincible = false;
     }
 
-    // Method for handling player death
     private void Die()
     {
         Debug.Log("Player died!");
@@ -149,6 +154,13 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("SceneManagerCustom instance is missing!");
         }
+        // Delay the Destroy call to ensure scene reload is initiated first
+        StartCoroutine(DestroyAfterDelay());
+    }
+
+    private IEnumerator DestroyAfterDelay()
+    {
+        yield return new WaitForSeconds(1f); // Adjust the delay as needed
         Destroy(gameObject);
     }
 
