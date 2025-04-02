@@ -48,28 +48,28 @@ public abstract class BaseWeapon : MonoBehaviour
     }
 
 
-    public void DebugFire(bool canFire)
-    {
-        if (canFire)
-        {
-            Debug.Log($"{gameObject.name} fired successfully.");
-        }
-        else
-        {
-            if (Time.time < nextFireTime)
-            {
-                Debug.Log($"{gameObject.name} failed to fire: Cooldown in progress (next fire time: {nextFireTime})");
-            }
-            else if (!HasAmmo())
-            {
-                Debug.Log($"{gameObject.name} failed to fire: No ammo (current ammo: {currentAmmo})");
-            }
-            else
-            {
-                Debug.Log($"{gameObject.name} failed to fire for an unknown reason.");
-            }
+    //public void DebugFire(bool canFire)
+    //{
+    //    if (canFire)
+    //    {
+    //        Debug.Log($"{gameObject.name} fired successfully.");
+    //    }
+    //    else
+    //    {
+    //        if (Time.time < nextFireTime)
+    //        {
+    //            Debug.Log($"{gameObject.name} failed to fire: Cooldown in progress (next fire time: {nextFireTime})");
+    //        }
+    //        else if (!HasAmmo())
+    //        {
+    //            Debug.Log($"{gameObject.name} failed to fire: No ammo (current ammo: {currentAmmo})");
+    //        }
+    //        else
+    //        {
+    //            Debug.Log($"{gameObject.name} failed to fire for an unknown reason.");
+    //        }
         
-    }
+    //}
 
 }
-}
+
