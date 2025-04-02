@@ -140,21 +140,16 @@ public class PlayerMovement : MonoBehaviour
     // Method for handling player death
     private void Die()
     {
-        // Handle death (e.g., show game over screen, respawn, etc.)
         Debug.Log("Player died!");
-        // Reload the scene
-        sceneManager = FindObjectOfType<SceneManagerCustom>();
         if (sceneManager != null)
         {
             sceneManager.ReloadLevel();
         }
         else
         {
-            Debug.LogError("SceneManager is missing!");
+            Debug.LogError("SceneManagerCustom instance is missing!");
         }
-
-
-
+        Destroy(gameObject);
     }
 
     // Method to update health UI
