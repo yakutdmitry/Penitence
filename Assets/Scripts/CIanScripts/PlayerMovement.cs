@@ -24,15 +24,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
 
-    // Health and Damage
-    public float health = 100f;  // Player's health
-    public float maxHealth = 100f; // Maximum health (you can adjust this)
-    public float invincibilityTime = 1f; // Time after taking damage where player is invincible
-    private bool isInvincible = false;
-
-    // Reference to HealthManager (UI)
-    public TMPro.TextMeshProUGUI healthText;  // Reference to the TextMeshPro component for UI
-
+    // Reference to HealthManager
+    private HealthManager healthManager;
     private SceneManagerCustom sceneManager;
 
     void Start()
@@ -45,6 +38,13 @@ public class PlayerMovement : MonoBehaviour
         if (sceneManager == null)
         {
             Debug.LogError("SceneManagerCustom instance is missing!");
+        }
+
+        // Assign the HealthManager instance
+        healthManager = GetComponent<HealthManager>();
+        if (healthManager == null)
+        {
+            Debug.LogError("HealthManager instance is missing!");
         }
     }
 
@@ -81,7 +81,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-
         Movedirection = orientation.forward * VerticalInput + orientation.right * HorizontalInput;
         if (grounded)
             rb.AddForce(Movedirection.normalized * MovementSpeed * 10f, ForceMode.Force);
@@ -111,38 +110,6 @@ public class PlayerMovement : MonoBehaviour
         ReadyToJump = true;
     }
 
-    // Method for taking damage
-    public void TakeDamage(float damage)
-    {
-        if (!isInvincible)
-        {
-            health -= damage;
-            health = Mathf.Clamp(health, 0f, maxHealth);  // Ensure health doesn't go negative
-           // Debug.Log("Player took damage: " + damage + ". Health remaining: " + health);
-
-            // Update health UI
-            UpdateHealthUI();
-
-            if (health <= 0)
-            {
-                Die();
-            }
-            else
-            {
-                // Apply temporary invincibility after taking damage
-                StartCoroutine(InvincibilityFrames());
-            }
-        }
-    }
-
-    // Coroutine to handle invincibility after taking damage
-    private IEnumerator InvincibilityFrames()
-    {
-        isInvincible = true;
-        yield return new WaitForSeconds(invincibilityTime);
-        isInvincible = false;
-    }
-
     private void Die()
     {
         Debug.Log("Player died!");
@@ -162,18 +129,5 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(1f); // Adjust the delay as needed
         Destroy(gameObject);
-    }
-
-    // Method to update health UI
-    private void UpdateHealthUI()
-    {
-        if (healthText != null)
-        {
-            healthText.text = "Health: " + health.ToString("F0");  // Format as integer (no decimals)
-        }
-        else
-        {
-            Debug.LogError("HealthText UI element is missing!");
-        }
     }
 }

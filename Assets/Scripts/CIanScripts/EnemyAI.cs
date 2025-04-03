@@ -22,6 +22,7 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerMovement = player.GetComponent<PlayerMovement>();
+        playerHealth = player.GetComponent<HealthManager>();
     }
 
     // Update is called once per frame
@@ -46,9 +47,9 @@ public class EnemyAI : MonoBehaviour
 
     private void AttackPlayer()
     {
-        if (playerMovement != null)
+        if (playerHealth != null) 
         {
-            playerMovement.TakeDamage(attackDamage);
+            playerHealth.TakeDamage(attackDamage);
         }
     }
     public void TakeDamage(float damageAmount)
