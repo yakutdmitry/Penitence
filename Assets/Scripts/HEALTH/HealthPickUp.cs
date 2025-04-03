@@ -5,20 +5,20 @@ using UnityEngine;
 public class HealthPickUp : MonoBehaviour
 {
     public int HealthAmount = 1;
+    public AudioClip healthPickupSound;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            // Get the HealthManager component from the player
-            HealthManager healthManager = other.GetComponent<HealthManager>();
-            if (healthManager != null)
+            HealthManager playerHealth = other.GetComponent<HealthManager>();
+            if (playerHealth != null)
             {
-                // Increase the player's health
-                healthManager.ModifyHealth(HealthAmount);
+                playerHealth.ModifyHealth(HealthAmount);
+                GameManager.Instance.ModifyHealth(HealthAmount); // Update GameManager
+                AudioSource.PlayClipAtPoint(healthPickupSound, transform.position);
+                Destroy(gameObject);
             }
-            // Destroy the health pickup object
-            Destroy(gameObject);
         }
     }
 }
