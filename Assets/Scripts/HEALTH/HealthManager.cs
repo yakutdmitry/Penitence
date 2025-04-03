@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class HealthManager : MonoBehaviour, iDamageable
 {
@@ -75,6 +76,18 @@ public class HealthManager : MonoBehaviour, iDamageable
 
     public void Die()
     {
-        Destroy(gameObject);
+        if (CompareTag("Player"))
+        {
+            Debug.Log("Player has died.");
+            // Reload the scene
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        }
+        else
+        {
+            Debug.Log(gameObject.name + " has died.");
+            // Handle enemy death (e.g., drop loot, destroy object)
+            Destroy(gameObject);
+        }
     }
 }
