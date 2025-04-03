@@ -39,7 +39,7 @@ public class RoomInstance : MonoBehaviour
     {
         navMeshSurface = GetComponentInChildren<NavMeshSurface>();
         enemySpawner = GetComponent<RoomEnemySpawner>(); // Use GetComponent to find the component
-        //Debug.Log("Enemy spawner: " + enemySpawner);
+                                                         //Debug.Log("Enemy spawner: " + enemySpawner);
         objectiveController = GetComponent<RoomObjectiveController>();
 
         if (navMeshSurface != null)
@@ -59,6 +59,13 @@ public class RoomInstance : MonoBehaviour
     private void BuildNavMeshDelayed()
     {
         navMeshSurface.BuildNavMesh();
+        Debug.Log("NavMesh built for room: " + gameObject.name);
+
+        // Spawn enemies after the NavMesh is built
+        if (enemySpawner != null)
+        {
+            enemySpawner.SpawnEnemies(this);
+        }
     }
 
     public void Initialize(Vector2Int pos, Vector2Int entryDirection)
@@ -81,16 +88,16 @@ public class RoomInstance : MonoBehaviour
         //Debug.Log($"Room at {position} initialized with doors: North: {doors[Vector2Int.up]}, South: {doors[Vector2Int.down]}, East: {doors[Vector2Int.right]}, West: {doors[Vector2Int.left]}");
 
         // Spawn enemies in the room
-        if (enemySpawner != null)
-        {
-            //Debug.Log("Spawning enemies in room: " + gameObject.name);
-            enemySpawner.SpawnEnemies(this);
-            //Debug.Log("Enemies spawned in room: " + gameObject.name);
-        }
-        else
-        {
-            Debug.LogWarning("Enemy spawner is null in room: " + gameObject.name);
-        }
+        //if (enemySpawner != null)
+        //{
+        //    //Debug.Log("Spawning enemies in room: " + gameObject.name);
+        //    enemySpawner.SpawnEnemies(this);
+        //    //Debug.Log("Enemies spawned in room: " + gameObject.name);
+        //}
+        //else
+        //{
+        //    Debug.LogWarning("Enemy spawner is null in room: " + gameObject.name);
+        //}
     }
 
     public void SetAsStartRoom()

@@ -25,28 +25,21 @@ public class DoorwayGenerationManager : MonoBehaviour
     private void Start()
     {
         Vector2Int startPos = Vector2Int.zero;
-        //Debug.Log($"Spawning start room at {startPos}");
 
-        // Ensure the start room template is set
         if (startRoomTemplate == null)
         {
             Debug.LogError("Start room template is missing!");
             return;
         }
 
-        // Create the start room node
         RoomNode startNode = new RoomNode(startPos, startRoomTemplate);
-
-        // Spawn the room before adding it to the dictionary to avoid skipping spawn
         startRoomInstance = SpawnRoom(startNode, true);
 
         if (startRoomInstance != null)
         {
-            // Only add to map if spawn was successful
             roomMap[startPos] = startNode;
             roomPositions[startPos] = startRoomInstance;
 
-            // Set the start room and spawn doors
             startRoomInstance.SetAsStartRoom();
             startRoomInstance.SpawnDoors();
         }
@@ -54,19 +47,14 @@ public class DoorwayGenerationManager : MonoBehaviour
 
     public void OnPlayerEnterDoorway(Vector2Int doorwayPosition, Vector2Int direction)
     {
-        //Debug.Log($"[DoorwayGenerationManager] Doorway entered. Position: {doorwayPosition}, Direction: {direction}");
-
         Vector2Int newRoomPos = doorwayPosition + direction;
-        //Debug.Log($"Attempting to spawn room at {newRoomPos}");
 
-        // If the room already exists, don't spawn another one
         if (roomMap.ContainsKey(newRoomPos))
         {
             Debug.Log($"Room already exists at {newRoomPos}, skipping spawn.");
             return;
         }
 
-        // Pick a room that has a door facing the correct direction
         RoomTemplate nextRoomTemplate = PickNextRoomTemplateWithDoorFacing(direction, newRoomPos);
         if (nextRoomTemplate == null)
         {
@@ -74,7 +62,6 @@ public class DoorwayGenerationManager : MonoBehaviour
             return;
         }
 
-        // Create and track the new room
         RoomNode newNode = new RoomNode(newRoomPos, nextRoomTemplate);
         roomMap[newRoomPos] = newNode;
 
@@ -85,17 +72,16 @@ public class DoorwayGenerationManager : MonoBehaviour
             return;
         }
 
-        roomPositions[newRoomPos] = newRoom; // Update roomPositions dictionary
+        roomPositions[newRoomPos] = newRoom;
 
         CreateDoorBetween(doorwayPosition, newRoom, direction);
         TrackRoomSpawn();
 
-        // Close the door behind the player with a delay
         RoomInstance existingRoom = roomPositions[doorwayPosition];
         DoorController door = existingRoom.GetDoorAnchor(direction).GetComponentInChildren<DoorController>();
         if (door != null)
         {
-            StartCoroutine(CloseDoorWithDelay(2f, door)); // Close door after 2 seconds
+            StartCoroutine(CloseDoorWithDelay(2f, door));
         }
     }
 
@@ -108,14 +94,11 @@ public class DoorwayGenerationManager : MonoBehaviour
     private Vector3 GridToWorldPosition(Vector2Int gridPos)
     {
         Vector3 worldPos = new Vector3(gridPos.x * roomSize, 0, gridPos.y * roomSize);
-        //Debug.Log($"[GridToWorldPosition] Grid position {gridPos} -> World position {worldPos} (roomSize: {roomSize})");
         return worldPos;
     }
 
-
     private void CreateDoorBetween(Vector2Int doorwayPosition, RoomInstance newRoom, Vector2Int direction)
     {
-        //Debug.Log($"Creating door between rooms with direction: {direction}");
         if (direction == Vector2Int.zero)
         {
             Debug.LogError("Attempting to create a door with an invalid direction (0,0). Check room generation logic.");
@@ -150,16 +133,10 @@ public class DoorwayGenerationManager : MonoBehaviour
 
         Quaternion doorRotation = GetDoorRotation(direction);
 
-        //Debug.Log($"[CreateDoorBetween] Instantiating door at {doorwayPosition} with direction {direction}");
-
         GameObject doorObj = Instantiate(doorPrefab, doorPosition, doorRotation);
         if (doorObj == null)
         {
             Debug.LogError("[CreateDoorBetween] Door instantiation FAILED!");
-        }
-        else
-        {
-            //Debug.Log($"[CreateDoorBetween] Door successfully instantiated at {doorPosition}");
         }
 
         DoorController door = doorObj.GetComponent<DoorController>();
@@ -167,15 +144,11 @@ public class DoorwayGenerationManager : MonoBehaviour
         existingRoom.RegisterDoor(direction, door);
         newRoom.RegisterDoor(-direction, door);
         door.SetLocked(!existingRoom.isStartRoom && !newRoom.isStartRoom);
-
-        //Debug.Log($"Door spawned between {doorwayPosition} and {newRoom.nodeData.position} at {doorPosition}");
     }
 
     private RoomInstance SpawnRoom(RoomNode node, bool isStartRoom = false)
     {
         Vector3 pos = GridToWorldPosition(node.position);
-
-        //Debug.Log($"[SpawnRoom] Spawning room at grid {node.position}, world position: {pos}");
 
         RoomInstance instance = Instantiate(node.template.prefab, pos, Quaternion.identity).GetComponent<RoomInstance>();
 
@@ -185,10 +158,8 @@ public class DoorwayGenerationManager : MonoBehaviour
             return null;
         }
 
-        // Ensure RoomEnemySpawner is set before calling Initialize
         instance.enemySpawner = instance.GetComponent<RoomEnemySpawner>();
 
-        // Initialize the room instance
         instance.nodeData = node;
         instance.Initialize(node.position, Vector2Int.zero);
 
@@ -197,10 +168,7 @@ public class DoorwayGenerationManager : MonoBehaviour
             instance.SetAsStartRoom();
         }
 
-        // Spawn doors for the room
         instance.SpawnDoors();
-
-        // Disable doorway triggers until the objective is complete
         instance.SetRoomTriggersActive(false);
 
         return instance;
@@ -212,11 +180,9 @@ public class DoorwayGenerationManager : MonoBehaviour
 
         foreach (RoomTemplate template in possibleRooms)
         {
-            // Room must have a door facing the intended direction
             if (!DoesRoomHaveDoorFacing(template, direction))
                 continue;
 
-            // If a neighboring room exists, it must have a matching doorway
             Vector2Int oppositeDirection = -direction;
             if (!DoesRoomHaveDoorFacing(template, oppositeDirection))
                 continue;
@@ -235,14 +201,10 @@ public class DoorwayGenerationManager : MonoBehaviour
 
     private bool DoesRoomHaveDoorFacing(RoomTemplate template, Vector2Int direction)
     {
-        //Debug.Log($"Checking if {template.roomName} has door facing {direction}");
-
         bool hasDoor = direction == Vector2Int.up ? template.hasNorthDoor :
                        direction == Vector2Int.down ? template.hasSouthDoor :
                        direction == Vector2Int.right ? template.hasEastDoor :
                        direction == Vector2Int.left ? template.hasWestDoor : false;
-
-        //Debug.Log($"Checking if {template.roomName} has door facing {direction}: {hasDoor}");
         return hasDoor;
     }
 
@@ -271,6 +233,18 @@ public class DoorwayGenerationManager : MonoBehaviour
         {
             bossRoomSpawned = true;
             Debug.Log("Boss room condition met. Boss room will now be spawned.");
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (roomMap == null) return;
+
+        Gizmos.color = Color.green;
+        foreach (var room in roomMap)
+        {
+            Vector3 worldPos = GridToWorldPosition(room.Key);
+            Gizmos.DrawWireCube(worldPos, new Vector3(roomSize, 1, roomSize));
         }
     }
 }

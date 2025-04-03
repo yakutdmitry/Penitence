@@ -170,6 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomSize: 75
   position: {x: 0, y: 0}
+  enemySpawner: {fileID: 0}
   northDoorAnchor: {fileID: 7689709517762393945}
   southDoorAnchor: {fileID: 3488939012434205408}
   eastDoorAnchor: {fileID: 0}
@@ -194,7 +195,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -951,7 +952,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8793830583137503894}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 

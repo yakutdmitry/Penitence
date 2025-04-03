@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -43,16 +44,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void AddScore(int amount)
-    {
-        score += amount;
-        Debug.Log("Score Updated: " + score);
-    }
-
     public void ModifyHealth(int amount)
     {
         health = Mathf.Clamp(health + amount, 0, maxHealth);
         Debug.Log("Health Updated: " + health);
+    }
+
+    public void AddScore(int amount)
+    {
+        score += amount;
+        Debug.Log("Score Updated: " + score);
     }
 
     public void ModifyAmmo(int amount)

@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: ede989d017101a44f94ef227de8b38e5
+guid: ce7d5e572a2fb73499e88b1300ab2049
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WallWithDoorTXXT
+    second: {fileID: 2100000, guid: ad66fca85e3c1be48993699d8de73093, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: WallWithGateTXT
+    second: {fileID: 2800000, guid: b7a936f030ba09744a3b207194875eb2, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

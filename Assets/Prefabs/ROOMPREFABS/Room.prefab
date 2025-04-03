@@ -321,7 +321,6 @@ GameObject:
   - component: {fileID: 8365210652067068093}
   - component: {fileID: 5042699535755245249}
   - component: {fileID: 3097553202975054958}
-  - component: {fileID: 5261553869302739248}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -371,6 +370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomSize: 75
   position: {x: 0, y: 0}
+  enemySpawner: {fileID: 0}
   northDoorAnchor: {fileID: 6835126143983313933}
   southDoorAnchor: {fileID: 3359762140779012104}
   eastDoorAnchor: {fileID: 4733788476909032340}
@@ -395,7 +395,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -439,28 +439,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectiveType: 0
---- !u!64 &5261553869302739248
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2544082612070717699}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &2711230528996263129
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,6 +809,7 @@ GameObject:
   - component: {fileID: 1404403252453815494}
   - component: {fileID: 1498051826957686438}
   - component: {fileID: 7614297986277354258}
+  - component: {fileID: 933194627758032104}
   m_Layer: 3
   m_Name: Room_Terrain
   m_TagString: Untagged
@@ -970,7 +949,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8301893335071923692}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
@@ -994,6 +973,28 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: b9b9dd3c57f8e3b4888631cc8329c43e, type: 2}
   m_BuildHeightMesh: 0
+--- !u!64 &933194627758032104
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8301893335071923692}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &557918702393316375
 PrefabInstance:
   m_ObjectHideFlags: 0
