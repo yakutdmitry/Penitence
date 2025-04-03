@@ -1,0 +1,205 @@
+135a202 - LuckyIRL, 69 minutes ago : HealthManager update
+Scene reloads when player dies, using the healthManager
+
+0a9a90f - LuckyIRL, 73 minutes ago : GameManager Prefab
+
+1749ca4 - LuckyIRL, 89 minutes ago : Health Pick up
+Added a health pick up (needs audio pick up sound)
+
+e26e316 - LuckyIRL, 2 hours ago : Merge branch 'main' of https://github.com/RockyHorrorFreakShow/Penitence
+
+0198e3f - LuckyIRL, 2 hours ago : Moved Player health to GameManager
+The Player Health is now in the GameManager
+
+27e48f5 - MaleeqOlan, 3 hours ago : added UI Prefab
+
+c6b45b2 - LuckyIRL, 14 hours ago : Fixed scene reload
+Fixed scene reloading when player dies
+
+6ca3cf4 - LuckyIRL, 15 hours ago : Fixed NavMesh
+Added Missing mesh colliders
+
+2171d9a - LuckyIRL, 15 hours ago : SceneManagerCustom
+
+be9e585 - LuckyIRL, 16 hours ago : Fixed NavMesh
+Stopped NavMesh issue
+
+4b86000 - yakutdmitry, 18 hours ago : Merge pull request #5 from yakutdmitry/main
+Scaled walls to required dimensions
+9d9366c - yakutdmitry, 18 hours ago : Merge branch 'main' of https://github.com/yakutdmitry/Penitence
+
+9f92db1 - yakutdmitry, 18 hours ago : scaled assets
+
+11b5d98 - yakutdmitry, 18 hours ago : Merge pull request #4 from yakutdmitry/main
+Wall with a Door Added
+41ee85c - yakutdmitry, 18 hours ago : Merge branch 'RockyHorrorFreakShow:main' into main
+
+474a01b - yakutdmitry, 18 hours ago : Wall with a Gate added
+
+8906b35 - RockyHorrorFreakShow, 18 hours ago : Moved new player into main scene, removed old debug msgs
+Basically replaced the canvas with a new prefab with all needed UI features that were present in the build already. Also shifted the grapple player into the main scene. Objects need to be made grappleable tho
+
+067137b - RockyHorrorFreakShow, 19 hours ago : Merge branch 'main' of https://github.com/RockyHorrorFreakShow/Penitence
+
+03ad1e6 - RockyHorrorFreakShow, 19 hours ago : Added Meathook ability
+It's assigned to E,
+I made a variant of the base player prefab with it attached, and then replaced the one in Scene 1 with the grapple-abled player.
+
+!!!IF YOU ARE IMPLEMENTING IT, IT USES THE TAG "Grappleable" TO DETECT WHAT IS AND ISN'T GRAPPLEABLE!!!
+
+501a5e1 - yakutdmitry, 19 hours ago : Merge pull request #3 from yakutdmitry/main
+First model with texxture Added
+d7ad6ce - yakutdmitry, 19 hours ago : Merge branch 'main' of https://github.com/yakutdmitry/Penitence
+
+2f93042 - yakutdmitry, 19 hours ago : Wall asset with texture added
+
+0c18897 - MaleeqOlan, 21 hours ago : bind change
+
+2089a76 - MaleeqOlan, 21 hours ago : hud/vic font
+
+c8eaf4e - RockyHorrorFreakShow, 22 hours ago : Merge branch 'main' of https://github.com/RockyHorrorFreakShow/Penitence
+
+3213bb7 - RockyHorrorFreakShow, 22 hours ago : Added the UI stuff that was missing for Peter
+
+63205c0 - MaleeqOlan, 23 hours ago : WeaponWheelUI
+
+0c7bfaf - LuckyIRL, 2 days ago : Fix
+
+d159d08 - LuckyIRL, 2 days ago : New Scene 1
+
+94de272 - LuckyIRL, 2 days ago : Merge branch 'main' of https://github.com/RockyHorrorFreakShow/Penitence
+
+a71c073 - LuckyIRL, 2 days ago : New Generator
+Added a new level generator, spawns random room when player approaches the door
+
+4372fa2 - RockyHorrorFreakShow, 2 days ago : Changed floor from terrain to plains for optimisation
+
+454ee07 - RockyHorrorFreakShow, 2 days ago : weapon stats edited
+
+3fb7f53 - RockyHorrorFreakShow, 3 days ago : minor changes, just altered the debug
+
+e951f1c - RockyHorrorFreakShow, 3 days ago : Merge branch 'main' of https://github.com/RockyHorrorFreakShow/Penitence
+
+2954835 - RockyHorrorFreakShow, 3 days ago : Added new weapon: Syringe gun
+
+e912a0b - RockyHorrorFreakShow, 3 days ago : Added a new weapon: Syringe gun
+
+2a7e66d - LuckyIRL, 5 days ago : Tidy up
+
+701016c - LuckyIRL, 5 days ago : Added Permanent Upgrades
+Added Logic for permanent upgrades and ability to purchase them
+
+693da2b - LuckyIRL, 6 days ago : Update RoomObjectiveController
+Checks if the room completed is the boss room and calls load next level from scene manager
+
+77e1a75 - LuckyIRL, 6 days ago : Enemy spawn fix
+Enemies spawn when player enters room
+
+a3f950c - RockyHorrorFreakShow, 6 days ago : Build we made for the presentation
+
+e852d9b - LuckyIRL, 3 weeks ago : Updated UI
+Fixed screen space camera to Screen Space Overlay
+
+84406a1 - LuckyIRL, 3 weeks ago : Added start scene with music
+
+796ad38 - LuckyIRL, 3 weeks ago : Added building to all prefabs
+
+df2100f - yakutdmitry, 3 weeks ago : Merge pull request #2 from yakutdmitry/main
+House Fix
+5cd06f9 - yakutdmitry, 3 weeks ago : Merge branch 'RockyHorrorFreakShow:main' into main
+
+bdbb08e - yakutdmitry, 3 weeks ago : fix Array
+
+276c48c - LuckyIRL, 3 weeks ago : added buildings to E prefab
+
+296d329 - yakutdmitry, 3 weeks ago : Merge pull request #1 from yakutdmitry/main
+3D models Imported
+2a0914a - yakutdmitry, 3 weeks ago : Merge branch 'main' of https://github.com/yakutdmitry/Penitence
+
+52eca1c - yakutdmitry, 3 weeks ago : 3d models
+
+0705ead - LuckyIRL, 3 weeks ago : Added enemies
+
+d6cff06 - LuckyIRL, 3 weeks ago : Gun spread fix
+
+7995ad1 - LuckyIRL, 3 weeks ago : Made Prefabs Bigger
+All walls are now taller
+
+4f4b5d2 - LuckyIRL, 3 weeks ago : Added Terrains for every prefab
+Added all Terrains
+And added 4 new Combat rooms NE, SE, NW,SW
+
+1cae6ee - LuckyIRL, 3 weeks ago : Added enemy count trigger for room
+Each room now tracks the number of enemies and opens the door when it reaches 0
+
+cc0ef0b - LuckyIRL, 3 weeks ago : Fixed Enemy taking damage
+Fixed the Enemy taking damage and dealing damage
+
+0c3da92 - MaleeqOlan, 4 weeks ago : Merge branch 'main' of https://github.com/RockyHorrorFreakShow/Penitence
+
+b6a67cb - MaleeqOlan, 4 weeks ago : Soul Essence
+
+74476d1 - LuckyIRL, 4 weeks ago : Added enemy spawner
+Added a nav mesh to each room prefab and an editable enemy spawner and enemy scriptable object system
+
+83634aa - RockyHorrorFreakShow, 4 weeks ago : Enemy ai added, guns dont hurt it yet but im working on it
+
+24751b9 - RockyHorrorFreakShow, 4 weeks ago : added empty script, ignore for now
+
+a15f51a - LuckyIRL, 4 weeks ago : Fixed room generation
+Added correct prefabs and made matching scriptable objects
+
+e38f6f0 - LuckyIRL, 4 weeks ago : Fixed Door Animation
+Have the doors working I think
+
+40cef0b - LuckyIRL, 4 weeks ago : Duplicate Camera holder
+
+e3bdbd0 - RockyHorrorFreakShow, 4 weeks ago : Merge branch 'main' of https://github.com/RockyHorrorFreakShow/Penitence
+
+72db773 - RockyHorrorFreakShow, 4 weeks ago : Guns added, visuals needed
+
+77d9e66 - LuckyIRL, 4 weeks ago : Updated new scene
+
+c21bc7a - LuckyIRL, 4 weeks ago : New Generator
+A generator like binding of Isaac
+
+14ae3bf - LuckyIRL, 4 weeks ago : Doors Doors Doors
+
+ad977c5 - LuckyIRL, 4 weeks ago : Added player prefab
+
+507362b - LuckyIRL, 4 weeks ago : Updated Generator
+Kinda have it working
+
+996c35e - LuckyIRL, 5 weeks ago : Added Incremental Level generator
+Added new generator and different basic room types
+
+8df64c4 - LuckyIRL, 5 weeks ago : Added UnitHealth
+Added UnitHealth and GameManager
+
+ae78c26 - LuckyIRL, 5 weeks ago : Fixing Room Spawning
+Getting stacked room duplication for some reason
+
+8866f82 - LuckyIRL, 5 weeks ago : Added Exit Variables
+Where the prefab has a door - North South East West
+
+377e209 - LuckyIRL, 5 weeks ago : Boss Room Scriptable
+
+e6676f7 - LuckyIRL, 5 weeks ago : Update Room Prefab
+Added outer walls to stop missing walls
+
+f608a58 - LuckyIRL, 5 weeks ago : Added Arena Generation
+New Scene with test level generation, needs more room types - Treasure, Boss etc
+
+813a86c - MaleeqOlan, 5 weeks ago : pOWERupIcons
+
+d30715d - MaleeqOlan, 5 weeks ago : REVAMP EYE
+
+f05ff9b - MaleeqOlan, 5 weeks ago : added eye animation
+
+5d7f254 - MaleeqOlan, 5 weeks ago : Added Title screen page and UI hud
+
+f7d9c57 - RockyHorrorFreakShow, 5 weeks ago : Movement + enemy prototype
+The enemy is a WIP, dw about it too much
+Working on the gun rn - cian
+
+3fceb83 - RockyHorrorFreakShow, 6 weeks ago : Initial commit
