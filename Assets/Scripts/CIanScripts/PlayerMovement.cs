@@ -32,19 +32,17 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-
-        // Assign the SceneManagerCustom instance
         sceneManager = FindObjectOfType<SceneManagerCustom>();
         if (sceneManager == null)
         {
-            Debug.LogError("SceneManagerCustom instance is missing!");
+            Debug.LogError("Scenemaneger is missing");
         }
 
         // Assign the HealthManager instance
         healthManager = GetComponent<HealthManager>();
         if (healthManager == null)
         {
-            Debug.LogError("HealthManager instance is missing!");
+            Debug.LogError("HealthManager missing");
         }
     }
 
@@ -52,8 +50,7 @@ public class PlayerMovement : MonoBehaviour
     {
         MyInput();
         SpeedControl();
-
-        // Check for grounded status
+        // logic for groundcheck
         grounded = Physics.Raycast(transform.position, Vector3.down, PlayerHeight * 0.5f + 0.2f, IsGround);
 
         if (grounded)
@@ -121,13 +118,13 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("SceneManagerCustom instance is missing!");
         }
-        // Delay the Destroy call to ensure scene reload is initiated first
+
         StartCoroutine(DestroyAfterDelay());
     }
 
     private IEnumerator DestroyAfterDelay()
     {
-        yield return new WaitForSeconds(1f); // Adjust the delay as needed
+        yield return new WaitForSeconds(1f); // delat adjuster
         Destroy(gameObject);
     }
 }
