@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour
 
     private NavMeshAgent agent;
     private Transform player;
-    private PlayerMovement playerMovement;
+    private HealthManager healthManager;
     public float CurrentHealth { get; set; }
     public AudioClip MonsterDie;
     public AudioSource MonsterAudioSource;
@@ -22,7 +22,7 @@ public class EnemyAI : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        playerMovement = player.GetComponent<PlayerMovement>();
+        healthManager = player.GetComponent<HealthManager>();
     }
 
     // Update is called once per frame
@@ -50,9 +50,9 @@ public class EnemyAI : MonoBehaviour
 
     private void AttackPlayer()
     {
-        if (playerMovement != null)
+        if (healthManager != null)
         {
-            playerMovement.TakeDamage(attackDamage);
+            healthManager.TakeDamage(attackDamage);
         }
     }
 

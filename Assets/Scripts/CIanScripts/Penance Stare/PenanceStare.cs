@@ -33,7 +33,7 @@ public class PenanceStare : MonoBehaviour
 
         if (cooldownTimer > 0f)
         {
-            cooldownTimer -= Time.deltaTime;  
+            cooldownTimer -= Time.deltaTime;
         }
     }
 
