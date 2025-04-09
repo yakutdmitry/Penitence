@@ -124,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator DestroyAfterDelay()
     {
-        yield return new WaitForSeconds(1f); // delat adjuster
+        yield return new WaitForSeconds(1f); 
         Destroy(gameObject);
     }
 }

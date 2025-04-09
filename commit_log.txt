@@ -1,0 +1,460 @@
+Date: 2025-04-04
+Author: RockyHorrorFreakShow
+Message: fixed jitter with the meathook
+Commit: 5275f9c
+
+Date: 2025-04-04
+Author: RockyHorrorFreakShow
+Message: Texture added to meathook
+Commit: 3e7b7e6
+
+Date: 2025-04-03
+Author: RockyHorrorFreakShow
+Message: Added penance stare and enemy rotate script
+Commit: 86c7b47
+
+Date: 2025-04-03
+Author: RockyHorrorFreakShow
+Message: Added Penance stare ability and script to rotate enemies
+Commit: 4be1fd1
+
+Date: 2025-04-03
+Author: LuckyIRL
+Message: Upgrade Room Fix
+Commit: db86755
+
+Date: 2025-04-03
+Author: LuckyIRL
+Message: Push git log
+Commit: 37f4f41
+
+Date: 2025-04-03
+Author: LuckyIRL
+Message: HealthManager update
+Commit: 135a202
+
+Date: 2025-04-03
+Author: LuckyIRL
+Message: GameManager Prefab
+Commit: 0a9a90f
+
+Date: 2025-04-03
+Author: LuckyIRL
+Message: Health Pick up
+Commit: 1749ca4
+
+Date: 2025-04-03
+Author: LuckyIRL
+Message: Merge branch 'main' of https://github.com/RockyHorrorFreakShow/Penitence
+Commit: e26e316
+
+Date: 2025-04-03
+Author: LuckyIRL
+Message: Moved Player health to GameManager
+Commit: 0198e3f
+
+Date: 2025-04-03
+Author: MaleeqOlan
+Message: added UI Prefab
+Commit: 27e48f5
+
+Date: 2025-04-02
+Author: LuckyIRL
+Message: Fixed scene reload
+Commit: c6b45b2
+
+Date: 2025-04-02
+Author: LuckyIRL
+Message: Fixed NavMesh
+Commit: 6ca3cf4
+
+Date: 2025-04-02
+Author: LuckyIRL
+Message: SceneManagerCustom
+Commit: 2171d9a
+
+Date: 2025-04-02
+Author: LuckyIRL
+Message: Fixed NavMesh
+Commit: be9e585
+
+Date: 2025-04-02
+Author: yakutdmitry
+Message: Merge pull request #5 from yakutdmitry/main
+Commit: 4b86000
+
+Date: 2025-04-02
+Author: yakutdmitry
+Message: Merge branch 'main' of https://github.com/yakutdmitry/Penitence
+Commit: 9d9366c
+
+Date: 2025-04-02
+Author: yakutdmitry
+Message: scaled assets
+Commit: 9f92db1
+
+Date: 2025-04-02
+Author: yakutdmitry
+Message: Merge pull request #4 from yakutdmitry/main
+Commit: 11b5d98
+
+Date: 2025-04-02
+Author: yakutdmitry
+Message: Merge branch 'RockyHorrorFreakShow:main' into main
+Commit: 41ee85c
+
+Date: 2025-04-02
+Author: yakutdmitry
+Message: Wall with a Gate added
+Commit: 474a01b
+
+Date: 2025-04-02
+Author: RockyHorrorFreakShow
+Message: Moved new player into main scene, removed old debug msgs
+Commit: 8906b35
+
+Date: 2025-04-02
+Author: RockyHorrorFreakShow
+Message: Merge branch 'main' of https://github.com/RockyHorrorFreakShow/Penitence
+Commit: 067137b
+
+Date: 2025-04-02
+Author: RockyHorrorFreakShow
+Message: Added Meathook ability
+Commit: 03ad1e6
+
+Date: 2025-04-02
+Author: yakutdmitry
+Message: Merge pull request #3 from yakutdmitry/main
+Commit: 501a5e1
+
+Date: 2025-04-02
+Author: yakutdmitry
+Message: Merge branch 'main' of https://github.com/yakutdmitry/Penitence
+Commit: d7ad6ce
+
+Date: 2025-04-02
+Author: yakutdmitry
+Message: Wall asset with texture added
+Commit: 2f93042
+
+Date: 2025-04-02
+Author: MaleeqOlan
+Message: bind change
+Commit: 0c18897
+
+Date: 2025-04-02
+Author: MaleeqOlan
+Message: hud/vic font
+Commit: 2089a76
+
+Date: 2025-04-02
+Author: RockyHorrorFreakShow
+Message: Merge branch 'main' of https://github.com/RockyHorrorFreakShow/Penitence
+Commit: c8eaf4e
+
+Date: 2025-04-02
+Author: RockyHorrorFreakShow
+Message: Added the UI stuff that was missing for Peter
+Commit: 3213bb7
+
+Date: 2025-04-02
+Author: MaleeqOlan
+Message: WeaponWheelUI
+Commit: 63205c0
+
+Date: 2025-04-01
+Author: LuckyIRL
+Message: Fix
+Commit: 0c7bfaf
+
+Date: 2025-04-01
+Author: LuckyIRL
+Message: New Scene 1
+Commit: d159d08
+
+Date: 2025-04-01
+Author: LuckyIRL
+Message: Merge branch 'main' of https://github.com/RockyHorrorFreakShow/Penitence
+Commit: 94de272
+
+Date: 2025-04-01
+Author: LuckyIRL
+Message: New Generator
+Commit: a71c073
+
+Date: 2025-04-01
+Author: RockyHorrorFreakShow
+Message: Changed floor from terrain to plains for optimisation
+Commit: 4372fa2
+
+Date: 2025-04-01
+Author: RockyHorrorFreakShow
+Message: weapon stats edited
+Commit: 454ee07
+
+Date: 2025-04-01
+Author: RockyHorrorFreakShow
+Message: minor changes, just altered the debug
+Commit: 3fb7f53
+
+Date: 2025-04-01
+Author: RockyHorrorFreakShow
+Message: Merge branch 'main' of https://github.com/RockyHorrorFreakShow/Penitence
+Commit: e951f1c
+
+Date: 2025-04-01
+Author: RockyHorrorFreakShow
+Message: Added new weapon: Syringe gun
+Commit: 2954835
+
+Date: 2025-04-01
+Author: RockyHorrorFreakShow
+Message: Added a new weapon: Syringe gun
+Commit: e912a0b
+
+Date: 2025-03-29
+Author: LuckyIRL
+Message: Tidy up
+Commit: 2a7e66d
+
+Date: 2025-03-29
+Author: LuckyIRL
+Message: Added Permanent Upgrades
+Commit: 701016c
+
+Date: 2025-03-28
+Author: LuckyIRL
+Message: Update RoomObjectiveController
+Commit: 693da2b
+
+Date: 2025-03-28
+Author: LuckyIRL
+Message: Enemy spawn fix
+Commit: 77e1a75
+
+Date: 2025-03-28
+Author: RockyHorrorFreakShow
+Message: Build we made for the presentation
+Commit: a3f950c
+
+Date: 2025-03-14
+Author: LuckyIRL
+Message: Updated UI
+Commit: e852d9b
+
+Date: 2025-03-14
+Author: LuckyIRL
+Message: Added start scene with music
+Commit: 84406a1
+
+Date: 2025-03-13
+Author: LuckyIRL
+Message: Added building to all prefabs
+Commit: 796ad38
+
+Date: 2025-03-13
+Author: yakutdmitry
+Message: Merge pull request #2 from yakutdmitry/main
+Commit: df2100f
+
+Date: 2025-03-13
+Author: yakutdmitry
+Message: Merge branch 'RockyHorrorFreakShow:main' into main
+Commit: 5cd06f9
+
+Date: 2025-03-13
+Author: yakutdmitry
+Message: fix Array
+Commit: bdbb08e
+
+Date: 2025-03-13
+Author: LuckyIRL
+Message: added buildings to E prefab
+Commit: 276c48c
+
+Date: 2025-03-13
+Author: yakutdmitry
+Message: Merge pull request #1 from yakutdmitry/main
+Commit: 296d329
+
+Date: 2025-03-13
+Author: yakutdmitry
+Message: Merge branch 'main' of https://github.com/yakutdmitry/Penitence
+Commit: 2a0914a
+
+Date: 2025-03-13
+Author: yakutdmitry
+Message: 3d models
+Commit: 52eca1c
+
+Date: 2025-03-13
+Author: LuckyIRL
+Message: Added enemies
+Commit: 0705ead
+
+Date: 2025-03-11
+Author: LuckyIRL
+Message: Gun spread fix
+Commit: d6cff06
+
+Date: 2025-03-11
+Author: LuckyIRL
+Message: Made Prefabs Bigger
+Commit: 7995ad1
+
+Date: 2025-03-10
+Author: LuckyIRL
+Message: Added Terrains for every prefab
+Commit: 4f4b5d2
+
+Date: 2025-03-10
+Author: LuckyIRL
+Message: Added enemy count trigger for room
+Commit: 1cae6ee
+
+Date: 2025-03-10
+Author: LuckyIRL
+Message: Fixed Enemy taking damage
+Commit: cc0ef0b
+
+Date: 2025-03-09
+Author: MaleeqOlan
+Message: Merge branch 'main' of https://github.com/RockyHorrorFreakShow/Penitence
+Commit: 0c3da92
+
+Date: 2025-03-09
+Author: MaleeqOlan
+Message: Soul Essence
+Commit: b6a67cb
+
+Date: 2025-03-09
+Author: LuckyIRL
+Message: Added enemy spawner
+Commit: 74476d1
+
+Date: 2025-03-06
+Author: RockyHorrorFreakShow
+Message: Enemy ai added, guns dont hurt it yet but im working on it
+Commit: 83634aa
+
+Date: 2025-03-06
+Author: RockyHorrorFreakShow
+Message: added empty script, ignore for now
+Commit: 24751b9
+
+Date: 2025-03-06
+Author: LuckyIRL
+Message: Fixed room generation
+Commit: a15f51a
+
+Date: 2025-03-06
+Author: LuckyIRL
+Message: Fixed Door Animation
+Commit: e38f6f0
+
+Date: 2025-03-05
+Author: LuckyIRL
+Message: Duplicate Camera holder
+Commit: 40cef0b
+
+Date: 2025-03-04
+Author: RockyHorrorFreakShow
+Message: Merge branch 'main' of https://github.com/RockyHorrorFreakShow/Penitence
+Commit: e3bdbd0
+
+Date: 2025-03-04
+Author: RockyHorrorFreakShow
+Message: Guns added, visuals needed
+Commit: 72db773
+
+Date: 2025-03-04
+Author: LuckyIRL
+Message: Updated new scene
+Commit: 77d9e66
+
+Date: 2025-03-04
+Author: LuckyIRL
+Message: New Generator
+Commit: c21bc7a
+
+Date: 2025-03-03
+Author: LuckyIRL
+Message: Doors Doors Doors
+Commit: 14ae3bf
+
+Date: 2025-03-03
+Author: LuckyIRL
+Message: Added player prefab
+Commit: ad977c5
+
+Date: 2025-03-03
+Author: LuckyIRL
+Message: Updated Generator
+Commit: 507362b
+
+Date: 2025-03-02
+Author: LuckyIRL
+Message: Added Incremental Level generator
+Commit: 996c35e
+
+Date: 2025-03-01
+Author: LuckyIRL
+Message: Added UnitHealth
+Commit: 8df64c4
+
+Date: 2025-03-01
+Author: LuckyIRL
+Message: Fixing Room Spawning
+Commit: ae78c26
+
+Date: 2025-03-01
+Author: LuckyIRL
+Message: Added Exit Variables
+Commit: 8866f82
+
+Date: 2025-03-01
+Author: LuckyIRL
+Message: Boss Room Scriptable
+Commit: 377e209
+
+Date: 2025-03-01
+Author: LuckyIRL
+Message: Update Room Prefab
+Commit: e6676f7
+
+Date: 2025-03-01
+Author: LuckyIRL
+Message: Added Arena Generation
+Commit: f608a58
+
+Date: 2025-02-28
+Author: MaleeqOlan
+Message: pOWERupIcons
+Commit: 813a86c
+
+Date: 2025-02-28
+Author: MaleeqOlan
+Message: REVAMP EYE
+Commit: d30715d
+
+Date: 2025-02-27
+Author: MaleeqOlan
+Message: added eye animation
+Commit: f05ff9b
+
+Date: 2025-02-26
+Author: MaleeqOlan
+Message: Added Title screen page and UI hud
+Commit: 5d7f254
+
+Date: 2025-02-26
+Author: RockyHorrorFreakShow
+Message: Movement + enemy prototype
+Commit: f7d9c57
+
+Date: 2025-02-21
+Author: RockyHorrorFreakShow
+Message: Initial commit
+Commit: 3fceb83
+ECHO is on.
