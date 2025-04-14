@@ -318,6 +318,21 @@ public class RoomInstance : MonoBehaviour
         }
     }
 
+    public void DisableEntryTrigger(Vector2Int direction)
+    {
+        Transform anchor = GetDoorAnchor(direction);
+        if (anchor != null)
+        {
+            Transform triggerObj = anchor.Find("DoorTrigger");
+            if (triggerObj != null)
+            {
+                Collider col = triggerObj.GetComponent<Collider>();
+                if (col != null)
+                    col.enabled = false;
+            }
+        }
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;

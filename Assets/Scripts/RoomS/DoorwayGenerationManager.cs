@@ -66,6 +66,8 @@ public class DoorwayGenerationManager : MonoBehaviour
         roomMap[newRoomPos] = newNode;
 
         RoomInstance newRoom = SpawnRoom(newNode);
+        newRoom.DisableEntryTrigger(-direction);
+
         if (newRoom == null)
         {
             Debug.LogError($"[ERROR] Failed to spawn room at {newRoomPos}");
