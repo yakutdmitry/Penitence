@@ -558,7 +558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8528640142467340333, guid: 92aae832986d56c41a35f2aac2050805, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8528640142467340333, guid: 92aae832986d56c41a35f2aac2050805, type: 3}
       propertyPath: m_LocalPosition.z
@@ -699,7 +699,7 @@ PrefabInstance:
     - target: {fileID: 1780675933251607275, guid: 044e40a1f83b2764eb05cec07b31194c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 39fbf991017f37945a350e9568a492b2, type: 2}
+      objectReference: {fileID: 2100000, guid: e341f2bbc8960af4eaae4254365cb923, type: 2}
     - target: {fileID: 4208360516039470538, guid: 044e40a1f83b2764eb05cec07b31194c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -747,7 +747,7 @@ PrefabInstance:
     - target: {fileID: 8608873525521916407, guid: 044e40a1f83b2764eb05cec07b31194c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 39fbf991017f37945a350e9568a492b2, type: 2}
+      objectReference: {fileID: 2100000, guid: e341f2bbc8960af4eaae4254365cb923, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -769,7 +769,7 @@ PrefabInstance:
     - target: {fileID: 1069569727046518799, guid: cab873bab71f7f546a2c0a213e251a3b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 39fbf991017f37945a350e9568a492b2, type: 2}
+      objectReference: {fileID: 2100000, guid: e341f2bbc8960af4eaae4254365cb923, type: 2}
     - target: {fileID: 4488463283949121315, guid: cab873bab71f7f546a2c0a213e251a3b, type: 3}
       propertyPath: m_Name
       value: WestDooredWall
@@ -817,7 +817,7 @@ PrefabInstance:
     - target: {fileID: 6996685550898754323, guid: cab873bab71f7f546a2c0a213e251a3b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 39fbf991017f37945a350e9568a492b2, type: 2}
+      objectReference: {fileID: 2100000, guid: e341f2bbc8960af4eaae4254365cb923, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -839,7 +839,7 @@ PrefabInstance:
     - target: {fileID: 3469849585024575306, guid: 65eaef1c093f1f747984b15d9ac15bf5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 39fbf991017f37945a350e9568a492b2, type: 2}
+      objectReference: {fileID: 2100000, guid: e341f2bbc8960af4eaae4254365cb923, type: 2}
     - target: {fileID: 6136619299159986074, guid: 65eaef1c093f1f747984b15d9ac15bf5, type: 3}
       propertyPath: m_Name
       value: NorthDooredWall
@@ -887,7 +887,7 @@ PrefabInstance:
     - target: {fileID: 9068211851664090852, guid: 65eaef1c093f1f747984b15d9ac15bf5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 39fbf991017f37945a350e9568a492b2, type: 2}
+      objectReference: {fileID: 2100000, guid: e341f2bbc8960af4eaae4254365cb923, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
