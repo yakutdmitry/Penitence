@@ -8,7 +8,6 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
-  importerVersion: 1
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -36,7 +35,7 @@ ScriptedImporter:
     spriteMeshType: 0
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 1
+    spritePixelsToUnits: 100
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -98,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638765346745628351
+  platformSettingsDirtyTick: 638804137513947140
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -122,47 +121,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Frame_0
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 601
-      width: 640
-      height: 183
-    spriteID: 556a4c00ba3c5a54f944ce43df8ee4ac
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 601}
-  - name: Frame_1
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 207
-      width: 640
-      height: 188
-    spriteID: 34d6f13f51e845245b9e86d72730d672
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 207}
-  - name: Frame_2
+  - name: flintlockShoot_Frame_0
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -172,8 +131,8 @@ ScriptedImporter:
       x: 4
       y: 4
       width: 640
-      height: 195
-    spriteID: c8ed3fe313936494aae11d519dbbf712
+      height: 360
+    spriteID: ca968a30d02a7bc498b496908cfea172
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -182,18 +141,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Frame_3
+  - name: flintlockShoot_Frame_1
     originalName: 
-    pivot: {x: 0.51446944, y: 0}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 403
-      width: 622
-      height: 190
-    spriteID: 7e3accc0d46eb8048a8947ac3e6c26f7
+      x: 652
+      y: 4
+      width: 640
+      height: 360
+    spriteID: 13aa2572a7fcef046ab59d92ee9c3670
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -201,8 +160,28 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 403}
-  - name: Frame_4
+    uvTransform: {x: 652, y: 4}
+  - name: flintlockShoot_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1300
+      y: 4
+      width: 640
+      height: 360
+    spriteID: 867b2bb3ebb6f1348a505d99f46c564f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1300, y: 4}
+  - name: flintlockShoot_Frame_3
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -210,10 +189,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 792
+      y: 372
       width: 640
-      height: 183
-    spriteID: 1c3555929379c3d4dbdbe9d927a58858
+      height: 360
+    spriteID: e638b9224fbf9e646860c0f4bb0e5af7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -221,61 +200,104 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 792}
+    uvTransform: {x: 4, y: 372}
+  - name: flintlockShoot_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 652
+      y: 372
+      width: 640
+      height: 360
+    spriteID: 617a51c435f026246b7278f9a45caada
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 652, y: 372}
+  - name: flintlockShoot_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1300
+      y: 372
+      width: 640
+      height: 360
+    spriteID: 165002ff0092c294c912feafa77b1e13
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 1300, y: 372}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -750679491
+    guid: -1667014503
     name: flintlockShoot
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Frame_0
+    - name: flintlockShoot_Frame_0
       frameIndex: 0
-      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 640
-        height: 183
-      spriteId: 556a4c00ba3c5a54f944ce43df8ee4ac
-    - name: Frame_1
+        height: 360
+      spriteId: ca968a30d02a7bc498b496908cfea172
+    - name: flintlockShoot_Frame_1
       frameIndex: 1
-      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 640
-        height: 188
-      spriteId: 34d6f13f51e845245b9e86d72730d672
-    - name: Frame_2
+        height: 360
+      spriteId: 13aa2572a7fcef046ab59d92ee9c3670
+    - name: flintlockShoot_Frame_2
       frameIndex: 2
-      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 640
-        height: 195
-      spriteId: c8ed3fe313936494aae11d519dbbf712
-    - name: Frame_3
+        height: 360
+      spriteId: 867b2bb3ebb6f1348a505d99f46c564f
+    - name: flintlockShoot_Frame_3
       frameIndex: 3
-      additiveSortOrder: 0
-      cellRect:
-        x: 0
-        y: 0
-        width: 622
-        height: 190
-      spriteId: 7e3accc0d46eb8048a8947ac3e6c26f7
-    - name: Frame_4
-      frameIndex: 4
-      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 640
-        height: 183
-      spriteId: 1c3555929379c3d4dbdbe9d927a58858
+        height: 360
+      spriteId: e638b9224fbf9e646860c0f4bb0e5af7
+    - name: flintlockShoot_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 0
+        y: 0
+        width: 640
+        height: 360
+      spriteId: 617a51c435f026246b7278f9a45caada
+    - name: flintlockShoot_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 0
+        y: 0
+        width: 640
+        height: 360
+      spriteId: 165002ff0092c294c912feafa77b1e13
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -327,8 +349,19 @@ ScriptedImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 640, y: 360}
-  previousTextureSize: {x: 1024, y: 1024}
