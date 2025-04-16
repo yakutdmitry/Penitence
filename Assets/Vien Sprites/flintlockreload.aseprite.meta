@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 1
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -121,7 +122,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: flintlockreload_Frame_0
+  - name: Frame_0
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -132,7 +133,7 @@ ScriptedImporter:
       y: 4
       width: 640
       height: 183
-    spriteID: edc55b0899a79224eb3116fd31b65c8c
+    spriteID: 51c23ead2f9c42c49a60874f8c79caba
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -141,7 +142,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: flintlockreload_Frame_1
+  - name: Frame_1
     originalName: 
     pivot: {x: 0.496063, y: 0}
     alignment: 9
@@ -152,7 +153,7 @@ ScriptedImporter:
       y: 195
       width: 635
       height: 183
-    spriteID: d1e1574bdd1c34f4092800d7a419c563
+    spriteID: 3df540adcf1884946bc52e2695c5465e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -161,7 +162,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 195}
-  - name: flintlockreload_Frame_2
+  - name: Frame_2
     originalName: 
     pivot: {x: 0.48963317, y: 0}
     alignment: 9
@@ -172,7 +173,7 @@ ScriptedImporter:
       y: 386
       width: 627
       height: 183
-    spriteID: a936aff6f5a51094187d4139fbbd1ed2
+    spriteID: dc5eaa755aeddf94bbf479db7e679486
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -181,7 +182,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 386}
-  - name: flintlockreload_Frame_3
+  - name: Frame_3
     originalName: 
     pivot: {x: 0.48387095, y: 0}
     alignment: 9
@@ -192,7 +193,7 @@ ScriptedImporter:
       y: 577
       width: 620
       height: 183
-    spriteID: a45e7e1c1eb5d0b4b94a2bc7bcfc1125
+    spriteID: 4728531cc5445f24f839d82c4e185174
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -201,7 +202,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 577}
-  - name: flintlockreload_Frame_4
+  - name: Frame_4
     originalName: 
     pivot: {x: 0.47368422, y: 0}
     alignment: 9
@@ -212,7 +213,7 @@ ScriptedImporter:
       y: 768
       width: 608
       height: 183
-    spriteID: 12dd55480d1830a4b85242e5bb8d0dc3
+    spriteID: 39858bf8222482342841706fbfd44885
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -221,7 +222,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 768}
-  - name: flintlockreload_Frame_5
+  - name: Frame_5
     originalName: 
     pivot: {x: 0.47368422, y: 0}
     alignment: 9
@@ -232,7 +233,7 @@ ScriptedImporter:
       y: 959
       width: 608
       height: 183
-    spriteID: ea24c8ad3ae54f34fb688b6af1d5a681
+    spriteID: dd768848668cc8b49af9b098548cd5bc
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -244,60 +245,66 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1730012453
+    guid: 1769885703
     name: flintlockreload
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: flintlockreload_Frame_0
+    - name: Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 640
         height: 183
-      spriteId: edc55b0899a79224eb3116fd31b65c8c
-    - name: flintlockreload_Frame_1
+      spriteId: 51c23ead2f9c42c49a60874f8c79caba
+    - name: Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 5
         y: 0
         width: 635
         height: 183
-      spriteId: d1e1574bdd1c34f4092800d7a419c563
-    - name: flintlockreload_Frame_2
+      spriteId: 3df540adcf1884946bc52e2695c5465e
+    - name: Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 13
         y: 0
         width: 627
         height: 183
-      spriteId: a936aff6f5a51094187d4139fbbd1ed2
-    - name: flintlockreload_Frame_3
+      spriteId: dc5eaa755aeddf94bbf479db7e679486
+    - name: Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 20
         y: 0
         width: 620
         height: 183
-      spriteId: a45e7e1c1eb5d0b4b94a2bc7bcfc1125
-    - name: flintlockreload_Frame_4
+      spriteId: 4728531cc5445f24f839d82c4e185174
+    - name: Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 32
         y: 0
         width: 608
         height: 183
-      spriteId: 12dd55480d1830a4b85242e5bb8d0dc3
-    - name: flintlockreload_Frame_5
+      spriteId: 39858bf8222482342841706fbfd44885
+    - name: Frame_5
       frameIndex: 5
+      additiveSortOrder: 0
       cellRect:
         x: 32
         y: 0
         width: 608
         height: 183
-      spriteId: ea24c8ad3ae54f34fb688b6af1d5a681
+      spriteId: dd768848668cc8b49af9b098548cd5bc
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -317,3 +324,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 640, y: 360}
+  previousTextureSize: {x: 1024, y: 2048}
