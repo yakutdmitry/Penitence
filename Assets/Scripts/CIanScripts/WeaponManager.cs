@@ -9,6 +9,8 @@ public class WeaponManager : MonoBehaviour
     public GameObject crossbowUI;
     public GameObject pistolUI;
 
+    private SpriteAnimatorUI currentWeaponAnimator; // A reference to the active weapon UI animator.
+
     void Start()
     {
         EquipWeapon(0); 
@@ -41,6 +43,11 @@ public class WeaponManager : MonoBehaviour
         if (Input.GetButton("Fire1") && currentWeapon != null)
         {
             currentWeapon.Fire(); 
+
+            if(currentWeaponAnimator != null)
+            {
+                currentWeaponAnimator.PlayShootAnimation();
+            }
         }
     }
 
@@ -64,6 +71,21 @@ public class WeaponManager : MonoBehaviour
                 currentWeapon.playerCamera = playerCamera; 
                 currentWeapon.gameObject.SetActive(true);
             }
+            // Set the reference to the proper UI animator based on the equipped weapon.
+            // For example, index 0 is pistol and index 1 is crossbow.
+                        if (index == 0)
+            {
+                currentWeaponAnimator = pistolUI.GetComponent<SpriteAnimatorUI>();
+            }
+            else if (index == 1)
+            {
+                currentWeaponAnimator = crossbowUI.GetComponent<SpriteAnimatorUI>();
+            }
+            else
+            {
+                // If we add more weapons, add further logic here.
+                currentWeaponAnimator = null;
         }
     }
+}
 }
