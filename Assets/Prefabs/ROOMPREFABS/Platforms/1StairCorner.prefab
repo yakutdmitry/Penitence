@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7374507179652362672}
   - component: {fileID: 4499460314876272505}
   - component: {fileID: 2378744411866895609}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: 1StairCorner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2076,12 +2076,8 @@ MonoBehaviour:
   m_VersionIndex: 8509
   m_IsSelectable: 1
   m_SelectedFaces: 
-  m_SelectedEdges:
-  - a: 254
-    b: 253
-  - a: 246
-    b: 245
-  m_SelectedVertices: fe000000fd000000f6000000f5000000
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!114 &5746433918569927477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2137,7 +2133,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
+  - {fileID: 2100000, guid: cfa5f371aff54b141b26d66c0cd0935d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
