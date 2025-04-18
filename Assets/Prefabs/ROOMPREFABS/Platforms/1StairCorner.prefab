@@ -1,5 +1,58 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6517035363125350915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1391844030194966864}
+  - component: {fileID: 6872817298866780373}
+  m_Layer: 3
+  m_Name: StairCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1391844030194966864
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6517035363125350915}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.1202467, y: -0, z: -0.000000007450581, w: 0.9927441}
+  m_LocalPosition: {x: -0.11, y: -3.14, z: 0.81}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6640539519320492368}
+  m_LocalEulerAnglesHint: {x: -13.813, y: 0, z: 0}
+--- !u!65 &6872817298866780373
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6517035363125350915}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 11.64, y: 1.0000002, z: 26.317932}
+  m_Center: {x: 5.9100018, y: 4.1081204, z: 10.870153}
 --- !u!1 &6600492451247452836
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,7 +86,8 @@ Transform:
   m_LocalPosition: {x: 6.5, y: -0.0000076293945, z: 0.4}
   m_LocalScale: {x: 1, y: 0.82809, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1391844030194966864}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -135.976, z: 0}
 --- !u!114 &2773930579962070203

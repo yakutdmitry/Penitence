@@ -1078,6 +1078,59 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &2570146027927076471
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7479748467996928010}
+  - component: {fileID: 7186032390835419723}
+  m_Layer: 3
+  m_Name: StairCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7479748467996928010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2570146027927076471}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.20791169, y: 0, z: 0, w: 0.9781476}
+  m_LocalPosition: {x: -0.51, y: 0.10225883, z: 0.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1186746988308994123}
+  m_LocalEulerAnglesHint: {x: 24, y: 0, z: 0}
+--- !u!65 &7186032390835419723
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2570146027927076471}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.6466026, y: 1, z: 18.04248}
+  m_Center: {x: -3.3231275, y: 0.00003632133, z: -7.5642157}
 --- !u!1 &2881490969480433689
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,7 +1198,8 @@ Transform:
   m_LocalPosition: {x: 0.8304, y: 0, z: -18.6329}
   m_LocalScale: {x: 0.76765996, y: 0.76766, z: 0.76765996}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 7479748467996928010}
   m_Father: {fileID: 8551743470479203833}
   m_LocalEulerAnglesHint: {x: 0, y: 52.427, z: 0}
 --- !u!114 &1602780142742439522
@@ -3009,6 +3063,59 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &8159349471229429924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6205042979922917808}
+  - component: {fileID: 5037991805787953451}
+  m_Layer: 3
+  m_Name: StairCollider (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6205042979922917808
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8159349471229429924}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.20791169, y: 0, z: 0, w: 0.9781476}
+  m_LocalPosition: {x: -0.47, y: 0.1, z: 0.13}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6908412886671068850}
+  m_LocalEulerAnglesHint: {x: 24, y: 0, z: 0}
+--- !u!65 &5037991805787953451
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8159349471229429924}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.6466026, y: 1, z: 18.04248}
+  m_Center: {x: -3.3231275, y: 0.00003632133, z: -7.5642157}
 --- !u!1 &8252756412271370611
 GameObject:
   m_ObjectHideFlags: 0
@@ -3042,7 +3149,8 @@ Transform:
   m_LocalPosition: {x: -4.9749, y: 0, z: 13.5845995}
   m_LocalScale: {x: 0.76765996, y: 0.76766, z: 0.76765996}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6205042979922917808}
   m_Father: {fileID: 8551743470479203833}
   m_LocalEulerAnglesHint: {x: 0, y: 142.427, z: 0}
 --- !u!114 &4319300617823354333
