@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 591246023502868933}
   - component: {fileID: 3178497750916376770}
   - component: {fileID: 2206240665344700477}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Arch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
