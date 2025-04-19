@@ -1115,6 +1115,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7203718387822899434, guid: 4cd987bb534ae594a8728020c1996cfc, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7808988887405235765, guid: 4cd987bb534ae594a8728020c1996cfc, type: 3}
       propertyPath: m_Name
       value: 3ArchPlatform
@@ -2301,35 +2305,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4623976432662819352, guid: 95a2bcbb61877224fa9fb64c4f8d44c5, type: 3}
       propertyPath: m_Tangents.Array.data[234].z
-      value: -0.000000051786575
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4623976432662819352, guid: 95a2bcbb61877224fa9fb64c4f8d44c5, type: 3}
       propertyPath: m_Tangents.Array.data[235].z
-      value: -0.000000051786575
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4623976432662819352, guid: 95a2bcbb61877224fa9fb64c4f8d44c5, type: 3}
       propertyPath: m_Tangents.Array.data[236].z
-      value: -0.000000051786575
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4623976432662819352, guid: 95a2bcbb61877224fa9fb64c4f8d44c5, type: 3}
       propertyPath: m_Tangents.Array.data[237].z
-      value: -0.000000051786575
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4623976432662819352, guid: 95a2bcbb61877224fa9fb64c4f8d44c5, type: 3}
       propertyPath: m_Tangents.Array.data[238].z
-      value: -0.000000077679864
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4623976432662819352, guid: 95a2bcbb61877224fa9fb64c4f8d44c5, type: 3}
       propertyPath: m_Tangents.Array.data[239].z
-      value: -0.00000006473322
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4623976432662819352, guid: 95a2bcbb61877224fa9fb64c4f8d44c5, type: 3}
       propertyPath: m_Tangents.Array.data[240].z
-      value: -0.00000006473322
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4623976432662819352, guid: 95a2bcbb61877224fa9fb64c4f8d44c5, type: 3}
       propertyPath: m_Tangents.Array.data[241].z
-      value: -0.000000051786575
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4623976432662819352, guid: 95a2bcbb61877224fa9fb64c4f8d44c5, type: 3}
       propertyPath: m_SelectedVertices.Array.size
