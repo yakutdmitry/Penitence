@@ -116,37 +116,37 @@ public class RoomInstance : MonoBehaviour
     }
 
 
-    private RoomInstance SpawnRoom(RoomNode node, Vector2Int entryDirection, bool isStartRoom = false)
+    public void SpawnDoors(Vector2Int entryDirection)
     {
-        Vector3 pos = GridToWorldPosition(node.position);
-        RoomInstance instance = Instantiate(node.template.prefab, pos, Quaternion.identity).GetComponent<RoomInstance>();
+        Dictionary<Vector2Int, Transform> anchors = new()
+    {
+        { Vector2Int.up, northDoorAnchor },
+        { Vector2Int.down, southDoorAnchor },
+        { Vector2Int.left, westDoorAnchor },
+        { Vector2Int.right, eastDoorAnchor }
+    };
 
-        if (instance == null)
+        foreach (var kvp in anchors)
         {
-            Debug.LogError($"[ERROR] Failed to spawn room at {node.position}");
-            return null;
+            Vector2Int dir = kvp.Key;
+            Transform anchor = kvp.Value;
+
+            // Skip the entry direction to avoid spawning a door there
+            if (dir == entryDirection) continue;
+
+            if (doors.TryGetValue(dir, out bool shouldHaveDoor) && shouldHaveDoor && anchor != null)
+            {
+                Quaternion rotation = dir == Vector2Int.up ? Quaternion.Euler(0, 0, 0) :
+                                      dir == Vector2Int.down ? Quaternion.Euler(0, 180, 0) :
+                                      dir == Vector2Int.left ? Quaternion.Euler(0, -90, 0) :
+                                      dir == Vector2Int.right ? Quaternion.Euler(0, 90, 0) :
+                                      Quaternion.identity;
+
+                GameObject door = Instantiate(doorPrefab, anchor.position, rotation, transform);
+                DoorController controller = door.GetComponent<DoorController>();
+                RegisterDoor(dir, controller);
+            }
         }
-
-        instance.enemySpawner = instance.GetComponent<RoomEnemySpawner>();
-        instance.nodeData = node;
-        instance.Initialize(node.position, entryDirection);
-
-        if (isStartRoom)
-        {
-            instance.SetAsStartRoom();
-        }
-
-        // Pass the entry direction to avoid spawning a door in the entry doorway
-        instance.SetDoorState(
-            node.template.hasNorthDoor && entryDirection != Vector2Int.up,
-            node.template.hasSouthDoor && entryDirection != Vector2Int.down,
-            node.template.hasEastDoor && entryDirection != Vector2Int.right,
-            node.template.hasWestDoor && entryDirection != Vector2Int.left
-        );
-
-        instance.SetRoomTriggersActive(false);
-
-        return instance;
     }
 
     private Vector3 GridToWorldPosition(Vector2Int gridPos)
@@ -213,6 +213,18 @@ public class RoomInstance : MonoBehaviour
         {
             doors[direction] = true;  // Mark door as entered
         }
+    }
+
+    // log the doordirection the player entered from
+    public void LogDoorDirection(Vector2Int direction)
+    {
+        Debug.Log($"Player entered room from {direction}");
+    }
+
+
+    public bool IsDoorOpen(Vector2Int doorDirection)
+    {
+        return doors.ContainsKey(doorDirection) && doors[doorDirection];
     }
 
     private void Shuffle(List<Vector2Int> list)

@@ -51,7 +51,8 @@ public class DoorwayGenerationManager : MonoBehaviour
         }
 
         RoomNode startNode = new RoomNode(startPos, startRoomTemplate);
-        startRoomInstance = SpawnRoom(startNode, Vector2Int.zero, true);
+        roomMap[startPos] = startNode;
+        startRoomInstance = SpawnRoom(startNode, Vector2Int.zero);
 
         if (startRoomInstance != null)
         {
@@ -103,6 +104,34 @@ public class DoorwayGenerationManager : MonoBehaviour
         {
             StartCoroutine(CloseDoorWithDelay(2f, door));
         }
+    }
+
+    public RoomInstance SpawnRoom(RoomNode node, Vector2Int entryDirection, bool isStartRoom = false)
+    {
+        Vector3 pos = GridToWorldPosition(node.position);
+        RoomInstance instance = Instantiate(node.template.prefab, pos, Quaternion.identity).GetComponent<RoomInstance>();
+
+        if (instance == null)
+        {
+            Debug.LogError($"[ERROR] Failed to spawn room at {node.position}");
+            return null;
+        }
+
+        instance.enemySpawner = instance.GetComponent<RoomEnemySpawner>();
+        instance.nodeData = node;
+        instance.Initialize(node.position, entryDirection);
+
+        if (isStartRoom)
+        {
+            instance.SetAsStartRoom();
+        }
+
+        // Pass the entry direction to avoid spawning a door in the entry doorway
+        instance.SpawnDoors(entryDirection);
+
+        instance.SetRoomTriggersActive(false);
+
+        return instance;
     }
 
     private IEnumerator CloseDoorWithDelay(float delay, DoorController door)
@@ -170,32 +199,6 @@ public class DoorwayGenerationManager : MonoBehaviour
         existingRoom.RegisterDoor(direction, door);
         newRoom.RegisterDoor(-direction, door);
         door.SetLocked(!existingRoom.isStartRoom && !newRoom.isStartRoom);
-    }
-
-    private RoomInstance SpawnRoom(RoomNode node, Vector2Int entryDirection, bool isStartRoom = false)
-    {
-        Vector3 pos = GridToWorldPosition(node.position);
-        RoomInstance instance = Instantiate(node.template.prefab, pos, Quaternion.identity).GetComponent<RoomInstance>();
-
-        if (instance == null)
-        {
-            Debug.LogError($"[ERROR] Failed to spawn room at {node.position}");
-            return null;
-        }
-
-        instance.enemySpawner = instance.GetComponent<RoomEnemySpawner>();
-        instance.nodeData = node;
-        instance.Initialize(node.position, entryDirection);
-
-        if (isStartRoom)
-        {
-            instance.SetAsStartRoom();
-        }
-
-        CreateDoorBetween(node.position, instance, entryDirection);
-        instance.SetRoomTriggersActive(false);
-
-        return instance;
     }
 
 
