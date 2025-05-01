@@ -63,7 +63,7 @@ MonoBehaviour:
   southDoorAnchor: {fileID: 6834722011549082051}
   eastDoorAnchor: {fileID: 0}
   westDoorAnchor: {fileID: 0}
-  doorPrefab: {fileID: 0}
+  doorPrefab: {fileID: 9176584648435759433, guid: 3ed9f8965e3f0c64b966937775909883, type: 3}
   enemyCount: 0
 --- !u!114 &3828939091378630461
 MonoBehaviour:
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e4ea5c5b053d1645ba25499a7e8d830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectiveType: 0
+  objectiveType: 1
 --- !u!1 &1383187787492600068
 GameObject:
   m_ObjectHideFlags: 0

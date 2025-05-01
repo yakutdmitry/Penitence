@@ -163,7 +163,7 @@ MonoBehaviour:
   <MaxHealth>k__BackingField: 50
   detectionRange: 100
   attackRange: 2
-  hearingRange: 15
+  hearingRange: 5.4
   fieldOfView: 360
   attackDamage: 10
   attackCooldown: 2
