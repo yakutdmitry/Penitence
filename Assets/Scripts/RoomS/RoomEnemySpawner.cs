@@ -25,8 +25,22 @@ public class RoomEnemySpawner : MonoBehaviour
             {
                 spawnPosition = hit.position;
 
-                // Add this collision check: avoid spawning inside geometry
-                if (!Physics.CheckSphere(spawnPosition + Vector3.up * 0.5f, 0.5f, LayerMask.GetMask("IsGround")))
+                // Check if the spawn position is buried under a platform
+                Vector3 rayOrigin = spawnPosition + Vector3.up * 5f;
+                float rayDistance = 10f;
+
+                bool isBuriedUnderPlatform = Physics.Raycast(rayOrigin, Vector3.down, out RaycastHit hitInfo, rayDistance, LayerMask.GetMask("IsGround")) &&
+                                             (hitInfo.point.y - spawnPosition.y) < -0.5f;
+
+                if (isBuriedUnderPlatform)
+                {
+                    Debug.LogWarning("Spawn position is buried under platform — skipping");
+                    continue;
+                }
+
+
+                // Check for surface collisions (walls, props, clutter)
+                if (!Physics.CheckSphere(spawnPosition + Vector3.up * 3f, 3f, LayerMask.GetMask("IsGround")))
                 {
                     GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
                     spawnedEnemies.Add(enemy);
@@ -49,6 +63,7 @@ public class RoomEnemySpawner : MonoBehaviour
             }
         }
     }
+
 
 
     private Vector3 GetRandomSpawnPoint(RoomInstance room)
