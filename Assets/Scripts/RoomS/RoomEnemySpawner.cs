@@ -21,26 +21,35 @@ public class RoomEnemySpawner : MonoBehaviour
             GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
             Vector3 spawnPosition = GetRandomSpawnPoint(room);
 
-            // Check if the spawn position is on the NavMesh
             if (NavMesh.SamplePosition(spawnPosition, out NavMeshHit hit, 1.0f, NavMesh.AllAreas))
             {
                 spawnPosition = hit.position;
-                GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-                spawnedEnemies.Add(enemy);
 
-                Enemy enemyScript = enemy.GetComponent<Enemy>();
-                if (enemyScript != null)
+                // Add this collision check: avoid spawning inside geometry
+                if (!Physics.CheckSphere(spawnPosition + Vector3.up * 0.5f, 0.5f, LayerMask.GetMask("IsGround")))
                 {
-                    enemyScript.AssignRoom(room);
-                    room.RegisterEnemy(); // Track enemy count in the room
+                    GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+                    spawnedEnemies.Add(enemy);
+
+                    Enemy enemyScript = enemy.GetComponent<Enemy>();
+                    if (enemyScript != null)
+                    {
+                        enemyScript.AssignRoom(room);
+                        room.RegisterEnemy();
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning($"Spawn blocked at {spawnPosition} - collided with IsGround layer");
                 }
             }
             else
             {
-                Debug.LogWarning("Failed to spawn enemy at position: " + spawnPosition + " - Not on NavMesh");
+                Debug.LogWarning("Failed to find NavMesh near: " + spawnPosition);
             }
         }
     }
+
 
     private Vector3 GetRandomSpawnPoint(RoomInstance room)
     {
