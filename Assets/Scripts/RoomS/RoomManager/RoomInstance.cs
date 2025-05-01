@@ -15,6 +15,7 @@ public class RoomInstance : MonoBehaviour
     private NavMeshSurface navMeshSurface;
     [HideInInspector] public RoomEnemySpawner enemySpawner;
     private RoomObjectiveController objectiveController;
+    private DoorwayGenerationManager doorwayGenerationManager;
 
     public Transform northDoorAnchor;
     public Transform southDoorAnchor;
@@ -41,6 +42,7 @@ public class RoomInstance : MonoBehaviour
         enemySpawner = GetComponent<RoomEnemySpawner>(); // Use GetComponent to find the component
                                                          //Debug.Log("Enemy spawner: " + enemySpawner);
         objectiveController = GetComponent<RoomObjectiveController>();
+        doorwayGenerationManager = FindObjectOfType<DoorwayGenerationManager>();
 
         if (navMeshSurface != null)
         {
@@ -113,49 +115,43 @@ public class RoomInstance : MonoBehaviour
         UnlockAllDoors();
     }
 
-    public void SpawnDoors()
+
+    private RoomInstance SpawnRoom(RoomNode node, Vector2Int entryDirection, bool isStartRoom = false)
     {
-        //Debug.Log("Spawning doors for room: " + gameObject.name);
+        Vector3 pos = GridToWorldPosition(node.position);
+        RoomInstance instance = Instantiate(node.template.prefab, pos, Quaternion.identity).GetComponent<RoomInstance>();
 
-        if (doors[Vector2Int.up] && northDoorAnchor != null)
+        if (instance == null)
         {
-            //Debug.Log($"Spawning north door at: {northDoorAnchor.position}");
-            Instantiate(Resources.Load<GameObject>("DoorPrefab"), northDoorAnchor.position, Quaternion.identity, transform);
-        }
-        else
-        {
-            //Debug.LogWarning("North door missing due to conditions.");
+            Debug.LogError($"[ERROR] Failed to spawn room at {node.position}");
+            return null;
         }
 
-        if (doors[Vector2Int.down] && southDoorAnchor != null)
+        instance.enemySpawner = instance.GetComponent<RoomEnemySpawner>();
+        instance.nodeData = node;
+        instance.Initialize(node.position, entryDirection);
+
+        if (isStartRoom)
         {
-            //Debug.Log("Spawning south door at: " + southDoorAnchor.position);
-            Instantiate(Resources.Load<GameObject>("DoorPrefab"), southDoorAnchor.position, Quaternion.Euler(0, 180, 0), transform);
-        }
-        else
-        {
-            //Debug.LogWarning("South door missing due to conditions.");
+            instance.SetAsStartRoom();
         }
 
-        if (doors[Vector2Int.right] && eastDoorAnchor != null)
-        {
-            //Debug.Log("Spawning east door at: " + eastDoorAnchor.position);
-            Instantiate(Resources.Load<GameObject>("DoorPrefab"), eastDoorAnchor.position, Quaternion.Euler(0, 90, 0), transform);
-        }
-        else
-        {
-            //Debug.LogWarning("East door missing due to conditions.");
-        }
+        // Pass the entry direction to avoid spawning a door in the entry doorway
+        instance.SetDoorState(
+            node.template.hasNorthDoor && entryDirection != Vector2Int.up,
+            node.template.hasSouthDoor && entryDirection != Vector2Int.down,
+            node.template.hasEastDoor && entryDirection != Vector2Int.right,
+            node.template.hasWestDoor && entryDirection != Vector2Int.left
+        );
 
-        if (doors[Vector2Int.left] && westDoorAnchor != null)
-        {
-            //Debug.Log("Spawning west door at: " + westDoorAnchor.position);
-            Instantiate(Resources.Load<GameObject>("DoorPrefab"), westDoorAnchor.position, Quaternion.Euler(0, -90, 0), transform);
-        }
-        else
-        {
-            //Debug.LogWarning("West door missing due to conditions.");
-        }
+        instance.SetRoomTriggersActive(false);
+
+        return instance;
+    }
+
+    private Vector3 GridToWorldPosition(Vector2Int gridPos)
+    {
+        return new Vector3(gridPos.x * roomSize, 0, gridPos.y * roomSize);
     }
 
     public void SetDoorState(bool north, bool south, bool east, bool west)
@@ -167,6 +163,31 @@ public class RoomInstance : MonoBehaviour
 
         //Debug.Log($"Room at {position} door states - North: {north}, South: {south}, East: {east}, West: {west}");
     }
+    public void SpawnDoors()
+    {
+        if (!isStartRoom) return; // Only spawn doors for the start room
+
+        if (doors[Vector2Int.up] && northDoorAnchor != null)
+        {
+            Instantiate(Resources.Load<GameObject>("DoorPrefab"), northDoorAnchor.position, Quaternion.identity, transform);
+        }
+
+        if (doors[Vector2Int.down] && southDoorAnchor != null)
+        {
+            Instantiate(Resources.Load<GameObject>("DoorPrefab"), southDoorAnchor.position, Quaternion.Euler(0, 180, 0), transform);
+        }
+
+        if (doors[Vector2Int.right] && eastDoorAnchor != null)
+        {
+            Instantiate(Resources.Load<GameObject>("DoorPrefab"), eastDoorAnchor.position, Quaternion.Euler(0, 90, 0), transform);
+        }
+
+        if (doors[Vector2Int.left] && westDoorAnchor != null)
+        {
+            Instantiate(Resources.Load<GameObject>("DoorPrefab"), westDoorAnchor.position, Quaternion.Euler(0, -90, 0), transform);
+        }
+    }
+
 
 
     private void OpenExtraDoors()

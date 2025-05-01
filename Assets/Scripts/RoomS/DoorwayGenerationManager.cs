@@ -22,6 +22,24 @@ public class DoorwayGenerationManager : MonoBehaviour
     private Dictionary<Vector2Int, RoomInstance> roomPositions = new();
     public float doorYOffset = 0f;
 
+    // Instance the DoorwayGenerationManager
+    private static DoorwayGenerationManager instance;
+    
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    
+    
+    
     private void Start()
     {
         Vector2Int startPos = Vector2Int.zero;
@@ -33,7 +51,7 @@ public class DoorwayGenerationManager : MonoBehaviour
         }
 
         RoomNode startNode = new RoomNode(startPos, startRoomTemplate);
-        startRoomInstance = SpawnRoom(startNode, true);
+        startRoomInstance = SpawnRoom(startNode, Vector2Int.zero, true);
 
         if (startRoomInstance != null)
         {
@@ -65,7 +83,7 @@ public class DoorwayGenerationManager : MonoBehaviour
         RoomNode newNode = new RoomNode(newRoomPos, nextRoomTemplate);
         roomMap[newRoomPos] = newNode;
 
-        RoomInstance newRoom = SpawnRoom(newNode);
+        RoomInstance newRoom = SpawnRoom(newNode, -direction); // player is entering FROM -direction
         newRoom.DisableEntryTrigger(-direction);
 
         if (newRoom == null)
@@ -76,7 +94,7 @@ public class DoorwayGenerationManager : MonoBehaviour
 
         roomPositions[newRoomPos] = newRoom;
 
-        CreateDoorBetween(doorwayPosition, newRoom, direction);
+        //CreateDoorBetween(doorwayPosition, newRoom, direction);
         TrackRoomSpawn();
 
         RoomInstance existingRoom = roomPositions[doorwayPosition];
@@ -130,6 +148,12 @@ public class DoorwayGenerationManager : MonoBehaviour
             return;
         }
 
+        // Check if a door already exists in this direction
+        if (existingRoom.GetDoorAnchor(direction).Equals(anchorB) || newRoom.GetDoorAnchor(-direction).Equals(anchorA))
+        {
+            return; // Door already exists, skip creating a new one
+        }
+
         Vector3 doorPosition = (anchorA.position + anchorB.position) / 2;
         doorPosition.y += doorYOffset;
 
@@ -148,10 +172,9 @@ public class DoorwayGenerationManager : MonoBehaviour
         door.SetLocked(!existingRoom.isStartRoom && !newRoom.isStartRoom);
     }
 
-    private RoomInstance SpawnRoom(RoomNode node, bool isStartRoom = false)
+    private RoomInstance SpawnRoom(RoomNode node, Vector2Int entryDirection, bool isStartRoom = false)
     {
         Vector3 pos = GridToWorldPosition(node.position);
-
         RoomInstance instance = Instantiate(node.template.prefab, pos, Quaternion.identity).GetComponent<RoomInstance>();
 
         if (instance == null)
@@ -161,20 +184,20 @@ public class DoorwayGenerationManager : MonoBehaviour
         }
 
         instance.enemySpawner = instance.GetComponent<RoomEnemySpawner>();
-
         instance.nodeData = node;
-        instance.Initialize(node.position, Vector2Int.zero);
+        instance.Initialize(node.position, entryDirection);
 
         if (isStartRoom)
         {
             instance.SetAsStartRoom();
         }
 
-        instance.SpawnDoors();
+        CreateDoorBetween(node.position, instance, entryDirection);
         instance.SetRoomTriggersActive(false);
 
         return instance;
     }
+
 
     private RoomTemplate PickNextRoomTemplateWithDoorFacing(Vector2Int direction, Vector2Int newRoomPos)
     {
