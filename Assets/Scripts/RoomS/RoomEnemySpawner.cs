@@ -21,26 +21,50 @@ public class RoomEnemySpawner : MonoBehaviour
             GameObject enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
             Vector3 spawnPosition = GetRandomSpawnPoint(room);
 
-            // Check if the spawn position is on the NavMesh
             if (NavMesh.SamplePosition(spawnPosition, out NavMeshHit hit, 1.0f, NavMesh.AllAreas))
             {
                 spawnPosition = hit.position;
-                GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-                spawnedEnemies.Add(enemy);
 
-                Enemy enemyScript = enemy.GetComponent<Enemy>();
-                if (enemyScript != null)
+                // Check if the spawn position is buried under a platform
+                Vector3 rayOrigin = spawnPosition + Vector3.up * 5f;
+                float rayDistance = 10f;
+
+                bool isBuriedUnderPlatform = Physics.Raycast(rayOrigin, Vector3.down, out RaycastHit hitInfo, rayDistance, LayerMask.GetMask("IsGround")) &&
+                                             (hitInfo.point.y - spawnPosition.y) < -0.5f;
+
+                if (isBuriedUnderPlatform)
                 {
-                    enemyScript.AssignRoom(room);
-                    room.RegisterEnemy(); // Track enemy count in the room
+                    Debug.LogWarning("Spawn position is buried under platform — skipping");
+                    continue;
+                }
+
+
+                // Check for surface collisions (walls, props, clutter)
+                if (!Physics.CheckSphere(spawnPosition + Vector3.up * 3f, 3f, LayerMask.GetMask("IsGround")))
+                {
+                    GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+                    spawnedEnemies.Add(enemy);
+
+                    Enemy enemyScript = enemy.GetComponent<Enemy>();
+                    if (enemyScript != null)
+                    {
+                        enemyScript.AssignRoom(room);
+                        room.RegisterEnemy();
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning($"Spawn blocked at {spawnPosition} - collided with IsGround layer");
                 }
             }
             else
             {
-                Debug.LogWarning("Failed to spawn enemy at position: " + spawnPosition + " - Not on NavMesh");
+                Debug.LogWarning("Failed to find NavMesh near: " + spawnPosition);
             }
         }
     }
+
+
 
     private Vector3 GetRandomSpawnPoint(RoomInstance room)
     {

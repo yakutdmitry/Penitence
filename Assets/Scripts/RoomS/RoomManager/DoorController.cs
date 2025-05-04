@@ -4,7 +4,8 @@ using System.Collections;
 public class DoorController : MonoBehaviour
 {
     [SerializeField] private Transform visualDoorMesh;  // Reference to the moving mesh (child)
-    [SerializeField] private Animator animator;         // Animator on the visual mesh
+    [SerializeField] private Animator leftDoorAnimator;         // Animator on the visual mesh
+    [SerializeField] private Animator rightDoorAnimator;
 
     private bool isLocked = false;
     private bool isOpen = false;
@@ -17,9 +18,32 @@ public class DoorController : MonoBehaviour
             col.isTrigger = true; // Ensure trigger is active
         }
 
-        if (animator == null && visualDoorMesh != null)
+        // Set the door direction based on the transform's forward vector
+        Vector2Int doorDirection = GetDoorDirection();
+
+        if (doorDirection == Vector2Int.left)
         {
-            animator = visualDoorMesh.GetComponent<Animator>();
+            leftDoorAnimator = rightDoorAnimator;
+            rightDoorAnimator = leftDoorAnimator;
+            // Fix for CS1717: Ensure the correct assignment logic is applied
+            if (doorDirection == Vector2Int.up)
+            {
+                // No change needed here as the assignment is correct
+            }
+            else if (doorDirection == Vector2Int.down)
+            {
+                leftDoorAnimator = rightDoorAnimator;
+                rightDoorAnimator = leftDoorAnimator;
+            }
+            else if (doorDirection == Vector2Int.right)
+            {
+                // No change needed here as the assignment is correct
+            }
+            else if (doorDirection == Vector2Int.left)
+            {
+                leftDoorAnimator = rightDoorAnimator;
+                rightDoorAnimator = leftDoorAnimator;
+            }
         }
 
         ForceClose(); // Start closed
@@ -86,13 +110,15 @@ public class DoorController : MonoBehaviour
 
     private void UpdateDoorAnimation()
     {
-        if (animator != null)
+        if (isOpen)
         {
-            animator.SetBool("IsOpen", isOpen);
+            leftDoorAnimator.SetBool("IsOpen", true);
+            rightDoorAnimator.SetBool("IsOpen", true);
         }
         else
         {
-            Debug.LogWarning($"{name} - Missing Animator on visual mesh!");
+            leftDoorAnimator.SetBool("IsOpen", false);
+            rightDoorAnimator.SetBool("IsOpen", false);
         }
     }
 

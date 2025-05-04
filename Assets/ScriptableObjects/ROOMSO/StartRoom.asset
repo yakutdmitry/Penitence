@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomName: Start Room
   prefab: {fileID: 5619395486316731033, guid: a7d22859870821b4aa7e107ad3612f37, type: 3}
-  maxConnections: 3
   type: 0
+  openDoors: []
   hasNorthDoor: 1
   hasSouthDoor: 0
   hasEastDoor: 1
