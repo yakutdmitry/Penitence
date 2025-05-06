@@ -33,77 +33,77 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: House1_Bottom_BaseColor
-    second: {fileID: 2800000, guid: 37eb45d2c1dd4fd45ade222b57c98f9d, type: 3}
+    second: {fileID: 2800000, guid: 7510911daa431964184c331ac7cf0852, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: House1_Bottom_Normal
-    second: {fileID: 2800000, guid: 8dab5c9a2862028448db7ac2195cbd57, type: 3}
+    second: {fileID: 2800000, guid: 25888dc0d29c2f143ad8e59b7c5eed8f, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: House1_Bottom_Roughness
-    second: {fileID: 2800000, guid: 25a2a13e9c307d74d87eded7ec1db877, type: 3}
+    second: {fileID: 2800000, guid: f3fdd97b36d6665419b9ead268c2d445, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: House1_Frames_BaseColor
-    second: {fileID: 2800000, guid: a31c104093b3c2d45b701395d5662969, type: 3}
+    second: {fileID: 2800000, guid: f9f532141477c7f409b8edb3eae0564a, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: House1_Frames_Normal
-    second: {fileID: 2800000, guid: bdb63316cff8b24458633f66297ec64c, type: 3}
+    second: {fileID: 2800000, guid: 86a506b69bfae7c4cb900ae232bfa6e8, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: House1_Frames_Roughness
-    second: {fileID: 2800000, guid: 4a8b82abf16882c43b7730a90e60771b, type: 3}
+    second: {fileID: 2800000, guid: ab8c9b4ed8e5b0a489e655308918b1b6, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: House1_Upper_BaseColor
-    second: {fileID: 2800000, guid: 1d3d10f68a07e474eb1ef55afce8dea8, type: 3}
+    second: {fileID: 2800000, guid: 0daf84affda482f448fa420133c3d33b, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: House1_Upper_Normal
-    second: {fileID: 2800000, guid: a93045babca676046b2ff720da84be7e, type: 3}
+    second: {fileID: 2800000, guid: 1f3419f554fedd148a73683306a3ffa3, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: House1_Upper_Roughness
-    second: {fileID: 2800000, guid: 6eaac3ddfc461f9419210f76e09db1b0, type: 3}
+    second: {fileID: 2800000, guid: 4e99934c1a6c0554da2c05be701ec0e1, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: House1_Winows_BaseColor
-    second: {fileID: 2800000, guid: fdb0e66886ac6e64cbe31495e48fb52b, type: 3}
+    second: {fileID: 2800000, guid: 66e9a08ce1a91554b8e78a5784d4b334, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: House1_Winows_Normal
-    second: {fileID: 2800000, guid: 76fe9747947f773449aad1f42095e9ce, type: 3}
+    second: {fileID: 2800000, guid: 5ef8f6c12b2ee2645b22b610fa8b4855, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: House1_Winows_Roughness
-    second: {fileID: 2800000, guid: 74d1b3416837dfa49b54e911d36abe49, type: 3}
+    second: {fileID: 2800000, guid: fbdce7d1092a3e340a6df5c3728c5254, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: House1_roof_BaseColor
-    second: {fileID: 2800000, guid: 96b1b5af9d54e4f4cbf621845abd7101, type: 3}
+    second: {fileID: 2800000, guid: 5a36303c53a49a445bc3c48b3413e7e3, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: House1_roof_Normal
-    second: {fileID: 2800000, guid: 9d5ef522caeee7447ac97ff4bdd22992, type: 3}
+    second: {fileID: 2800000, guid: 7530c8f0b620e484db5f799246fe211c, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: House1_roof_Roughness
-    second: {fileID: 2800000, guid: 0d3067f21dd9af841a8c9fcccf32ef7c, type: 3}
+    second: {fileID: 2800000, guid: 4e5293c4ea61f99478313b81a8e6382f, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
