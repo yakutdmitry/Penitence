@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: BottomWall
-    second: {fileID: 2100000, guid: 46dad1c3d67b67d49b07034b1767412c, type: 2}
+      name: Bottom
+    second: {fileID: 2100000, guid: 5ffb5ab31df673f4fb39e56372cd4613, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -17,48 +17,93 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Glass
-    second: {fileID: 2100000, guid: c15c1a93369a0ca4e95705299da419d8, type: 2}
+      name: Upper
+    second: {fileID: 2100000, guid: e353fcc98d16ccb42856c0cf471f2204, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Roof
+      name: Winows
+    second: {fileID: 2100000, guid: 53989527f3133e84290460c4cd54cf55, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roof
     second: {fileID: 2100000, guid: fdcbda72b3be53e43b60cc73e3c18c0a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: UpperWall
-    second: {fileID: 2100000, guid: c35c0f7aa91251148898f9aab4591e57, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ZenUV_Generic_Material.001
-    second: {fileID: 2100000, guid: 0f5684d6fafc2774abac633078791ad8, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: House1_BottomWall_BaseColor
-    second: {fileID: 2800000, guid: 9ad65aa91c1a6014ea7f4456abc783da, type: 3}
+      name: House1_Bottom_BaseColor
+    second: {fileID: 2800000, guid: 37eb45d2c1dd4fd45ade222b57c98f9d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House1_Bottom_Normal
+    second: {fileID: 2800000, guid: 8dab5c9a2862028448db7ac2195cbd57, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House1_Bottom_Roughness
+    second: {fileID: 2800000, guid: 25a2a13e9c307d74d87eded7ec1db877, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: House1_Frames_BaseColor
-    second: {fileID: 2800000, guid: a2802e1ba3ecdab47953e8f0b58e5ba6, type: 3}
+    second: {fileID: 2800000, guid: a31c104093b3c2d45b701395d5662969, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: House1_Glass_BaseColor
-    second: {fileID: 2800000, guid: 23188f4341bbde04eb1c731319a039ea, type: 3}
+      name: House1_Frames_Normal
+    second: {fileID: 2800000, guid: bdb63316cff8b24458633f66297ec64c, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: House1_Roof_BaseColor
-    second: {fileID: 2800000, guid: a9e2400169f4340439cf325fb37e09be, type: 3}
+      name: House1_Frames_Roughness
+    second: {fileID: 2800000, guid: 4a8b82abf16882c43b7730a90e60771b, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: House1_UpperWall_BaseColor
-    second: {fileID: 2800000, guid: eaa08a49cd5042e418a3915c591731ea, type: 3}
+      name: House1_Upper_BaseColor
+    second: {fileID: 2800000, guid: 1d3d10f68a07e474eb1ef55afce8dea8, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House1_Upper_Normal
+    second: {fileID: 2800000, guid: a93045babca676046b2ff720da84be7e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House1_Upper_Roughness
+    second: {fileID: 2800000, guid: 6eaac3ddfc461f9419210f76e09db1b0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House1_Winows_BaseColor
+    second: {fileID: 2800000, guid: fdb0e66886ac6e64cbe31495e48fb52b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House1_Winows_Normal
+    second: {fileID: 2800000, guid: 76fe9747947f773449aad1f42095e9ce, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House1_Winows_Roughness
+    second: {fileID: 2800000, guid: 74d1b3416837dfa49b54e911d36abe49, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House1_roof_BaseColor
+    second: {fileID: 2800000, guid: 96b1b5af9d54e4f4cbf621845abd7101, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House1_roof_Normal
+    second: {fileID: 2800000, guid: 9d5ef522caeee7447ac97ff4bdd22992, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House1_roof_Roughness
+    second: {fileID: 2800000, guid: 0d3067f21dd9af841a8c9fcccf32ef7c, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
