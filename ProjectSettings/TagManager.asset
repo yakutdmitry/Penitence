@@ -9,6 +9,7 @@ TagManager:
   - DoorTrigger
   - Grappleable
   - PickUps
+  - RoomSpawnTrigger
   layers:
   - Default
   - TransparentFX

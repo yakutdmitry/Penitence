@@ -101,7 +101,6 @@ Transform:
   - {fileID: 3359762140779012104}
   - {fileID: 4733788476909032340}
   - {fileID: 709726975551687408}
-  - {fileID: 2262238849823540214}
   - {fileID: 5236496449847625588}
   - {fileID: 6300281046250530771}
   - {fileID: 8951986523938490018}
@@ -258,59 +257,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6533071672345108269}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7289275288478540989
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2262238849823540214}
-  - component: {fileID: 2373445452204788415}
-  m_Layer: 0
-  m_Name: RoomTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &2262238849823540214
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7289275288478540989}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6533071672345108269}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2373445452204788415
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7289275288478540989}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 70, y: 4.0590553, z: 70}
-  m_Center: {x: 0.29878044, y: -1.5295277, z: 0.042461395}
 --- !u!1 &7402307874431694152
 GameObject:
   m_ObjectHideFlags: 0

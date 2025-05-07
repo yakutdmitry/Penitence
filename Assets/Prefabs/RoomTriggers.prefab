@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 7022252294028953409}
   m_Layer: 0
   m_Name: RoomTriggers
-  m_TagString: DoorTrigger
+  m_TagString: RoomSpawnTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

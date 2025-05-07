@@ -19,7 +19,7 @@ public class RoomObjectiveController : MonoBehaviour
 
     public void CheckObjective()
     {
-        if (objectiveCompleted) return; // Prevents multiple triggers
+        if (objectiveCompleted) return;
 
         switch (objectiveType)
         {
@@ -46,12 +46,11 @@ public class RoomObjectiveController : MonoBehaviour
 
         if (roomInstance != null)
         {
-            roomInstance.UnlockAllDoors();
+            roomInstance.SetObjectiveCompleted();
+            roomInstance.UnlockAllDoors(); // Unlock all doors in this room
+            roomInstance.SetRoomTriggersActive(true); // Reactivate door triggers
 
-            // Enable triggers in all adjacent rooms
-            roomInstance.SetRoomTriggersActive(true); // Enable this room's triggers
-            EnableAdjacentRoomTriggers(); // Also enable adjacent rooms
-
+            EnableAdjacentRoomTriggers(); // Ensure adjacent rooms also get enabled
         }
 
         if (roomInstance.nodeData.template.type == RoomType.Boss)
@@ -72,8 +71,6 @@ public class RoomObjectiveController : MonoBehaviour
         }
     }
 
-
-
     private bool AllEnemiesDefeated()
     {
         return roomInstance != null && roomInstance.enemyCount <= 0;
@@ -81,7 +78,6 @@ public class RoomObjectiveController : MonoBehaviour
 
     private bool PlayerHasKey()
     {
-        // Example - depends on your inventory system
-        return PlayerInventory.Instance.HasKeyForRoom(gameObject);
+        return PlayerInventory.Instance.HasKeyForRoom(gameObject); // Replace with your key logic
     }
 }
