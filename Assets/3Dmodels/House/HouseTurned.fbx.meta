@@ -8,102 +8,102 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Bottom
-    second: {fileID: 2100000, guid: 40e686e378fd1d84b98cf49b9415a8e5, type: 2}
+    second: {fileID: 2100000, guid: 5ffb5ab31df673f4fb39e56372cd4613, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Frames
-    second: {fileID: 2100000, guid: e68b3a82a697a3a4f90d123119d3a64c, type: 2}
+    second: {fileID: 2100000, guid: 136e636c4371cdb4db9a8e85605484b6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Upper
-    second: {fileID: 2100000, guid: d6660e57e1216434fa73adaba6a012f5, type: 2}
+    second: {fileID: 2100000, guid: e353fcc98d16ccb42856c0cf471f2204, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Winows
-    second: {fileID: 2100000, guid: 8adb16972a881a044af6e325654eab40, type: 2}
+    second: {fileID: 2100000, guid: 53989527f3133e84290460c4cd54cf55, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: roof
-    second: {fileID: 2100000, guid: 052313c4cf907e14fbe62da6818cde52, type: 2}
+    second: {fileID: 2100000, guid: fdcbda72b3be53e43b60cc73e3c18c0a, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: HouseTurned_Bottom_BaseColor
-    second: {fileID: 2800000, guid: 966b0d574a792734580427a16afd80b0, type: 3}
+      name: HouseTurned_Bottom_AlbedoTransparency
+    second: {fileID: 2800000, guid: 45f9929943bb1f842bfaebd5c8e2d96d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: HouseTurned_Bottom_MetallicSmoothness
+    second: {fileID: 2800000, guid: dbf1242e9c19e784cb18a6586ab0c215, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: HouseTurned_Bottom_Normal
-    second: {fileID: 2800000, guid: b28ac348608790344a9d660c87800fda, type: 3}
+    second: {fileID: 2800000, guid: cb48ca45fe92deb479a7cf2c333932fb, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: HouseTurned_Bottom_Roughness
-    second: {fileID: 2800000, guid: cb6beb8a0816e2a41b2eb96d54521578, type: 3}
+      name: HouseTurned_Frames_AlbedoTransparency
+    second: {fileID: 2800000, guid: 11e4444650a214a4da122c2bf8de9752, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: HouseTurned_Frames_BaseColor
-    second: {fileID: 2800000, guid: 85bb7a829f7421c4e9427044419c077e, type: 3}
+      name: HouseTurned_Frames_MetallicSmoothness
+    second: {fileID: 2800000, guid: 42f7dd43174985b418a6e2234979f87e, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: HouseTurned_Frames_Normal
-    second: {fileID: 2800000, guid: a2be70e62fa2775478b8836d9a2cb373, type: 3}
+    second: {fileID: 2800000, guid: 97defd8c0faa1bb4b98fb1a8cb217798, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: HouseTurned_Frames_Roughness
-    second: {fileID: 2800000, guid: 79c17105b83109b40a4187f3b594af92, type: 3}
+      name: HouseTurned_Upper_AlbedoTransparency
+    second: {fileID: 2800000, guid: 95f125071ba73fb4ba0dd94bbbcf03cd, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: HouseTurned_Upper_BaseColor
-    second: {fileID: 2800000, guid: c0d757e777e5db245b378720fedb13a4, type: 3}
+      name: HouseTurned_Upper_MetallicSmoothness
+    second: {fileID: 2800000, guid: a245b8e6e5e6fc24f96f592b30f9aed4, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: HouseTurned_Upper_Normal
-    second: {fileID: 2800000, guid: 213c830dcf4655048bb992d30caf5a8e, type: 3}
+    second: {fileID: 2800000, guid: e9adc7a754484b8459b281394f104cda, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: HouseTurned_Upper_Roughness
-    second: {fileID: 2800000, guid: af04bc1f72092b24a8d97c95b462515a, type: 3}
+      name: HouseTurned_Winows_AlbedoTransparency
+    second: {fileID: 2800000, guid: ef3a37cfae1f97340adc8fb54fe07547, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: HouseTurned_Winows_BaseColor
-    second: {fileID: 2800000, guid: d693312bb7988a8458cd0d50a161541d, type: 3}
+      name: HouseTurned_Winows_MetallicSmoothness
+    second: {fileID: 2800000, guid: 00a9ef7539b6a0648a149ea6c2313b2c, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: HouseTurned_Winows_Normal
-    second: {fileID: 2800000, guid: 197af8abb4c1213459045d28bdeb11c0, type: 3}
+    second: {fileID: 2800000, guid: 2e44c95c1ddc3a640a8eb7982186e3fd, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: HouseTurned_Winows_Roughness
-    second: {fileID: 2800000, guid: bc644cc43ae4b8244bc4ace8d568804a, type: 3}
+      name: HouseTurned_roof_AlbedoTransparency
+    second: {fileID: 2800000, guid: 94fe79f4245c1d34dba604efd70e4eee, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: HouseTurned_roof_BaseColor
-    second: {fileID: 2800000, guid: a632bde305a728d4d8d9549f086fb57b, type: 3}
+      name: HouseTurned_roof_MetallicSmoothness
+    second: {fileID: 2800000, guid: 14d2b2b24ef703a4a9c6fbd7b604291b, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: HouseTurned_roof_Normal
-    second: {fileID: 2800000, guid: 0249d154a47017d49a05d6afe159239a, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: HouseTurned_roof_Roughness
-    second: {fileID: 2800000, guid: 83db238b461f1b045a275b895a6ab8c8, type: 3}
+    second: {fileID: 2800000, guid: c1a06af8595107f4da2c271cd5711273, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
