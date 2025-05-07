@@ -37,93 +37,83 @@ ModelImporter:
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Tower_Base_BaseColor
-    second: {fileID: 2800000, guid: 3f30dab229d88cc48a7f07dccece0fc2, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
       name: Tower_Base_Normal
-    second: {fileID: 2800000, guid: 268464e151d57cf40bb1d21ee3f477df, type: 3}
+    second: {fileID: 2800000, guid: d141201ebf675c74bb8c30d085882d91, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Tower_Base_Roughness
-    second: {fileID: 2800000, guid: 24886404ccd594e4f8295d15b486d55d, type: 3}
+      name: Tower_Black_AlbedoTransparency
+    second: {fileID: 2800000, guid: ea369d586021dbc439917d6a57750e90, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Tower_Black_BaseColor
-    second: {fileID: 2800000, guid: fadfe7c0bcd38664fb9a7f78419e101f, type: 3}
+      name: Tower_Black_MetallicSmoothness
+    second: {fileID: 2800000, guid: 21896d6b5767e6c4b9d621def6230798, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Tower_Black_Normal
-    second: {fileID: 2800000, guid: 3adaff97a6f7e5a47850047cad224d6f, type: 3}
+    second: {fileID: 2800000, guid: 90ad45008214e1b4ab980d2183ecefd0, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Tower_Black_Roughness
-    second: {fileID: 2800000, guid: d6ffce40e6d11f24b8b7fb88d9fe1ee2, type: 3}
+      name: Tower_Bricks_AlbedoTransparency
+    second: {fileID: 2800000, guid: 61ae320bf6fc84140a40e0ae2cc65efc, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Tower_Bricks_BaseColor
-    second: {fileID: 2800000, guid: 8bf0a6c7126373e44b18d599b08f7431, type: 3}
+      name: Tower_Bricks_MetallicSmoothness
+    second: {fileID: 2800000, guid: 421f86d61acda2d45bbf9dbca23b1e66, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Tower_Bricks_Normal
-    second: {fileID: 2800000, guid: ff366a43078f5054ab5395d3f488c244, type: 3}
+    second: {fileID: 2800000, guid: f7573c6507c2d994e942abbd076ba6d5, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Tower_Bricks_Roughness
-    second: {fileID: 2800000, guid: e775853650612a54eaa3ec47bf3fe321, type: 3}
+      name: Tower_roof_AlbedoTransparency
+    second: {fileID: 2800000, guid: 9cf6e04a26f090c4a91c16b9b1be5b99, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Tower_roof_BaseColor
-    second: {fileID: 2800000, guid: e274cfdd0d5a59245beaccce11666b41, type: 3}
+      name: Tower_roof_MetallicSmoothness
+    second: {fileID: 2800000, guid: 4a543d8df4aac4e4ea0332abdac0733f, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Tower_roof_Normal
-    second: {fileID: 2800000, guid: ca62e021824abbb439120b7488b78178, type: 3}
+    second: {fileID: 2800000, guid: ac5bc9accd9c3424c853bebb65037096, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Tower_roof_Roughness
-    second: {fileID: 2800000, guid: 05e67278feebf974a8eeb74915129c74, type: 3}
+      name: Tower_stone_AlbedoTransparency
+    second: {fileID: 2800000, guid: 475a4d27b7c403c49946deb65c4ffc76, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Tower_stone_BaseColor
-    second: {fileID: 2800000, guid: 9e2ca27c741422846bc7112cce81b330, type: 3}
+      name: Tower_stone_MetallicSmoothness
+    second: {fileID: 2800000, guid: 59b7b8500cd905e4a9585ffb60762745, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Tower_stone_Normal
-    second: {fileID: 2800000, guid: 165c9e3e5aadff04fbe12bdf76dccadd, type: 3}
+    second: {fileID: 2800000, guid: 7246efdf9febd5349bf79406da303388, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Tower_stone_Roughness
-    second: {fileID: 2800000, guid: ff1950e140eed1f4e93f62a65be0f310, type: 3}
+      name: Tower_wood_AlbedoTransparency
+    second: {fileID: 2800000, guid: 9d8fceb58c0f402409b05223acd46f99, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Tower_wood_BaseColor
-    second: {fileID: 2800000, guid: efcbc8b36170e934d8fe0dbf55e99d81, type: 3}
+      name: Tower_wood_MetallicSmoothness
+    second: {fileID: 2800000, guid: db4d1528667c83445bd5276c9f9d8b38, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Tower_wood_Normal
-    second: {fileID: 2800000, guid: 7c767986b45571140a50c8c93d149515, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Tower_wood_Roughness
-    second: {fileID: 2800000, guid: b2e72968f4f6ac646b95bded97e6cb7e, type: 3}
+    second: {fileID: 2800000, guid: e8f8957fa319f5646a5ce4305fb7a44c, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
