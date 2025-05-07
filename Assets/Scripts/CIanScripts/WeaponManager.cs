@@ -8,8 +8,9 @@ public class WeaponManager : MonoBehaviour
     public Camera playerCamera;
     public GameObject crossbowUI;
     public GameObject pistolUI;
+    public GameObject SyringerUI;
 
-    private SpriteAnimatorUI currentWeaponAnimator; // A reference to the active weapon UI animator.
+    private SpriteAnimatorUI currentWeaponAnimator; 
 
     void Start()
     {
@@ -24,26 +25,28 @@ public class WeaponManager : MonoBehaviour
             EquipWeapon(0); // pistol, its on 1
             pistolUI.SetActive(true);
             crossbowUI.SetActive(false);
+            SyringerUI.SetActive(false);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             EquipWeapon(1); // crossbow, on 2
             pistolUI.SetActive(false);
             crossbowUI.SetActive(true);
+            SyringerUI.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             EquipWeapon(2); //Syringer on 3
-            //syringerUI.SetActive(true);
-            //pistolUI.SetActive(false);
-            //crossbowUI.SetActive(false);
+            SyringerUI.SetActive(true);
+            pistolUI.SetActive(false);
+            crossbowUI.SetActive(false);
         }
 
 
         if (Input.GetButton("Fire1") && currentWeapon != null)
         {
             currentWeapon.Fire(); 
-            // Trigger the shooting animation on the currently active UI.
+            // animation for the weapon (trigger)
             if (currentWeaponAnimator != null)
             {
                 currentWeaponAnimator.PlayShootAnimation();
@@ -71,8 +74,7 @@ public class WeaponManager : MonoBehaviour
                 currentWeapon.playerCamera = playerCamera; 
                 currentWeapon.gameObject.SetActive(true);
             }
-            // Set the reference to the proper UI animator based on the equipped weapon.
-            // For example, index 0 is pistol and index 1 is crossbow.
+
             if (index == 0)
             {
                 currentWeaponAnimator = pistolUI.GetComponent<SpriteAnimatorUI>();
@@ -83,7 +85,7 @@ public class WeaponManager : MonoBehaviour
             }
             else
             {
-                // If we add more weapons, add further logic here.
+                //this is where we insert the other weapon anims if needed
                 currentWeaponAnimator = null;
             }
         }

@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 0}
   shootSound: {fileID: 8300000, guid: dd6be394af9317145a9b2b4bc67711fd, type: 3}
-  maxAmmo: 60
+  maxAmmo: 2
   fireRate: 1.2
   bolts: 5
   shotRange: 25

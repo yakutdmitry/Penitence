@@ -2,16 +2,27 @@ using UnityEngine;
 
 public class Temprotationscript : MonoBehaviour
 {
-    public Transform Player;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Transform player;
+
     void Start()
     {
+        GameObject orientationObject = GameObject.Find("orientation");
 
+        if (orientationObject != null)
+        {
+            player = orientationObject.transform;
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.LookAt(Player);
+        if (player != null)
+        {
+            //this makes the enemy just look straight at the player on the x axis, the other commented out one removes the limit
+            Vector3 targetPosition = new Vector3(player.position.x, transform.position.y, player.position.z);
+            transform.LookAt(targetPosition);
+
+            //transform.LookAt (transform.position);
+        }
     }
 }
