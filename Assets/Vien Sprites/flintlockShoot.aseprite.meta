@@ -8,7 +8,6 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
-  importerVersion: 1
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -133,7 +132,7 @@ ScriptedImporter:
       y: 4
       width: 640
       height: 360
-    spriteID: 663c3bd37a04dea4898e29a7e547b7bd
+    spriteID: 54c0c19ab5903b840900cb1e3235028b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,7 +152,7 @@ ScriptedImporter:
       y: 4
       width: 640
       height: 360
-    spriteID: 6ee2ac96cc7e50b40b55aa877480a33d
+    spriteID: 2de8afcfeef2e1c4faf27809df0dc016
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -173,7 +172,7 @@ ScriptedImporter:
       y: 4
       width: 640
       height: 360
-    spriteID: ef4f644143754fe4cb711ebda20decb9
+    spriteID: e312130dbb8364a43bb855c5ab8b4729
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -193,7 +192,7 @@ ScriptedImporter:
       y: 372
       width: 640
       height: 359
-    spriteID: ce96582b40e71b149823634e32fc9162
+    spriteID: 6adcdf8dcda573847803057ef6837479
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -213,7 +212,7 @@ ScriptedImporter:
       y: 372
       width: 640
       height: 359
-    spriteID: 82ea4eeec85b0774fa53246425375404
+    spriteID: 0da21119e5ea5d648b680d9de0357682
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -233,7 +232,7 @@ ScriptedImporter:
       y: 372
       width: 640
       height: 360
-    spriteID: 70c8565dc85f4e9498391a54ce2f4342
+    spriteID: e51102023ec00a94e9c060861c837664
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -245,66 +244,60 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -750679491
+    guid: -1667014503
     name: flintlockShoot
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Frame_0
+    - name: flintlockShoot_Frame_0
       frameIndex: 0
-      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 640
         height: 360
-      spriteId: 663c3bd37a04dea4898e29a7e547b7bd
-    - name: Frame_1
+      spriteId: 54c0c19ab5903b840900cb1e3235028b
+    - name: flintlockShoot_Frame_1
       frameIndex: 1
-      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 640
         height: 360
-      spriteId: 6ee2ac96cc7e50b40b55aa877480a33d
-    - name: Frame_2
+      spriteId: 2de8afcfeef2e1c4faf27809df0dc016
+    - name: flintlockShoot_Frame_2
       frameIndex: 2
-      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 640
         height: 360
-      spriteId: ef4f644143754fe4cb711ebda20decb9
-    - name: Frame_3
+      spriteId: e312130dbb8364a43bb855c5ab8b4729
+    - name: flintlockShoot_Frame_3
       frameIndex: 3
-      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 640
         height: 359
-      spriteId: ce96582b40e71b149823634e32fc9162
-    - name: Frame_4
+      spriteId: 6adcdf8dcda573847803057ef6837479
+    - name: flintlockShoot_Frame_4
       frameIndex: 4
-      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 640
         height: 359
-      spriteId: 82ea4eeec85b0774fa53246425375404
-    - name: Frame_5
+      spriteId: 0da21119e5ea5d648b680d9de0357682
+    - name: flintlockShoot_Frame_5
       frameIndex: 5
-      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 640
         height: 360
-      spriteId: 70c8565dc85f4e9498391a54ce2f4342
+      spriteId: e51102023ec00a94e9c060861c837664
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -360,4 +353,3 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 640, y: 360}
-  previousTextureSize: {x: 2048, y: 1024}
