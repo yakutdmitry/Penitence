@@ -101,9 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3bd54a15ad4ff40856289973546782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualDoorMesh: {fileID: 0}
+  visualDoorMesh: {fileID: 7280752434962083323}
   doorAnimator: {fileID: 7240060103604514573}
-  doorCreakSFX: {fileID: 0}
+  doorCreakSFX: {fileID: 2899356820024829805}
 --- !u!65 &5298360476622655114
 BoxCollider:
   m_ObjectHideFlags: 0
