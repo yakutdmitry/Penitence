@@ -23,7 +23,7 @@ public class DoorwayGenerationManager : MonoBehaviour
     public float doorYOffset = 0f;
 
     // Instance the DoorwayGenerationManager
-    private static DoorwayGenerationManager instance;
+    public static DoorwayGenerationManager instance;
     
     private void Awake()
     {
@@ -60,7 +60,8 @@ public class DoorwayGenerationManager : MonoBehaviour
             roomPositions[startPos] = startRoomInstance;
 
             startRoomInstance.SetAsStartRoom();
-            startRoomInstance.SpawnDoors();
+            startRoomInstance.SpawnDoors(Vector2Int.zero);
+
         }
     }
 
@@ -263,6 +264,12 @@ public class DoorwayGenerationManager : MonoBehaviour
             Debug.Log("Boss room condition met. Boss room will now be spawned.");
         }
     }
+
+    public bool TryGetRoomAt(Vector2Int position, out RoomInstance room)
+    {
+        return roomPositions.TryGetValue(position, out room);
+    }
+
 
     private void OnDrawGizmos()
     {

@@ -8,102 +8,102 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Bottom
-    second: {fileID: 2100000, guid: 5ffb5ab31df673f4fb39e56372cd4613, type: 2}
+    second: {fileID: 2100000, guid: c7195329782806f49908ab86d28d5565, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Frames
-    second: {fileID: 2100000, guid: 136e636c4371cdb4db9a8e85605484b6, type: 2}
+    second: {fileID: 2100000, guid: e2adb6aeeb82abc4c918a5a695c9d935, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Upper
-    second: {fileID: 2100000, guid: e353fcc98d16ccb42856c0cf471f2204, type: 2}
+    second: {fileID: 2100000, guid: 591a2e336aeb67046a9a3efce2ff4d8c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Winows
-    second: {fileID: 2100000, guid: 53989527f3133e84290460c4cd54cf55, type: 2}
+    second: {fileID: 2100000, guid: 47f355cf5ef56f04785d10612ad186be, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: roof
-    second: {fileID: 2100000, guid: fdcbda72b3be53e43b60cc73e3c18c0a, type: 2}
+    second: {fileID: 2100000, guid: e6d5cb3e48fb0994790416c9beb2ffd4, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: House1_Bottom_BaseColor
-    second: {fileID: 2800000, guid: 7510911daa431964184c331ac7cf0852, type: 3}
+      name: House1_Bottom_AlbedoTransparency
+    second: {fileID: 2800000, guid: b47cbf14b8ca3ad4abecbbe014420aba, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: House1_Bottom_MetallicSmoothness
+    second: {fileID: 2800000, guid: ae15d8964a95d154790a6e0e59ad281c, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: House1_Bottom_Normal
-    second: {fileID: 2800000, guid: 25888dc0d29c2f143ad8e59b7c5eed8f, type: 3}
+    second: {fileID: 2800000, guid: ef77def9c4116104f96a35919c9f36cf, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: House1_Bottom_Roughness
-    second: {fileID: 2800000, guid: f3fdd97b36d6665419b9ead268c2d445, type: 3}
+      name: House1_Frames_AlbedoTransparency
+    second: {fileID: 2800000, guid: 1e8c5f3174cc96148bb8f0d43a609d5d, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: House1_Frames_BaseColor
-    second: {fileID: 2800000, guid: f9f532141477c7f409b8edb3eae0564a, type: 3}
+      name: House1_Frames_MetallicSmoothness
+    second: {fileID: 2800000, guid: f3b9ecb0217b9c646864a9711c860ad1, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: House1_Frames_Normal
-    second: {fileID: 2800000, guid: 86a506b69bfae7c4cb900ae232bfa6e8, type: 3}
+    second: {fileID: 2800000, guid: ec795ae67c77dea448ba996f67489c00, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: House1_Frames_Roughness
-    second: {fileID: 2800000, guid: ab8c9b4ed8e5b0a489e655308918b1b6, type: 3}
+      name: House1_Upper_AlbedoTransparency
+    second: {fileID: 2800000, guid: 7b8eb5031fdbb2c499eefffb20e2b8e7, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: House1_Upper_BaseColor
-    second: {fileID: 2800000, guid: 0daf84affda482f448fa420133c3d33b, type: 3}
+      name: House1_Upper_MetallicSmoothness
+    second: {fileID: 2800000, guid: 7a0707ee876d87e45ba545e4a81f0ae5, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: House1_Upper_Normal
-    second: {fileID: 2800000, guid: 1f3419f554fedd148a73683306a3ffa3, type: 3}
+    second: {fileID: 2800000, guid: b80d60203b4436f4daf5b6234fbf1ef1, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: House1_Upper_Roughness
-    second: {fileID: 2800000, guid: 4e99934c1a6c0554da2c05be701ec0e1, type: 3}
+      name: House1_Winows_AlbedoTransparency
+    second: {fileID: 2800000, guid: 817872b0dba97614f96fe36d1ee8cdd1, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: House1_Winows_BaseColor
-    second: {fileID: 2800000, guid: 66e9a08ce1a91554b8e78a5784d4b334, type: 3}
+      name: House1_Winows_MetallicSmoothness
+    second: {fileID: 2800000, guid: 00b3a9b50ab96be44b60a1426f186b5f, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: House1_Winows_Normal
-    second: {fileID: 2800000, guid: 5ef8f6c12b2ee2645b22b610fa8b4855, type: 3}
+    second: {fileID: 2800000, guid: ff97d180a7a959643b292d174738a783, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: House1_Winows_Roughness
-    second: {fileID: 2800000, guid: fbdce7d1092a3e340a6df5c3728c5254, type: 3}
+      name: House1_roof_AlbedoTransparency
+    second: {fileID: 2800000, guid: 2496890c13dba1b4ca59485077b933e1, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: House1_roof_BaseColor
-    second: {fileID: 2800000, guid: 5a36303c53a49a445bc3c48b3413e7e3, type: 3}
+      name: House1_roof_MetallicSmoothness
+    second: {fileID: 2800000, guid: 2b459afc7b31b3640a95ffdd2b6369d6, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: House1_roof_Normal
-    second: {fileID: 2800000, guid: 7530c8f0b620e484db5f799246fe211c, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: House1_roof_Roughness
-    second: {fileID: 2800000, guid: 4e5293c4ea61f99478313b81a8e6382f, type: 3}
+    second: {fileID: 2800000, guid: 1f3ae270c1b70b340be4f053f1a7d300, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -137,7 +137,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importPhysicalCameras: 1
