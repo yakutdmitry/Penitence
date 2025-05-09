@@ -52,7 +52,7 @@ public class DoorwayGenerationManager : MonoBehaviour
 
         RoomNode startNode = new RoomNode(startPos, startRoomTemplate);
         roomMap[startPos] = startNode;
-        startRoomInstance = SpawnRoom(startNode, Vector2Int.zero);
+        startRoomInstance = SpawnRoom(startNode, Vector2Int.zero, isStartRoom: true);
 
         if (startRoomInstance != null)
         {
@@ -130,7 +130,11 @@ public class DoorwayGenerationManager : MonoBehaviour
         // Pass the entry direction to avoid spawning a door in the entry doorway
         instance.SpawnDoors(entryDirection);
 
-        instance.SetRoomTriggersActive(false);
+        if (!isStartRoom)
+        {
+            instance.SetRoomTriggersActive(false);
+        }
+
 
         return instance;
     }

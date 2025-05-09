@@ -137,14 +137,15 @@ public class RoomInstance : MonoBehaviour
     {
         if (isStartRoom && !isActive) return;
 
-        foreach (Transform child in transform)
+        foreach (Transform child in GetComponentsInChildren<Transform>(true))
         {
-            if (child.CompareTag("RoomSpawnTrigger"))
+            if (child.CompareTag("RoomSpawnTrigger") && child != this.transform)
             {
                 child.gameObject.SetActive(isActive);
             }
         }
     }
+
 
     public Transform GetDoorAnchor(Vector2Int direction)
     {
