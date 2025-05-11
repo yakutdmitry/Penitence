@@ -27,6 +27,10 @@ public class Enemy : MonoBehaviour, iDamageable, iEnemyMoveable, iTriggerCheckab
     private HealthManager playerHealth;
     private RoomObjectiveController roomObjective;
     private RoomInstance roomInstance;
+    [Header("Pickup Settings")]
+    public GameObject healthPickupPrefab;
+    public float pickupDropChance = 1.0f; // 1.0 = 100% drop chance, 0.5 = 50%, etc.
+
 
     #region State Machine Variables
     public EnemyStateMachine StateMachine { get; set; }
@@ -194,6 +198,13 @@ public class Enemy : MonoBehaviour, iDamageable, iEnemyMoveable, iTriggerCheckab
         if (roomInstance != null)
         {
             roomInstance.EnemyDefeated();
+        }
+        // Chance-based drop of health pickup
+        if (healthPickupPrefab != null && Random.value <= pickupDropChance)
+        {
+            // offset the spawn position slightly to avoid overlap
+            Vector3 spawnPosition = transform.position + new Vector3(0, 1, 0);
+            Instantiate(healthPickupPrefab, transform.position, Quaternion.identity);
         }
 
         Destroy(gameObject);

@@ -15,6 +15,11 @@ public class EnemyAI : MonoBehaviour
     public AudioClip MonsterDie;
     public AudioSource MonsterAudioSource;
 
+    [Header("Pickup Settings")]
+    public GameObject healthPickupPrefab;
+    public float pickupDropChance = 1.0f; // 1.0 = 100% drop chance, 0.5 = 50%, etc.
+    private RoomInstance roomInstance;
+
     private bool isAIEnabled = true; // Track if AI is active
 
     // Start is called before the first frame update
@@ -68,6 +73,18 @@ public class EnemyAI : MonoBehaviour
 
     private void Die()
     {
+        // Notify the room that an enemy has been defeated
+        if (roomInstance != null)
+        {
+            roomInstance.EnemyDefeated();
+        }
+        // Chance-based drop of health pickup
+        if (healthPickupPrefab != null && Random.value <= pickupDropChance)
+        {
+            // offset the spawn position slightly to avoid overlap
+            Vector3 spawnPosition = transform.position + new Vector3(0, 1, 0);
+            Instantiate(healthPickupPrefab, transform.position, Quaternion.identity);
+        }
         Destroy(gameObject);
         MonsterAudioSource.PlayOneShot(MonsterDie);
     }

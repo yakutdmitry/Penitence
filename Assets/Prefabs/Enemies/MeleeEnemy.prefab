@@ -254,7 +254,7 @@ SpriteRenderer:
   m_Size: {x: 2.37, y: 2.69}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!111 &128816041552995688
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbf8c69c972c3a243adb4302af75b4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &3641218754460909766
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,6 +599,8 @@ MonoBehaviour:
   attackDamage: 10
   MonsterDie: {fileID: 0}
   MonsterAudioSource: {fileID: 0}
+  healthPickupPrefab: {fileID: 8923933219398731405, guid: aa096ff5e504cdb47938eced24ad7cbe, type: 3}
+  pickupDropChance: 1
 --- !u!1 &3685519895434470095
 GameObject:
   m_ObjectHideFlags: 0
