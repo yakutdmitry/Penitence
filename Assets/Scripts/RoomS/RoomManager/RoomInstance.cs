@@ -23,6 +23,8 @@ public class RoomInstance : MonoBehaviour
 
     public GameObject doorPrefab;
 
+    private Vector2Int playerEntryDirection;
+
     public int enemyCount = 0;
     private bool objectiveCompleted = false;
 
@@ -112,6 +114,17 @@ public class RoomInstance : MonoBehaviour
         }
     }
 
+
+    public void SetPlayerEntryDirection(Vector2Int direction)
+    {
+        playerEntryDirection = direction;
+    }
+
+    public Vector2Int GetPlayerEntryDirection()
+    {
+        return playerEntryDirection;
+    }
+
     public void DisableEntryTrigger(Vector2Int direction)
     {
         Transform anchor = GetDoorAnchor(direction);
@@ -133,18 +146,29 @@ public class RoomInstance : MonoBehaviour
         }
     }
 
-    public void SetRoomTriggersActive(bool isActive)
+    public void SetRoomTriggersActive(bool isActive, Vector2Int? skipDirection = null)
     {
-        if (isStartRoom && !isActive) return;
-
         foreach (Transform child in GetComponentsInChildren<Transform>(true))
         {
             if (child.CompareTag("RoomSpawnTrigger") && child != this.transform)
             {
-                child.gameObject.SetActive(isActive);
+                bool isSkipped = false;
+
+                if (skipDirection.HasValue)
+                {
+                    Transform anchor = GetDoorAnchor(skipDirection.Value);
+                    if (anchor != null && child.IsChildOf(anchor))
+                    {
+                        isSkipped = true;
+                    }
+                }
+
+                if (!isSkipped)
+                    child.gameObject.SetActive(isActive);
             }
         }
     }
+
 
 
     public Transform GetDoorAnchor(Vector2Int direction)
@@ -174,6 +198,8 @@ public class RoomInstance : MonoBehaviour
 
         if (objectiveController != null && !objectiveCompleted)
             InvokeRepeating(nameof(CheckObjective), 1f, 1f);
+
+        SetRoomTriggersActive(false); // Deactivate all triggers on entry
     }
 
     private void CheckObjective()

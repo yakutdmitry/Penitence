@@ -86,6 +86,8 @@ public class DoorwayGenerationManager : MonoBehaviour
         roomMap[newRoomPos] = newNode;
 
         RoomInstance newRoom = SpawnRoom(newNode, -direction); // player is entering FROM -direction
+        roomPositions[doorwayPosition].DisableEntryTrigger(direction); // Disable the trigger the player entered FROM
+        newRoom.SetPlayerEntryDirection(-direction); // Because the player entered FROM -direction
         newRoom.DisableEntryTrigger(-direction);
 
         if (newRoom == null)

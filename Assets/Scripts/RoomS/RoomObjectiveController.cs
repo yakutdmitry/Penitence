@@ -46,16 +46,13 @@ public class RoomObjectiveController : MonoBehaviour
 
         if (roomInstance != null)
         {
-            roomInstance.SetObjectiveCompleted();
-            roomInstance.UnlockAllDoors(); // Unlock all doors in this room
-            roomInstance.SetRoomTriggersActive(true); // Reactivate door triggers
-
-            EnableAdjacentRoomTriggers(); // Ensure adjacent rooms also get enabled
+            roomInstance.UnlockAllDoors();
+            roomInstance.SetRoomTriggersActive(true, roomInstance.GetPlayerEntryDirection()); // <- EXCLUDE entry trigger
+            EnableAdjacentRoomTriggers();
         }
 
         if (roomInstance.nodeData.template.type == RoomType.Boss)
         {
-            Debug.Log("Boss defeated! Loading next scene...");
             FindObjectOfType<SceneManagerCustom>()?.LoadNextScene();
         }
     }
