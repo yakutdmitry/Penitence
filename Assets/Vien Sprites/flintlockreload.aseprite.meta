@@ -8,6 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  importerVersion: 1
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
@@ -244,54 +245,60 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -1730012453
+    guid: 1769885703
     name: flintlockreload
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: flintlockreload_Frame_0
+    - name: Frame_0
       frameIndex: 0
+      additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
         width: 640
         height: 183
       spriteId: a0ed77b51803cf347b2f63afac3cd77f
-    - name: flintlockreload_Frame_1
+    - name: Frame_1
       frameIndex: 1
+      additiveSortOrder: 0
       cellRect:
         x: 5
         y: 0
         width: 635
         height: 183
       spriteId: d821832a64f454043a2188befedd8802
-    - name: flintlockreload_Frame_2
+    - name: Frame_2
       frameIndex: 2
+      additiveSortOrder: 0
       cellRect:
         x: 13
         y: 0
         width: 627
         height: 183
       spriteId: c865f4ae265c58044b30880e5f9f63ca
-    - name: flintlockreload_Frame_3
+    - name: Frame_3
       frameIndex: 3
+      additiveSortOrder: 0
       cellRect:
         x: 20
         y: 0
         width: 620
         height: 183
       spriteId: 41e966861fdb5d04db6b5fc677ccb3a1
-    - name: flintlockreload_Frame_4
+    - name: Frame_4
       frameIndex: 4
+      additiveSortOrder: 0
       cellRect:
         x: 32
         y: 0
         width: 608
         height: 183
       spriteId: 4c7cccf623faa954c89940a6d783a3d4
-    - name: flintlockreload_Frame_5
+    - name: Frame_5
       frameIndex: 5
+      additiveSortOrder: 0
       cellRect:
         x: 32
         y: 0
@@ -317,3 +324,4 @@ ScriptedImporter:
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 640, y: 360}
+  previousTextureSize: {x: 1024, y: 2048}
