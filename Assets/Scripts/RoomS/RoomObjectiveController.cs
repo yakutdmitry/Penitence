@@ -75,6 +75,7 @@ public class RoomObjectiveController : MonoBehaviour
 
     private bool PlayerHasKey()
     {
-        return PlayerInventory.Instance.HasKeyForRoom(gameObject); // Replace with your key logic
+        return PlayerInventory.Instance != null && PlayerInventory.Instance.HasKeyForRoom(gameObject);
     }
+
 }

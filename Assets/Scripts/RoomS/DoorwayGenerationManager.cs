@@ -85,20 +85,22 @@ public class DoorwayGenerationManager : MonoBehaviour
         RoomNode newNode = new RoomNode(newRoomPos, nextRoomTemplate);
         roomMap[newRoomPos] = newNode;
 
-        RoomInstance newRoom = SpawnRoom(newNode, -direction); // player is entering FROM -direction
-        roomPositions[doorwayPosition].DisableEntryTrigger(direction); // Disable the trigger the player entered FROM
-        newRoom.SetPlayerEntryDirection(-direction); // Because the player entered FROM -direction
-        newRoom.DisableEntryTrigger(-direction);
-
+        RoomInstance newRoom = SpawnRoom(newNode, -direction);
         if (newRoom == null)
         {
             Debug.LogError($"[ERROR] Failed to spawn room at {newRoomPos}");
             return;
         }
 
+        // Disable the trigger the player came FROM (in the existing room)
+        roomPositions[doorwayPosition].DisableEntryTrigger(direction);
+
+        // Set and disable the entry trigger in the new room
+        newRoom.SetPlayerEntryDirection(-direction);
+        newRoom.DisableEntryTrigger(-direction);
+
         roomPositions[newRoomPos] = newRoom;
 
-        //CreateDoorBetween(doorwayPosition, newRoom, direction);
         TrackRoomSpawn();
 
         RoomInstance existingRoom = roomPositions[doorwayPosition];
@@ -108,6 +110,7 @@ public class DoorwayGenerationManager : MonoBehaviour
             StartCoroutine(CloseDoorWithDelay(2f, door));
         }
     }
+
 
     public RoomInstance SpawnRoom(RoomNode node, Vector2Int entryDirection, bool isStartRoom = false)
     {
